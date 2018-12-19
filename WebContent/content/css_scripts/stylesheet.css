@@ -1,0 +1,23 @@
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#033c99),
+		to(#609cff));
+	background-image: -webkit-linear-gradient(bottom, #033c99 0%, #609cff 100%);
+	background-image: linear-gradient(to top, #033c99 0%, #609cff 100%);
+}
+
+.btn, .panel, .form-control {
+	border-radius: 0px;
+}

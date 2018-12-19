@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="QuanLyGYM">
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">ilov3you</property>
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbgym</property>
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="connection.autoReconnect">true</property>
+		<property name="connection.autoReconnectForPools">true</property>
+		<property name="connection.is-connection-validation-required">true</property>
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="c3p0.min_size">0</property>
+		<property name="c3p0.max_size">30</property>
+		<property name="c3p0.timeout">600</property>
+		<property name="c3p0.max_statements">0</property>
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.idle_test_period">60</property>
+
+		<!-- Quan ly core -->
+		<mapping class="iCore.model.NhanVien" />
+		<mapping class="iCore.model.ThanhVien" />
+		<mapping class="iCore.model.ChucNang" />
+		<mapping class="iCore.model.NhomPhanQuyen" />
+		<mapping class="iCore.model.TaiKhoan" />
+		<mapping class="iCore.model.TaiKhoanNhanVien" />
+		<mapping class="iCore.model.TaiKhoanThanhVien" />
+		<mapping class="iCore.model.DungCu" />
+		<mapping class="iCore.model.PhieuChi" />
+		<mapping class="iCore.model.PhieuThu" />
+		<mapping class="iCore.model.PhieuGiamSatTV" />
+		<mapping class="iCore.model.SanPham" />
+		<mapping class="iCore.model.TheThanhVien" />
+		<mapping class="iCore.model.ThongBao" />
+		<mapping class="iCore.model.LichSuTap" />
+		<!-- ket thuc quan ly core -->
+
+	</session-factory>
+</hibernate-configuration>
