@@ -10,8 +10,8 @@
 	String tenTrang = "Quản lý lịch sử tập";
 	String trangDanhSach = "index.jsp?p=iCore/pages/lichsutaps.jsp";
 	String[] tk_value = {"maLST", "tenLST", "ngayTap", "thoiGianTap", "noiDung", "thanhVien"};
-	String[] tk_show = {"Mã lịch sử tập", "Tên lịch sử tập", "Ngày tập", "Thời gian tập", "Nội dung tập", "Thành viên"
-			};
+	String[] tk_show = {"Mã lịch sử tập", "Tên lịch sử tập", "Ngày tập", "Thời gian tập", "Nội dung tập",
+			"Thành viên"};
 %>
 <%@ include file="../../iPartial/code-header.jsp"%>
 
@@ -70,10 +70,10 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Mã lịch sử tập</label> <input class="form-control" id="maLST"
-										name="maLST" onblur="thayDoiMyFileFileName()"
+									<label>Mã lịch sử tập</label> <input class="form-control"
+										id="maLST" name="maLST" onblur="thayDoiMyFileFileName()"
 										value="<%=(obj != null && obj.getMaLST() != null ? obj.getMaLST() : "")%>"
-																			<%=(modeView || modeEdit ? " readonly " : "")%>>
+										<%=(modeView || modeEdit ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Tên lịch sử tập</label> <input class="form-control"
@@ -98,8 +98,8 @@
 									<textarea class="form-control" cols="80" id="editor1" rows="5"
 										name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
 								</div>
-								
-								
+
+
 								<div class="form-group">
 									<label>Thành viên</label> <select class="form-control"
 										name="maTV" <%=(modeView ? " disabled " : "")%>>
@@ -110,14 +110,21 @@
 											for (ThanhVien tv : listThanhVien) {
 										%>
 										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.maTV) ? "selected"
-								: ""%>>
+											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.maTV)
+						? "selected"
+						: ""%>>
 											<%=tv.tenTV%>
 										</option>
 										<%
 											}
 										%>
 									</select>
+								</div>
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<div class="col-md-12">
+										<%@ include file="../../iPartial/processform.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>

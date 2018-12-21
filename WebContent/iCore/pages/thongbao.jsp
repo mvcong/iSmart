@@ -69,10 +69,10 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Mã thông báo</label> <input class="form-control" id="maTB"
-										name="maTB" onblur="thayDoiMyFileFileName()"
+									<label>Mã thông báo</label> <input class="form-control"
+										id="maTB" name="maTB" onblur="thayDoiMyFileFileName()"
 										value="<%=(obj != null && obj.getMaTB() != null ? obj.getMaTB() : "")%>"
-															<%=(modeView || modeEdit ? " readonly " : "")%>> 
+										<%=(modeView || modeEdit ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Tên thông báo</label> <input class="form-control"
@@ -87,8 +87,7 @@
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
-									<label>Link</label> <input class="form-control"
-										name="link"
+									<label>Link</label> <input class="form-control" name="link"
 										value="<%=(obj != null && obj.getLink() != null ? obj.getLink() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
@@ -115,6 +114,12 @@
 											}
 										%>
 									</select>
+								</div>
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<div class="col-md-12">
+										<%@ include file="../../iPartial/processform.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>

@@ -27,6 +27,7 @@ public class Controller_NhanVien extends NhanVien implements ZEController {
 	String tenCotTimDoiTuong = "maNV";
 	String maObj;
 	String s_ngaySinh;
+	String s_ngayHuong;
 	String s_ngayVaoLam;
 
 	File myFile;
@@ -45,6 +46,17 @@ public class Controller_NhanVien extends NhanVien implements ZEController {
 
 	public Date getNgaySinh() {
 		return Util_Date.stringToDate(getS_ngaySinh());
+	}
+
+	public String getS_ngayHuong() {
+		return s_ngayHuong;
+	}
+
+	public void setS_ngayHuong(String s_ngayHuong) {
+		this.s_ngayHuong = s_ngayHuong;
+	}
+	public Date getNgayHuong() {
+		return Util_Date.stringToDate(getS_ngayHuong());
 	}
 
 	public String getTimKiemTheo() {
@@ -85,6 +97,9 @@ public class Controller_NhanVien extends NhanVien implements ZEController {
 
 	public void setS_ngayVaoLam(String s_ngayVaoLam) {
 		this.s_ngayVaoLam = s_ngayVaoLam;
+	}
+	public Date getNgayVaoLam() {
+		return Util_Date.stringToDate(getS_ngayVaoLam());
 	}
 
 	public File getMyFile() {

@@ -92,6 +92,7 @@
 										value="<%=(obj != null && obj.getAnhSP() != null ? obj.getAnhSP() : "")%>"
 										type="<%=(modeView ? "hidden" : "file")%>"><img
 										src="<%=obj != null && obj.getAnhSP() != null && modeView ? "iCore/images/products/" + obj.getAnhSP() : ""%>"
+										<%-- 										src="<%=obj != null && obj.getLinkSP() != null ? "./"+obj.getLinkSP().substring(obj.getLinkSP().indexOf("/")) : ""%>" --%>
 										height="<%=modeView ? 135 : 1%>"
 										width="<%=modeView ? 135 : 1%>">
 								</div>
@@ -107,6 +108,10 @@
 										value="<%=(obj != null && obj.getSoLuong() != null ? obj.getSoLuong() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+							</div>
+
+
+							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Đơn vị tính</label> <input class="form-control"
 										name="donVi"
@@ -154,27 +159,28 @@
 									</select>
 								</div>
 								<input type="hidden" name="s_anhSP"
-							value="<%=obj != null ? obj.getAnhSP() : ""%>">
-						<input type="hidden" id="myFileName" name="myFileName"></input> <input
-							type="hidden" name="myFolder_iCore"
-							value="<%=request.getRealPath("iCore/images/products")%>" />
-						<div class="panel-footer" style="text-align: left;">
-							<div class="col-md-5"></div>
-							<div class="col-md-12">
-								<%@ include file="../../iPartial/processform.jsp"%>
+									value="<%=obj != null ? obj.getAnhSP() : ""%>"> <input
+									type="hidden" id="myFileName" name="myFileName"></input> <input
+									type="hidden" name="myFolder_iCore"
+									value="<%=request.getRealPath("iCore/images/products")%>" />
+
 							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<!-- /.col-lg-6 (nested) -->
 				</div>
-				<!-- /.col-lg-6 (nested) -->
-				<!-- /.col-lg-6 (nested) -->
+				<!-- /.row (nested) -->
 			</div>
-			<!-- /.row (nested) -->
+			<!-- /.panel-body -->
 		</div>
-		<!-- /.panel-body -->
-	</div>
-	<!-- /.panel -->
+		<!-- /.panel -->
 	</div>
 	<!-- /.col-lg-12 -->
 	</div>

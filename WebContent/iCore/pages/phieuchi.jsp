@@ -70,10 +70,10 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Mã phiếu chi</label> <input class="form-control" id="maPC"
-										name="maPC" onblur="thayDoiMyFileFileName()"
+									<label>Mã phiếu chi</label> <input class="form-control"
+										id="maPC" name="maPC" onblur="thayDoiMyFileFileName()"
 										value="<%=(obj != null && obj.getMaPC() != null ? obj.getMaPC() : "")%>"
-																		<%=(modeView || modeEdit ? " readonly " : "")%>> 
+										<%=(modeView || modeEdit ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Tên phiếu chi</label> <input class="form-control"
@@ -129,6 +129,12 @@
 											}
 										%>
 									</select>
+								</div>
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<div class="col-md-12">
+										<%@ include file="../../iPartial/processform.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>

@@ -172,7 +172,13 @@
 		</action>
 		<!-- kết thúc xử lý NhanVien -->
 		<!-- Sản phẩm -->
+		<action name="timKiemSanPham" class="iCore.controller.Controller_SanPham"
+			method="search">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
 		<!-- Tải lại sản phẩm -->
+		
 		<action name="taiLaiSanPham" class="iCore.controller.Controller_SanPham"
 			method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
@@ -215,6 +221,11 @@
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
 		<!-- Dụng cụ -->
+		<action name="timKiemDungCu" class="iCore.controller.Controller_DungCu"
+			method="search">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
 		<!-- Tải lại dụng cụ -->
 		<action name="taiLaiDungCu" class="iCore.controller.Controller_DungCu"
 			method="refresh">

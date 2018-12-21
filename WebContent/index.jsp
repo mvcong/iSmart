@@ -69,7 +69,7 @@
     <![endif]-->
 
 </head>
-<%-- <%
+<%
 	// Kiểm tra đã đăng nhập
 	// Nếu chưa đăng nhập => chuyển login.jsp
 	// Thiện có thêm điều kiện kiểm tra phải là sinh viên nhập học đăng nhập không
@@ -77,7 +77,7 @@
 	if (maDangNhap.equals("null")) {
 		response.sendRedirect("login.jsp");
 	}
-%>  --%>
+%> 
 <body>
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -90,10 +90,10 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp" style="color: white">
+			<a class="navbar-brand" href="home.jsp" style="color: white">
 				&nbsp; <img src="content/images/logo.png"
 				style="display: inline-block;" width="30px" height="30px" /> <span
-				style="display: inline-block;"> iSmart 1.0 </span>
+				style="display: inline-block;"> iSmart </span>
 			</a>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse"

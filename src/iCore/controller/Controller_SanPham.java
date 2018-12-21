@@ -94,8 +94,6 @@ public class Controller_SanPham extends SanPham implements ZEController {
 		this.myFileName = myFileName;
 	}
 
-	
-
 	public String getMyFolder_iCore() {
 		return myFolder_iCore;
 	}
@@ -205,7 +203,7 @@ public class Controller_SanPham extends SanPham implements ZEController {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		try {
-			String s ="";
+			String s = "";
 			if (!myFileName.equals("")) {
 				if (myFile != null) {
 					myFileName = getMaSP() + myFileFileName.substring(myFileFileName.lastIndexOf("."));

@@ -126,8 +126,8 @@
 							</div>
 						</div>
 						<div class="panel-footer" style="text-align: left;">
-							<div class="col-md-5"></div>
-							<div class="col-md-7">
+							<div class="col-md-12"></div>
+							<div class="col-md-12">
 								<%@ include file="../../iPartial/processform.jsp"%>
 							</div>
 						</div>

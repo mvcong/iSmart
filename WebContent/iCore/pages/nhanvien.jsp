@@ -91,8 +91,6 @@
 										value="<%=(obj != null && obj.getNgayVaoLam() != null ? Util_Date.dateToString(obj.getNgayVaoLam()) : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
-							</div>
-							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Giới tính</label> <select class="form-control"
 										name="gioiTinh">
@@ -109,6 +107,10 @@
 										value="<%=(obj != null && obj.getDiaChi() != null ? obj.getDiaChi() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+							</div>
+							<div class="col-lg-6">
+
+
 								<div class="form-group">
 									<label>Email</label> <input class="form-control" name="email"
 										value="<%=(obj != null && obj.getEmail() != null ? obj.getEmail() : "")%>"
@@ -120,12 +122,30 @@
 										value="<%=(obj != null && obj.getsDT() != null ? obj.getsDT() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+								<div class="form-group">
+									<label>Bậc lương</label> <input class="form-control"
+										name="bacLuong"
+										value="<%=(obj != null && obj.getBacLuong() != null ? obj.getBacLuong() : "")%>"
+										<%=(modeView ? " readonly " : "")%>>
+								</div>
+								<div class="form-group">
+									<label>Hệ số lương</label> <input class="form-control"
+										name="heSo"
+										value="<%=(obj != null && obj.getHeSo() != null ? obj.getHeSo() : "")%>"
+										<%=(modeView ? " readonly " : "")%>>
+								</div>
+								<div class="form-group">
+									<label>Ngày hưởng</label> <input class="form-control"
+										name="s_ngayHuong" type="date"
+										value="<%=(obj != null && obj.getNgayHuong() != null ? Util_Date.dateToString(obj.getNgayHuong()) : "")%>"
+										<%=(modeView ? " readonly " : "")%>>
+								</div>
 							</div>
 						</div>
 
 
-						<div class="col-md-5"></div>
-						<div class="col-md-7">
+						<div class="col-md-12"></div>
+						<div class="col-md-12">
 							<%@ include file="../../iPartial/processform.jsp"%>
 						</div>
 					</div>

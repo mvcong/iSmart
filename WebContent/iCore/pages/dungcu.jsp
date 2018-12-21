@@ -31,7 +31,7 @@
 
 <script>
 	function thayDoiMyFileFileName() {
-		var x = document.getElementById("maNhanVien");
+		var x = document.getElementById("maNV");
 		x.value = x.value.toUpperCase();
 
 		var b = document.getElementById("myFileName");
@@ -129,6 +129,12 @@
 											}
 										%>
 									</select>
+								</div>
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<div class="col-md-12">
+										<%@ include file="../../iPartial/processform.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>

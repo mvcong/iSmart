@@ -12,8 +12,8 @@
 	String tenTrang = "Quản lý phiếu giám sát thành viên";
 	String trangDanhSach = "index.jsp?p=iCore/pages/phieugiamsattvs.jsp";
 	String[] tk_value = {"maPGS", "tenPGS", "ngayDB", "ngayKT", "noiDung", "thanhVien", "nhanVien"};
-	String[] tk_show = {"Mã phiếu giám sát thành viên", "Tên phiếu giám sát thành viên", "Ngày bắt đầu giám sát", "Ngày kết thúc giám sát", "Nội dung", "Thành viên",
-			 "Nhân viên"};
+	String[] tk_show = {"Mã phiếu giám sát thành viên", "Tên phiếu giám sát thành viên",
+			"Ngày bắt đầu giám sát", "Ngày kết thúc giám sát", "Nội dung", "Thành viên", "Nhân viên"};
 %>
 <%@ include file="../../iPartial/code-header.jsp"%>
 
@@ -28,7 +28,9 @@
 	boolean modeView = mode.equals("viewDetail");
 	boolean modeEdit = mode.equals("viewDetailAndEdit");
 
-	PhieuGiamSatTV obj = session.getAttribute("obj") != null ? (PhieuGiamSatTV) session.getAttribute("obj") : null;
+	PhieuGiamSatTV obj = session.getAttribute("obj") != null
+			? (PhieuGiamSatTV) session.getAttribute("obj")
+			: null;
 %>
 
 <script>
@@ -72,10 +74,10 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Mã phiếu giám sát</label> <input class="form-control" id="maPGS"
-										name="maPGS" onblur="thayDoiMyFileFileName()"
+									<label>Mã phiếu giám sát</label> <input class="form-control"
+										id="maPGS" name="maPGS" onblur="thayDoiMyFileFileName()"
 										value="<%=(obj != null && obj.getMaPGS() != null ? obj.getMaPGS() : "")%>"
-																<%=(modeView || modeEdit ? " readonly " : "")%>> 
+										<%=(modeView || modeEdit ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Tên phiếu chi</label> <input class="form-control"
@@ -100,7 +102,7 @@
 									<textarea class="form-control" cols="80" id="editor1" rows="5"
 										name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
 								</div>
-								
+
 								<div class="form-group">
 									<label>Huấn luyện viên</label> <select class="form-control"
 										name="maNV" <%=(modeView ? " disabled " : "")%>>
@@ -130,14 +132,21 @@
 											for (ThanhVien tv : listThanhVien) {
 										%>
 										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.maTV) ? "selected"
-								: ""%>>
+											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.maTV)
+						? "selected"
+						: ""%>>
 											<%=tv.tenTV%>
 										</option>
 										<%
 											}
 										%>
 									</select>
+								</div>
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<div class="col-md-12">
+										<%@ include file="../../iPartial/processform.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>

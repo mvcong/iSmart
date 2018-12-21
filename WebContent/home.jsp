@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,12 +43,12 @@
       <a class="navbar-brand" href="#">G-Y-M<span>Smart</span></a>
       <div class="collapse navbar-collapse" id="navbarCollapse1">
         <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"> <a class="nav-link" href="#myCarousel">Home <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#benefits">Benefits</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#about">About</a> </li>
+         <li class="nav-item active"> <a class="nav-link" href="home.jsp">Trang chủ <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index.jsp">Trang quản lý</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#about">Thông báo</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="product.jsp">Shop</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="product.jsp">Cửa hàng</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#contact">Liên hệ</a> </li>
         </ul>
       </div>
             </div>
