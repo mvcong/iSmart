@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="iCore.model.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,6 +57,14 @@
 
 				<h1 class="my-4">Danh mục</h1>
 				<div class="list-group">
+<%-- 				<% --%>
+// 				ArrayList<SanPham> list = new ArrayList<>();
+// 				for(int i =1 ; i <=list.size(); i++){
+<%-- 					<a href="" > <%SanPham.LoaiSP() %></a> --%>
+<!-- 				} -->
+				
+				
+<!-- 				%> -->
 					<a href="#" class="list-group-item">Thực phẩm chức năng</a> <a
 						href="#" class="list-group-item">Category 2</a> <a href="#"
 						class="list-group-item">Category 3</a>
