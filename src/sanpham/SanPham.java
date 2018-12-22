@@ -1,4 +1,4 @@
-package iCore.model;
+package sanpham;
 
 import java.util.Date;
 
@@ -7,12 +7,13 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import iCore.model.NhanVien;
+
 @Entity
 public class SanPham {
 	@Id
 	public String maSP;
 	public String tenSP;
-	public String loaiSP;
 	public String anhSP;
 	public String linkSP;
 	public String soLuong;
@@ -24,16 +25,18 @@ public class SanPham {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	public NhanVien nhanVien;
+	@ManyToOne(fetch = FetchType.EAGER)
+	public LoaiSanPham loaiSanPham;
 
 	public SanPham() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SanPham(String maSP, String tenSP, String loaiSP, String anhSP, String linkSP, String soLuong, String donVi,
-			Date ngayNhapHang, String hsd, long giaSP, Date thoiGianCapNhat, NhanVien nhanVien) {
+	public SanPham(String maSP, String tenSP, String anhSP, String linkSP, String soLuong, String donVi,
+			Date ngayNhapHang, String hsd, long giaSP, Date thoiGianCapNhat, NhanVien nhanVien,
+			LoaiSanPham loaiSanPham) {
 		this.maSP = maSP;
 		this.tenSP = tenSP;
-		this.loaiSP = loaiSP;
 		this.anhSP = anhSP;
 		this.linkSP = linkSP;
 		this.soLuong = soLuong;
@@ -43,7 +46,7 @@ public class SanPham {
 		this.giaSP = giaSP;
 		this.thoiGianCapNhat = thoiGianCapNhat;
 		this.nhanVien = nhanVien;
-
+		this.loaiSanPham = loaiSanPham;
 	}
 
 	public String getMaSP() {
@@ -60,14 +63,6 @@ public class SanPham {
 
 	public void setTenSP(String tenSP) {
 		this.tenSP = tenSP;
-	}
-
-	public String getLoaiSP() {
-		return loaiSP;
-	}
-
-	public void setLoaiSP(String loaiSP) {
-		this.loaiSP = loaiSP;
 	}
 
 	public String getAnhSP() {
@@ -142,6 +137,14 @@ public class SanPham {
 		this.nhanVien = nhanVien;
 	}
 
+	public LoaiSanPham getLoaiSanPham() {
+		return loaiSanPham;
+	}
+
+	public void setLoaiSanPham(LoaiSanPham loaiSanPham) {
+		this.loaiSanPham = loaiSanPham;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -151,13 +154,12 @@ public class SanPham {
 		result = prime * result + (int) (giaSP ^ (giaSP >>> 32));
 		result = prime * result + ((hsd == null) ? 0 : hsd.hashCode());
 		result = prime * result + ((linkSP == null) ? 0 : linkSP.hashCode());
-		result = prime * result + ((loaiSP == null) ? 0 : loaiSP.hashCode());
+		result = prime * result + ((loaiSanPham == null) ? 0 : loaiSanPham.hashCode());
 		result = prime * result + ((maSP == null) ? 0 : maSP.hashCode());
 		result = prime * result + ((ngayNhapHang == null) ? 0 : ngayNhapHang.hashCode());
 		result = prime * result + ((nhanVien == null) ? 0 : nhanVien.hashCode());
 		result = prime * result + ((soLuong == null) ? 0 : soLuong.hashCode());
 		result = prime * result + ((tenSP == null) ? 0 : tenSP.hashCode());
-
 		result = prime * result + ((thoiGianCapNhat == null) ? 0 : thoiGianCapNhat.hashCode());
 		return result;
 	}
@@ -193,10 +195,10 @@ public class SanPham {
 				return false;
 		} else if (!linkSP.equals(other.linkSP))
 			return false;
-		if (loaiSP == null) {
-			if (other.loaiSP != null)
+		if (loaiSanPham == null) {
+			if (other.loaiSanPham != null)
 				return false;
-		} else if (!loaiSP.equals(other.loaiSP))
+		} else if (!loaiSanPham.equals(other.loaiSanPham))
 			return false;
 		if (maSP == null) {
 			if (other.maSP != null)
@@ -223,7 +225,6 @@ public class SanPham {
 				return false;
 		} else if (!tenSP.equals(other.tenSP))
 			return false;
-
 		if (thoiGianCapNhat == null) {
 			if (other.thoiGianCapNhat != null)
 				return false;
@@ -234,9 +235,10 @@ public class SanPham {
 
 	@Override
 	public String toString() {
-		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", loaiSP=" + loaiSP + ", anhSP=" + anhSP + ", linkSP="
-				+ linkSP + ", soLuong=" + soLuong + ", donVi=" + donVi + ", ngayNhapHang=" + ngayNhapHang + ", hsd="
-				+ hsd + ", giaSP=" + giaSP + ", thoiGianCapNhat=" + thoiGianCapNhat + ", nhanVien=" + nhanVien + "]";
+		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", anhSP=" + anhSP + ", linkSP=" + linkSP + ", soLuong="
+				+ soLuong + ", donVi=" + donVi + ", ngayNhapHang=" + ngayNhapHang + ", hsd=" + hsd + ", giaSP=" + giaSP
+				+ ", thoiGianCapNhat=" + thoiGianCapNhat + ", nhanVien=" + nhanVien + ", loaiSanPham=" + loaiSanPham
+				+ "]";
 	}
 
 }

@@ -1,5 +1,7 @@
+<%@page import="sanpham.LoaiSanPham"%>
+<%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="iCore.model.SanPham"%>
+<%@page import="sanpham.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,6 +27,9 @@
 </head>
 
 <body>
+	<%
+		LoaiSanPhamDAO categoryDAO = new LoaiSanPhamDAO();
+	%>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -55,19 +60,20 @@
 
 			<div class="col-lg-3">
 
-				<h1 class="my-4">Danh mục</h1>
+				<h4 class="my-4">Loại Sản Phẩm</h4>
 				<div class="list-group">
-<%-- 				<% --%>
-// 				ArrayList<SanPham> list = new ArrayList<>();
-// 				for(int i =1 ; i <=list.size(); i++){
-<%-- 					<a href="" > <%SanPham.LoaiSP() %></a> --%>
-<!-- 				} -->
-				
-				
-<!-- 				%> -->
-					<a href="#" class="list-group-item">Thực phẩm chức năng</a> <a
-						href="#" class="list-group-item">Category 2</a> <a href="#"
-						class="list-group-item">Category 3</a>
+					<ul id="loaisanpham">
+						<%
+							for (LoaiSanPham lsp : categoryDAO.getListLoaiSanPham()) {
+						%>
+
+						<li><a href="product.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><%=lsp.getTenLoai()%></a></li>
+
+						<%
+							}
+						%>
+
+					</ul>
 				</div>
 
 			</div>

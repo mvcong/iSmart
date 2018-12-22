@@ -69,7 +69,7 @@
 									<label>Mã nhân viên</label> <input class="form-control"
 										id="maNV" name="maNV" onblur="thayDoiMyFileFileName()"
 										value="<%=(obj != null && obj.getMaNV() != null ? obj.getMaNV() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>
+									
 										<%=(modeView || modeEdit ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">

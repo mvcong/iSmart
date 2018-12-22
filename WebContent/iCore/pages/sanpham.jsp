@@ -1,7 +1,9 @@
+<%@page import="sanpham.LoaiSanPham"%>
+<%@page import="iCore.modelDAO.DAO_LoaiSanPham"%>
 <%@page import="iCore.model.NhanVien"%>
 <%@page import="iCore.modelDAO.DAO_NhanVien"%>
 <%@page import="iCore.util.Util_Date"%>
-<%@page import="iCore.model.SanPham"%>
+<%@page import="sanpham.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -80,11 +82,24 @@
 										value="<%=(obj != null && obj.getTenSP() != null ? obj.getTenSP() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
-								<div class="form-group">
-									<label>Loại sản phẩm</label> <input class="form-control"
-										name="loaiSP"
-										value="<%=(obj != null && obj.getLoaiSP() != null ? obj.getLoaiSP() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
+									<div class="form-group">
+									<label>Loại sản phẩm</label> <select class="form-control"
+										name="maLoai" <%=(modeView ? " disabled " : "")%>>
+										<option value=""></option>
+										<%
+											ObjectDAO objdaolsp = new DAO_LoaiSanPham();
+											ArrayList<LoaiSanPham> listLoaiSanPham = objdaolsp.listAll();
+											for (LoaiSanPham lsp : listLoaiSanPham) {
+										%>
+										<option value="<%=lsp.maLoai%> "
+											<%=obj != null && obj.getLoaiSanPham() != null && obj.getLoaiSanPham().maLoai.equals(lsp.maLoai) ? "selected"
+								: ""%>>
+											<%=lsp.tenLoai%>
+										</option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Hình ảnh</label> <input class="form-control"
@@ -144,8 +159,8 @@
 										name="maNV" <%=(modeView ? " disabled " : "")%>>
 										<option value=""></option>
 										<%
-											ObjectDAO objdao = new DAO_NhanVien();
-											ArrayList<NhanVien> listNhanVien = objdao.listAll();
+											ObjectDAO objdaonv = new DAO_NhanVien();
+											ArrayList<NhanVien> listNhanVien = objdaonv.listAll();
 											for (NhanVien nv : listNhanVien) {
 										%>
 										<option value="<%=nv.maNV%> "

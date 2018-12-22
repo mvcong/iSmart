@@ -1,15 +1,17 @@
+<%@page import="iCore.modelDAO.DAO_LoaiSanPham"%>
+<%@page import="sanpham.LoaiSanPham"%>
 <%@page import="iCore.modelDAO.DAO_NhanVien"%>
 <%@page import="iCore.model.NhanVien"%>
 <%@page import="iCore.modelDAO.DAO_SanPham"%>
-<%@page import="iCore.model.SanPham"%>
+<%@page import="sanpham.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
 	String tenLop = "SanPham";
 	String tenTrang = "Quản lý sản phẩm";
-	String[] tk_value = {"maSP", "tenSP", "loaiSP", "anhSP", "soLuong","giaSP"};
-	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Ảnh", "Số lượng","Giá"};
+	String[] tk_value = {"maSP", "tenSP", "anhSP", "soLuong","giaSP"};
+	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng","Giá"};
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
@@ -40,6 +42,29 @@
 			System.out.println("sssssssssssssssssssssssssssssss");
 		} else
 			list = dao.pagination("1=1  ORDER BY nhanVien ASC", (long) recordPerPage,
+					(long) Long.parseLong(pid) * recordPerPage);
+	}
+	String maLoai = request.getParameter("maLoai");
+	maLoai = (maLoai == null || maLoai.equals("null")) ? "all" : maLoai;
+
+	if (session.getAttribute("checkTimKiem") != null) {
+		ArrayList listTemp = (ArrayList) session.getAttribute("arr");
+		if (listTemp.size() > 0) {
+			if (listTemp.get(0) instanceof SanPham) {
+				list = (ArrayList<SanPham>) listTemp;
+			} else {
+				session.setAttribute("checkTimKiem", null);
+				list = dao.pagination((long) recordPerPage, (long) Long.parseLong(pid) * recordPerPage);
+			}
+		} else
+			list = new ArrayList<SanPham>();
+	} else {
+		if (!maLoai.equals("all")) {
+			list = dao.pagination("loaiSanPham = '" + maLoai + "'", (long) recordPerPage,
+					(long) Long.parseLong(pid) * recordPerPage);
+			System.out.println("sssssssssssssssssssssssssssssss");
+		} else
+			list = dao.pagination("1=1  ORDER BY loaiSanPham ASC", (long) recordPerPage,
 					(long) Long.parseLong(pid) * recordPerPage);
 	}
 %>
@@ -92,6 +117,38 @@
 					}
 				</script>
 			</form>
+			<form class="form-inline pull-left">
+				<label>Chọn loại sản phẩm</label> <select name="maLoai"
+					class="form-control" id="maLoai" onchange="myFunction()">
+					<%
+						ObjectDAO<LoaiSanPham> dao_LoaiSanPham = new DAO_LoaiSanPham();
+						ArrayList<LoaiSanPham> list_LoaiSanPham = dao_LoaiSanPham.listAll();
+					%>
+					<option value="all" <%if (maLoai.equals("all")) {%>
+						selected="selected" <%}%>>Tất cả</option>
+
+					<%
+						for (LoaiSanPham loaiSanPham : list_LoaiSanPham) {
+					%>
+					<option value="<%=loaiSanPham.getMaLoai()%>"
+						<%if (maLoai.equals(loaiSanPham.getMaLoai())) {%> selected="selected"
+						<%}%>><%=loaiSanPham.getTenLoai()%></option>
+					<%
+						}
+					%>
+				</select>
+				<script type="text/javascript">
+					function myFunction() {
+						var maLoai = document.getElementById("maLoai").value;
+						var recordPerPage = document
+								.getElementById("recordPerPage").value;
+						var p1 = document.getElementById("p1").value;
+						window.location.href = p1 + "&maLoai=" + maLoai
+								+ "&recordPerPage=" + recordPerPage;
+
+					}
+				</script>
+			</form>
 
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
@@ -120,7 +177,7 @@
 						<td><%=obj.getMaSP()%></td>
 						<td><%=obj.getTenSP() != null ? obj.getTenSP() : ""%></td>
 						<td><%=obj.getNhanVien() == null ? "" : obj.getNhanVien().getTenNV()%></td>
-						<td><%=obj.getLoaiSP() != null ? obj.getLoaiSP() : ""%></td>
+						<td><%=obj.getLoaiSanPham() == null ? "" : obj.getLoaiSanPham().getTenLoai()%></td>
 						<td><%=obj.getAnhSP() != null ? obj.getAnhSP() : ""%></td>
 						<td><%=obj.getSoLuong() != null ? obj.getSoLuong() : ""%></td>
 						<td><%=obj.getGiaSP() > 0 ? obj.getGiaSP() : ""%></td>

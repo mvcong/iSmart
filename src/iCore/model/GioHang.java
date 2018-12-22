@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import sanpham.SanPham;
+
 @Entity
 public class GioHang {
 	@Id

@@ -268,6 +268,54 @@
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
+		<!-- Loại sản phẩm -->
+		<action name="timKiemLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="search">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		<!-- Tải lại dụng cụ -->
+		<action name="taiLaiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới dụng cụ -->
+		<action name="themMoiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu Sản phẩm -->
+		<action name="luuDuLieuLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa sản phẩm -->
+		<action name="deleteLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+			method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		<!-- kết thúc xử lý sản phẩm -->
 		
 	</package>
 </struts>

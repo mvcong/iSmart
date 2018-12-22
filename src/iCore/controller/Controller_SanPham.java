@@ -14,12 +14,14 @@ import org.apache.struts2.ServletActionContext;
 import iCore.dao.ObjectDAO;
 import iCore.model.NhanVien;
 import iCore.model.PhieuChi;
-import iCore.model.SanPham;
 import iCore.model.ThanhVien;
+import iCore.modelDAO.DAO_LoaiSanPham;
 import iCore.modelDAO.DAO_NhanVien;
 import iCore.modelDAO.DAO_SanPham;
 import iCore.modelDAO.DAO_ThanhVien;
 import iCore.util.Util_Date;
+import sanpham.LoaiSanPham;
+import sanpham.SanPham;
 
 public class Controller_SanPham extends SanPham implements ZEController {
 	ObjectDAO dao = new DAO_SanPham();
@@ -32,7 +34,8 @@ public class Controller_SanPham extends SanPham implements ZEController {
 	String maObj;
 	String s_ngayNhapHang;
 	String s_anhSP;
-
+	
+	String maLoai;
 	String maNV;
 
 	File myFile;
@@ -66,6 +69,15 @@ public class Controller_SanPham extends SanPham implements ZEController {
 		ArrayList<NhanVien> list_nhanVien = dao_nhanVien.listByColumns("maNV", getMaNV());
 		if (list_nhanVien.size() > 0)
 			return list_nhanVien.get(0);
+		else
+			return null;
+	}
+
+	public LoaiSanPham getLoaiSanPham() {
+		ObjectDAO dao_loaiSanPham = new DAO_LoaiSanPham();
+		ArrayList<LoaiSanPham> list_loaiSanPham = dao_loaiSanPham.listByColumns("maLoai", getMaLoai());
+		if (list_loaiSanPham.size() > 0)
+			return list_loaiSanPham.get(0);
 		else
 			return null;
 	}
@@ -140,6 +152,14 @@ public class Controller_SanPham extends SanPham implements ZEController {
 
 	public void setMaNV(String maNV) {
 		this.maNV = maNV;
+	}
+
+	public String getMaLoai() {
+		return maLoai;
+	}
+
+	public void setMaLoai(String maLoai) {
+		this.maLoai = maLoai;
 	}
 
 	public String getS_anhSP() {
@@ -219,7 +239,6 @@ public class Controller_SanPham extends SanPham implements ZEController {
 			SanPham obj = new SanPham();
 			obj.maSP = getMaSP();
 			obj.tenSP = getTenSP();
-			obj.loaiSP = getLoaiSP();
 			obj.anhSP = s.substring(s.lastIndexOf("\\") + 1, s.length());
 			obj.linkSP = getLinkSP();
 			obj.soLuong = getSoLuong();
@@ -228,6 +247,7 @@ public class Controller_SanPham extends SanPham implements ZEController {
 			obj.hsd = getHsd();
 			obj.giaSP = getGiaSP();
 			obj.nhanVien = getNhanVien();
+			obj.loaiSanPham = getLoaiSanPham();
 			obj.thoiGianCapNhat = new Date();
 			if (dao.saveOrUpdate(obj)) {
 				session.setAttribute("msg", "Cập nhật dữ liệu thành công!");
