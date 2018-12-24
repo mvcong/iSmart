@@ -130,13 +130,13 @@
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
 							<div>
-								<a href="chitietsanpham.jsp"><img class="card-img-top"
+								<a href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"><img class="card-img-top"
 									src="<%=sp.getAnhSP()%>" alt="<%=sp.getTenSP()%>"
 									style="height: 250px; width: 250px"></a>
 							</div>
 							<div class="card-body">
 								<p class="">
-									<a href="chitietsanpham.jsp"><%=sp.getTenSP()%></a>
+									<a href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"><%=sp.getTenSP()%></a>
 								</p>
 							</div>
 							<div class="card-footer">
@@ -171,7 +171,7 @@
 	<div class="container">
 		<p class="m-0 text-center text-white">
 			Trường Đại Học Giao Thông Vận Tải phân hiệu tại Thành Phố Hồ Chí Minh</br>Hệ
-			Thống Quản Lý Phòng Tập GYM </br>SVTH : Mai Văn Công - 551074008
+			Thống Quản Lý Phòng Tập GYM </br>SVTH : Mai Văn Công - 5551074008
 		</p>
 	</div>
 	<!-- /.container --> </footer>

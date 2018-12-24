@@ -169,7 +169,7 @@
 	<div class="container">
 		<p class="m-0 text-center text-white">
 			Trường Đại Học Giao Thông Vận Tải phân hiệu tại Thành Phố Hồ Chí Minh</br>Hệ
-			Thống Quản Lý Phòng Tập GYM </br>SVTH : Mai Văn Công - 551074008
+			Thống Quản Lý Phòng Tập GYM </br>SVTH : Mai Văn Công - 5551074008
 		</p>
 	</div>
 	<!-- /.container --> </footer>

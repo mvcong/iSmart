@@ -44,22 +44,20 @@ public class SanPhamDAO {
 		}
 		return list;
 	}
-	
-	public ArrayList<SanPham> getListViewSanPham(String maSP) throws ClassNotFoundException, SQLException {
+
+	public SanPham getSanPham(String maSP) throws ClassNotFoundException, SQLException {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
 		String sql = "SELECT * FROM sanpham  WHERE maSP = '" + maSP + "'";
 		PreparedStatement ps = connection.prepareCall(sql);
 		ResultSet rs = ps.executeQuery();
-		ArrayList<SanPham> list = new ArrayList<>();
+		SanPham sanPham = new SanPham();
 		while (rs.next()) {
-			SanPham sp = new SanPham();
-			sp.setMaSP(rs.getString("maSP"));
-			sp.setTenSP(rs.getString("tenSP"));
-			sp.setAnhSP(rs.getString("anhSP"));
-			sp.setGiaBan(rs.getLong("giaBan"));
-			list.add(sp);
+			sanPham.setMaSP(rs.getString("maSP"));
+			sanPham.setTenSP(rs.getString("tenSP"));
+			sanPham.setAnhSP(rs.getString("anhSP"));
+			sanPham.setGiaBan(rs.getLong("giaBan"));
 		}
-		return list;
+		return sanPham;
 	}
 
 }
