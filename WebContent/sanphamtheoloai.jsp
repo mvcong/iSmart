@@ -32,9 +32,8 @@
 		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
 		String maLoai = "";
-		String maSP="";
-		if (request.getParameter("sanpham") != null) {
-			maLoai = request.getParameter("sanpham");
+		if (request.getParameter("loaisanpham") != null) {
+			maLoai = request.getParameter("loaisanpham");
 		}
 	%>
 
@@ -74,7 +73,7 @@
 							for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
 						%>
 
-						<li><a href="sanphamtheoloai.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><%=lsp.getTenLoai()%></a></li>
+						<li><a href="product.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><%=lsp.getTenLoai()%></a></li>
 
 						<%
 							}
@@ -121,9 +120,9 @@
 					</a>
 				</div>
 
-				<div class="row">
-				<%
-						for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+				<div class="row">				
+					<%
+						for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
 					%>
 
 					<div class="col-lg-4 col-md-6 mb-4">

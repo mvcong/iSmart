@@ -22,7 +22,23 @@ public class SanPhamDAO {
 			sp.setMaSP(rs.getString("maSP"));
 			sp.setTenSP(rs.getString("tenSP"));
 			sp.setAnhSP(rs.getString("anhSP"));
-			sp.setGiaSP(rs.getLong("giaSP"));
+			sp.setGiaBan(rs.getLong("giaBan"));
+			list.add(sp);
+		}
+		return list;
+	}
+
+	public ArrayList<SanPham> getListAllSanPham(String maSP) throws ClassNotFoundException, SQLException {
+		Connection connection = MySQLConnUtils.getMySQLConnection();
+		String sql = "SELECT * FROM sanpham";
+		PreparedStatement ps = connection.prepareCall(sql);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<SanPham> list = new ArrayList<>();
+		while (rs.next()) {
+			SanPham sp = new SanPham();
+			sp.setMaSP(rs.getString("maSP"));
+			sp.setTenSP(rs.getString("tenSP"));
+			sp.setAnhSP(rs.getString("anhSP"));
 			sp.setGiaBan(rs.getLong("giaBan"));
 			list.add(sp);
 		}
