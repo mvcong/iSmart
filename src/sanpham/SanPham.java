@@ -21,6 +21,7 @@ public class SanPham {
 	public Date ngayNhapHang;
 	public String hsd;
 	public long giaSP;
+	public long giaBan;
 	public Date thoiGianCapNhat;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -32,8 +33,10 @@ public class SanPham {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public SanPham(String maSP, String tenSP, String anhSP, String linkSP, String soLuong, String donVi,
-			Date ngayNhapHang, String hsd, long giaSP, Date thoiGianCapNhat, NhanVien nhanVien,
+			Date ngayNhapHang, String hsd, long giaSP, long giaBan, Date thoiGianCapNhat, NhanVien nhanVien,
 			LoaiSanPham loaiSanPham) {
 		this.maSP = maSP;
 		this.tenSP = tenSP;
@@ -44,10 +47,13 @@ public class SanPham {
 		this.ngayNhapHang = ngayNhapHang;
 		this.hsd = hsd;
 		this.giaSP = giaSP;
+		this.giaBan = giaBan;
 		this.thoiGianCapNhat = thoiGianCapNhat;
 		this.nhanVien = nhanVien;
 		this.loaiSanPham = loaiSanPham;
 	}
+
+
 
 	public String getMaSP() {
 		return maSP;
@@ -120,6 +126,19 @@ public class SanPham {
 	public void setGiaSP(long giaSP) {
 		this.giaSP = giaSP;
 	}
+	
+
+	public long getGiaBan() {
+		return giaBan;
+	}
+
+
+
+	public void setGiaBan(long giaBan) {
+		this.giaBan = giaBan;
+	}
+
+
 
 	public Date getThoiGianCapNhat() {
 		return thoiGianCapNhat;
@@ -151,6 +170,7 @@ public class SanPham {
 		int result = 1;
 		result = prime * result + ((anhSP == null) ? 0 : anhSP.hashCode());
 		result = prime * result + ((donVi == null) ? 0 : donVi.hashCode());
+		result = prime * result + (int) (giaBan ^ (giaBan >>> 32));
 		result = prime * result + (int) (giaSP ^ (giaSP >>> 32));
 		result = prime * result + ((hsd == null) ? 0 : hsd.hashCode());
 		result = prime * result + ((linkSP == null) ? 0 : linkSP.hashCode());
@@ -182,6 +202,8 @@ public class SanPham {
 			if (other.donVi != null)
 				return false;
 		} else if (!donVi.equals(other.donVi))
+			return false;
+		if (giaBan != other.giaBan)
 			return false;
 		if (giaSP != other.giaSP)
 			return false;
@@ -237,8 +259,8 @@ public class SanPham {
 	public String toString() {
 		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", anhSP=" + anhSP + ", linkSP=" + linkSP + ", soLuong="
 				+ soLuong + ", donVi=" + donVi + ", ngayNhapHang=" + ngayNhapHang + ", hsd=" + hsd + ", giaSP=" + giaSP
-				+ ", thoiGianCapNhat=" + thoiGianCapNhat + ", nhanVien=" + nhanVien + ", loaiSanPham=" + loaiSanPham
-				+ "]";
+				+ ", giaBan=" + giaBan + ", thoiGianCapNhat=" + thoiGianCapNhat + ", nhanVien=" + nhanVien
+				+ ", loaiSanPham=" + loaiSanPham + "]";
 	}
 
 }

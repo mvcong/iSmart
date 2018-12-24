@@ -1,3 +1,4 @@
+<%@page import="iCore.dao.SanPhamDAO"%>
 <%@page import="sanpham.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -28,7 +29,12 @@
 
 <body>
 	<%
-		LoaiSanPhamDAO categoryDAO = new LoaiSanPhamDAO();
+		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
+		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		String maLoai = "";
+		if (request.getParameter("loaisanpham") != null) {
+			maLoai = request.getParameter("loaisanpham");
+		}
 	%>
 
 	<!-- Navigation -->
@@ -64,7 +70,7 @@
 				<div class="list-group">
 					<ul id="loaisanpham">
 						<%
-							for (LoaiSanPham lsp : categoryDAO.getListLoaiSanPham()) {
+							for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
 						%>
 
 						<li><a href="product.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><%=lsp.getTenLoai()%></a></li>
@@ -116,56 +122,29 @@
 
 				<div class="row">
 
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
-							<div class="card-body">
-								<h4 class="card-title">
-									<a href="#">Item One</a>
-								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur!</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">&#9733; &#9733; &#9733;
-									&#9733; &#9734;</small>
-							</div>
-						</div>
-					</div>
+					<%
+						for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
+					%>
 
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
+							<a href="chitietsanpham.jsp"><img class="card-img-top"
+								src="<%=sp.getAnhSP() %>" alt="<%=sp.getTenSP()%>"></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#">Item Two</a>
+									<a href="#"><%=sp.getTenSP()%></a>
 								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor
-									sit amet.</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">&#9733; &#9733; &#9733;
-									&#9733; &#9734;</small>
-							</div>
-						</div>
-					</div>
+								<div class="white">
+									<h5>
+										<a href="giohang.jsp"
+											class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">ADD
+											TO CART</a>
+									</h5>
+									<p class="dollar">
+										<span class="in-dollar">$</span><span><%=sp.getGiaBan()%></span>
+									</p>
+								</div>
 
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
-							<div class="card-body">
-								<h4 class="card-title">
-									<a href="#">Item Three</a>
-								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur!</p>
 							</div>
 							<div class="card-footer">
 								<small class="text-muted">&#9733; &#9733; &#9733;
@@ -173,64 +152,16 @@
 							</div>
 						</div>
 					</div>
+					<%
+						}
+					%>
 
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
-							<div class="card-body">
-								<h4 class="card-title">
-									<a href="#">Item Four</a>
-								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur!</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">&#9733; &#9733; &#9733;
-									&#9733; &#9734;</small>
-							</div>
-						</div>
-					</div>
 
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
-							<div class="card-body">
-								<h4 class="card-title">
-									<a href="#">Item Five</a>
-								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor
-									sit amet.</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">&#9733; &#9733; &#9733;
-									&#9733; &#9734;</small>
-							</div>
-						</div>
-					</div>
 
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="http://placehold.it/700x400" alt=""></a>
-							<div class="card-body">
-								<h4 class="card-title">
-									<a href="#">Item Six</a>
-								</h4>
-								<h5>$24.99</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Amet numquam aspernatur!</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">&#9733; &#9733; &#9733;
-									&#9733; &#9734;</small>
-							</div>
-						</div>
-					</div>
+
+
+
+
 
 				</div>
 				<!-- /.row -->

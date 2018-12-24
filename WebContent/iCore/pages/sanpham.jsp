@@ -12,7 +12,7 @@
 	String tenTrang = "Quản lý sản phẩm";
 	String trangDanhSach = "index.jsp?p=iCore/pages/sanphams.jsp";
 	String[] tk_value = {"maSP", "tenSP", "loaiSP", "anhSP", "soLuong", "giaSP", "nhanVien"};
-	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Ảnh", "Số lượng", "Giá", "Nhân viên"};
+	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Ảnh", "Số lượng", "Giá nhập", "Nhân viên"};
 %>
 <%@ include file="../../iPartial/code-header.jsp"%>
 
@@ -151,6 +151,12 @@
 									<label>Giá nhập</label> <input class="form-control"
 										name="giaSP"
 										value="<%=(obj != null && obj.getGiaSP() > 0 ? obj.getGiaSP() : "")%>"
+										<%=(modeView ? " readonly " : "")%>>
+								</div>
+								<div class="form-group">
+									<label>Giá bán</label> <input class="form-control"
+										name="giaBan"
+										value="<%=(obj != null && obj.getGiaBan() > 0 ? obj.getGiaBan() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
 

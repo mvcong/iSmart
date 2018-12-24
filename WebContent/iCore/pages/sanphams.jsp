@@ -10,8 +10,8 @@
 <%
 	String tenLop = "SanPham";
 	String tenTrang = "Quản lý sản phẩm";
-	String[] tk_value = {"maSP", "tenSP", "anhSP", "soLuong","giaSP"};
-	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng","Giá"};
+	String[] tk_value = {"maSP", "tenSP", "anhSP", "soLuong","giaSP", "giaBan"};
+	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng","Giá nhập", "Giá bán"};
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
@@ -161,7 +161,8 @@
 						<th>Loại sản phẩm</th>
 						<th>Ảnh</th>
 						<th>Số lượng</th>
-						<th>Giá</th>
+						<th>Giá nhập</th>
+						<th>Giá bán</th>
 						<th>Xử lý</th>
 
 					</tr>
@@ -181,6 +182,7 @@
 						<td><%=obj.getAnhSP() != null ? obj.getAnhSP() : ""%></td>
 						<td><%=obj.getSoLuong() != null ? obj.getSoLuong() : ""%></td>
 						<td><%=obj.getGiaSP() > 0 ? obj.getGiaSP() : ""%></td>
+						<td><%=obj.getGiaBan() > 0 ? obj.getGiaBan() : ""%></td>
 						<td style="text-align: center;"><%@ include
 								file="../../iPartial/menupullcuadoituong.jsp"%></td>
 					</tr>

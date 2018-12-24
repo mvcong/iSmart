@@ -246,6 +246,7 @@ public class Controller_SanPham extends SanPham implements ZEController {
 			obj.ngayNhapHang = getNgayNhapHang();
 			obj.hsd = getHsd();
 			obj.giaSP = getGiaSP();
+			obj.giaBan= getGiaBan();
 			obj.nhanVien = getNhanVien();
 			obj.loaiSanPham = getLoaiSanPham();
 			obj.thoiGianCapNhat = new Date();
