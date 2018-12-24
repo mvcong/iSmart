@@ -120,7 +120,7 @@
 					</a>
 				</div>
 
-				<div class="row">				
+				<div class="row">
 					<%
 						for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
 					%>
@@ -133,15 +133,13 @@
 									style="height: 250px; width: 250px"></a>
 							</div>
 							<div class="card-body">
-								<h4 class="card-title">
+								<p class="">
 									<a href="#"><%=sp.getTenSP()%></a>
-								</h4>
+								</p>
 							</div>
 							<div class="card-footer">
-								<div align="left" style="margin-top: -10px">
-									<a href="giohang.jsp"
-										class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">ADD
-										TO CART</a>
+								<div align="left">
+									<p><a href="giohang.jsp" class="">ADD TO CART</a></p>
 								</div>
 								<div align="right">
 									<p>
@@ -169,8 +167,10 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 	<div class="container">
-		<p class="m-0 text-center text-white">SVTH : Mai Văn Công -
-			551074008</p>
+		<p class="m-0 text-center text-white">
+			Trường Đại Học Giao Thông Vận Tải phân hiệu tại Thành Phố Hồ Chí Minh</br>Hệ
+			Thống Quản Lý Phòng Tập GYM </br>SVTH : Mai Văn Công - 551074008
+		</p>
 	</div>
 	<!-- /.container --> </footer>
 
