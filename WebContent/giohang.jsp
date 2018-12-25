@@ -102,9 +102,77 @@
 					Chào mừng đến với giỏ hàng của bạn!</br> Hãy chọn mua những món hàng mà
 					bạn mong muốn tại :<b><u><a href="product.jsp">Shop GYM</a></b></u>
 					của chúng tôi!</br>
-					
+					<center>
+						<p>
+							<font face="Verdana, Arial, Helvetica, sans-serif"> <strong>Shopping
+									Cart</strong>
+							</font>
+						</p>
+						<table width="75%" border="1">
+							<tr bgcolor="#CCCCCC">
+								<td><strong> <font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">Model
+											Description </font>
+								</strong></td>
+								<td><strong> <font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">Quantity</font>
+								</strong></td>
+								<td><strong> <font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">Unit Price
+									</font>
+								</strong></td>
+								<td><strong> <font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">Total</font>
+								</strong></td>
+							</tr>
+							<jsp:useBean id="cart" scope="session" class="sanpham.SanPham" />
+
+							<c:if test="${cart.lineItemCount == 0}">
+								<tr>
+									<td colspan="4"><font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">- Cart is
+											currently empty -<br />
+								</tr>
+							</c:if>
+
+							<c:forEach var="cartItem" items="${cart.cartItems}"
+								varStatus="counter">
+								<form name="item" method="POST" action="servlet/CartController">
+									<tr>
+										<td><font size="2"
+											face="Verdana, Arial, Helvetica, sans-serif"> <b><c:out
+														value="${cartItem.partNumber}" /></b><br /> <c:out
+													value="${cartItem.modelDescription}" />
+										</font></td>
+										<td><font size="2"
+											face="Verdana, Arial, Helvetica, sans-serif"> <input
+												type='hidden' name='itemIndex'
+												value='<c:out value="${counter.count}"/>'> <input
+												type='number' name="quantity"
+												value='<c:out value="${cartItem.quantity}"/>' size='2'>
+												<input type="submit" name="action" value="Update"> <input
+												type="submit" name="action" value="Delete"></font></td>
+										<td><font size="2"
+											face="Verdana, Arial, Helvetica, sans-serif">$<c:out
+													value="${cartItem.unitCost}" /></font></td>
+										<td><font size="2"
+											face="Verdana, Arial, Helvetica, sans-serif">$<c:out
+													value="${cartItem.totalCost}" /></font></td>
+									</tr>
+								</form>
+							</c:forEach>
+							<!--Total-->
+							<tr>
+								<td colspan="3"></td>
+								<td><font size="2"
+									face="Verdana, Arial, Helvetica, sans-serif">Subtotal: $<c:out
+											value="${cart.orderTotal}" /></font></td>
+							</tr>
+						</table>
+					</center>
+
 				</div>
-				<!-- /.row -->
+				/.row
 
 			</div>
 			<!-- /.col-lg-9 -->
@@ -121,13 +189,8 @@
 		<p class="m-0 text-center text-white">SVTH : Mai Văn Công -
 			5551074008</p>
 	</div>
-	<!-- /.container --> </footer>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="content/product/vendor/jquery/jquery.min.js"></script>
-	<script
+	<!-- /.container </footer> --> <!-- Bootstrap core JavaScript --> <script
+		src="content/product/vendor/jquery/jquery.min.js"></script> <script
 		src="content/product/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>

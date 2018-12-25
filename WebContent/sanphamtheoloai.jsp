@@ -119,40 +119,42 @@
 						class="sr-only">Next</span>
 					</a>
 				</div>
+				<form name="viewsanpham" method="post" action="">
+					<div class="row">
+						<%
+							for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
+						%>
 
-				<div class="row">
-					<%
-						for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
-					%>
-
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<div>
-								<a href="chitietsanpham.jsp"><img class="card-img-top"
-									src="<%=sp.getAnhSP()%>" alt="<%=sp.getTenSP()%>"
-									style="height: 250px; width: 250px"></a>
-							</div>
-							<div class="card-body">
-								<p class="">
-									<a href="#"><%=sp.getTenSP()%></a>
-								</p>
-							</div>
-							<div class="card-footer">
-								<div align="left">
-									<p><a href="giohang.jsp" class="">ADD TO CART</a></p>
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div class="card h-100">
+								<div>
+									<a href="chitietsanpham.jsp"><img class="card-img-top"
+										src="<%=sp.getAnhSP()%>" alt="<%=sp.getTenSP()%>"
+										style="height: 250px; width: 250px"></a>
 								</div>
-								<div align="right">
-									<p>
-										<span><%=sp.getGiaBan()%></span><span>::VNĐ</span>
+								<div class="card-body">
+									<p class="">
+										<a href="#"><%=sp.getTenSP()%></a>
 									</p>
+								</div>
+								<div class="card-footer">
+									<div align="left">
+										<input type="hidden" name="action" value="add"> <input
+											type="submit" name="addToCart" value="Add To Cart">
+									</div>
+									<div align="right">
+										<p>
+											<span><%=sp.getGiaBan()%></span><span>::VNĐ</span>
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
+						<%
+							}
+						%>
 					</div>
-					<%
-						}
-					%>
-				</div>
+				</form>
 				<!-- /.row -->
 
 			</div>

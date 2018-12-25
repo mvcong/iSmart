@@ -120,35 +120,35 @@
 						class="sr-only">Next</span>
 					</a>
 				</div>
-
-				<div class="row">
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100">
-							<div>
-								<a href="chitietsanpham.jsp"><img class="card-img-top"
-									src="<%=sanPham.getAnhSP()%>" alt="<%=sanPham.getTenSP()%>"
-									style="height: 250px; width: 250px"></a>
-							</div>
-							<div class="card-body">
-								<p class="">
-									<a href="#"><%=sanPham.getTenSP()%></a>
-								</p>
-							</div>
-							<div class="card-footer">
-								<div align="left">
-									<p>
-										<a href="giohang.jsp" class="">ADD TO CART</a>
+				<form name="viewsanpham" method="post" action="">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div class="card h-100">
+								<div>
+									<a href="chitietsanpham.jsp"><img class="card-img-top"
+										src="<%=sanPham.getAnhSP()%>" alt="<%=sanPham.getTenSP()%>"
+										style="height: 250px; width: 250px"></a>
+								</div>
+								<div class="card-body">
+									<p class="">
+										<a href="#"><%=sanPham.getTenSP()%></a>
 									</p>
 								</div>
-								<div align="right">
-									<p>
-										<span><%=sanPham.getGiaBan()%></span><span>::VNĐ</span>
-									</p>
+								<div class="card-footer">
+									<div align="left">
+										<input type="hidden" name="action" value="add"> <input
+											type="submit" name="addToCart" value="Add To Cart">
+									</div>
+									<div align="right">
+										<p>
+											<span><%=sanPham.getGiaBan()%></span><span>::VNĐ</span>
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 				<!-- /.row -->
 			</div>
 			<!-- /.col-lg-9 -->
