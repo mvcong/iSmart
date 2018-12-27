@@ -1,8 +1,8 @@
 <%@page import="iCore.dao.SanPhamDAO"%>
-<%@page import="sanpham.LoaiSanPham"%>
+<%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="sanpham.SanPham"%>
+<%@page import="sanpham.model.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

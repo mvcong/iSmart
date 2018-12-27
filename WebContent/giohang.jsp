@@ -129,7 +129,7 @@
 								</strong></td>
 							</tr>
 							<jsp:useBean id="cart" scope="session"
-								class="sanpham.ListGioHang" />
+								class="sanpham.model.ListGioHang" />
 
 							<c:if test="${cart.listAll == 0}">
 								<tr>

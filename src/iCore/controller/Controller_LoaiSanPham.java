@@ -12,7 +12,7 @@ import org.apache.struts2.ServletActionContext;
 import iCore.dao.ObjectDAO;
 import iCore.model.ChucNang;
 import iCore.modelDAO.DAO_LoaiSanPham;
-import sanpham.LoaiSanPham;
+import sanpham.model.LoaiSanPham;
 
 public class Controller_LoaiSanPham extends LoaiSanPham implements ZEController{
 	ObjectDAO dao = new DAO_LoaiSanPham();

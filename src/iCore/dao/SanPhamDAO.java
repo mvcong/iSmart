@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import org.apache.oro.text.regex.Perl5Pattern;
 
-import sanpham.SanPham;
+import sanpham.model.SanPham;
 
 public class SanPhamDAO {
 	public ArrayList<SanPham> getListSanPhamByLoaiSanPham(String maLoai) throws ClassNotFoundException, SQLException {

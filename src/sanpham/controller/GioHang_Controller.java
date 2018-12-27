@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sanpham.ListGioHang;
+import sanpham.model.ListGioHang;
 
 /**
  * Servlet implementation class GioHang_Controller

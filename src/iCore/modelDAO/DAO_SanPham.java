@@ -1,7 +1,7 @@
 package iCore.modelDAO;
 
 import iCore.dao.ObjectDAO;
-import sanpham.SanPham;
+import sanpham.model.SanPham;
 
 public class DAO_SanPham extends ObjectDAO<SanPham> {
 	public DAO_SanPham() {

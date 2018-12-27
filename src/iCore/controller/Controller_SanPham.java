@@ -20,8 +20,8 @@ import iCore.modelDAO.DAO_NhanVien;
 import iCore.modelDAO.DAO_SanPham;
 import iCore.modelDAO.DAO_ThanhVien;
 import iCore.util.Util_Date;
-import sanpham.LoaiSanPham;
-import sanpham.SanPham;
+import sanpham.model.LoaiSanPham;
+import sanpham.model.SanPham;
 
 public class Controller_SanPham extends SanPham implements ZEController {
 	ObjectDAO dao = new DAO_SanPham();

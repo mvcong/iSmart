@@ -1,9 +1,9 @@
-<%@page import="sanpham.LoaiSanPham"%>
+<%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.modelDAO.DAO_LoaiSanPham"%>
 <%@page import="iCore.model.NhanVien"%>
 <%@page import="iCore.modelDAO.DAO_NhanVien"%>
 <%@page import="iCore.util.Util_Date"%>
-<%@page import="sanpham.SanPham"%>
+<%@page import="sanpham.model.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 

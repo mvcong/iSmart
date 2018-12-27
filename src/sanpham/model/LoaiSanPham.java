@@ -1,4 +1,4 @@
-package sanpham;
+package sanpham.model;
 
 import java.util.Date;
 

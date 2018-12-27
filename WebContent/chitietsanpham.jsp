@@ -1,5 +1,5 @@
-<%@page import="sanpham.SanPham"%>
-<%@page import="sanpham.LoaiSanPham"%>
+<%@page import="sanpham.model.SanPham"%>
+<%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.SanPhamDAO"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

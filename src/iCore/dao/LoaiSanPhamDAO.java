@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import sanpham.LoaiSanPham;
-import sanpham.SanPham;
+import sanpham.model.LoaiSanPham;
+import sanpham.model.SanPham;
 
 
 public class LoaiSanPhamDAO {
