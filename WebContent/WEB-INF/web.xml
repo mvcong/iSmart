@@ -31,4 +31,12 @@
     <servlet-name>ServletDownload</servlet-name>
     <url-pattern>/ServletDownload</url-pattern>
   </servlet-mapping>
+   <servlet>
+        <servlet-name>GioHang_Controller</servlet-name>
+        <servlet-class>sanpham.controller.GioHang_Controller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GioHang_Controller</servlet-name>
+        <url-pattern>/sanpham.controller/*</url-pattern>
+    </servlet-mapping>
 </web-app>

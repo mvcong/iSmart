@@ -12,7 +12,7 @@ public class ListGioHang {
 		return listAll.size();
 	}
 
-	public void xoaSoLuongGioHang(String strItemIndex) {
+	public void xoaSoLuongSanPhamTrongGio(String strItemIndex) {
 		int iItemIndex = 0;
 		try {
 			iItemIndex = Integer.parseInt(strItemIndex);
@@ -48,7 +48,7 @@ public class ListGioHang {
 
 	}
 
-	public void themSanPhamVaoGio(String strTenSP, String strSoLuong, String strGiaSP) {
+	public void themSanPhamVaoGio(String strTenSP, String strSoLuong, String strGiaSP, String strThanhTien) {
 		long lThanhTien = 0;
 		long lGiaSP = 0;
 		int soLuong = 0;

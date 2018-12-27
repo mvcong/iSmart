@@ -111,53 +111,58 @@
 						<table width="75%" border="1">
 							<tr bgcolor="#CCCCCC">
 								<td><strong> <font size="2"
-										face="Verdana, Arial, Helvetica, sans-serif">Model
-											Description </font>
+										face="Verdana, Arial, Helvetica, sans-serif">Tên sản
+											phẩm </font>
 								</strong></td>
 								<td><strong> <font size="2"
-										face="Verdana, Arial, Helvetica, sans-serif">Quantity</font>
+										face="Verdana, Arial, Helvetica, sans-serif">Giá sản
+											phẩm</font>
 								</strong></td>
 								<td><strong> <font size="2"
-										face="Verdana, Arial, Helvetica, sans-serif">Unit Price
-									</font>
+										face="Verdana, Arial, Helvetica, sans-serif">Số lượng </font>
 								</strong></td>
 								<td><strong> <font size="2"
-										face="Verdana, Arial, Helvetica, sans-serif">Total</font>
+										face="Verdana, Arial, Helvetica, sans-serif">Thành tiền</font>
+								</strong></td>
+								<td><strong> <font size="2"
+										face="Verdana, Arial, Helvetica, sans-serif">Tổng</font>
 								</strong></td>
 							</tr>
-							<jsp:useBean id="cart" scope="session" class="sanpham.SanPham" />
+							<jsp:useBean id="cart" scope="session"
+								class="sanpham.ListGioHang" />
 
-							<c:if test="${cart.lineItemCount == 0}">
+							<c:if test="${cart.listAll == 0}">
 								<tr>
 									<td colspan="4"><font size="2"
-										face="Verdana, Arial, Helvetica, sans-serif">- Cart is
-											currently empty -<br />
+										face="Verdana, Arial, Helvetica, sans-serif">- Giỏ hàng
+											trống -<br />
 								</tr>
 							</c:if>
 
-							<c:forEach var="cartItem" items="${cart.cartItems}"
+							<c:forEach var="gioHang" items="${cart.gioHangs}"
 								varStatus="counter">
-								<form name="item" method="POST" action="servlet/CartController">
+								<form name="item" method="POST"
+									action="servlet/GioHang_Controller">
 									<tr>
 										<td><font size="2"
 											face="Verdana, Arial, Helvetica, sans-serif"> <b><c:out
-														value="${cartItem.partNumber}" /></b><br /> <c:out
-													value="${cartItem.modelDescription}" />
+														value="${gioHang.maGioHang}" /></b><br /> <c:out
+													value="${gioHang.tenSP}" />
 										</font></td>
 										<td><font size="2"
 											face="Verdana, Arial, Helvetica, sans-serif"> <input
 												type='hidden' name='itemIndex'
 												value='<c:out value="${counter.count}"/>'> <input
-												type='number' name="quantity"
-												value='<c:out value="${cartItem.quantity}"/>' size='2'>
+												type='number' name="soLuong"
+												value='<c:out value="${gioHang.soLuong}"/>' size='2'>
 												<input type="submit" name="action" value="Update"> <input
 												type="submit" name="action" value="Delete"></font></td>
 										<td><font size="2"
 											face="Verdana, Arial, Helvetica, sans-serif">$<c:out
-													value="${cartItem.unitCost}" /></font></td>
+													value="${gioHang.giaSP}" /></font></td>
 										<td><font size="2"
 											face="Verdana, Arial, Helvetica, sans-serif">$<c:out
-													value="${cartItem.totalCost}" /></font></td>
+													value="${gioHang.thanhTien}" /></font></td>
 									</tr>
 								</form>
 							</c:forEach>
@@ -165,14 +170,13 @@
 							<tr>
 								<td colspan="3"></td>
 								<td><font size="2"
-									face="Verdana, Arial, Helvetica, sans-serif">Subtotal: $<c:out
-											value="${cart.orderTotal}" /></font></td>
+									face="Verdana, Arial, Helvetica, sans-serif">Tổng: $<c:out
+											value="${cart.tongTien}" /></font></td>
 							</tr>
 						</table>
 					</center>
 
 				</div>
-				/.row
 
 			</div>
 			<!-- /.col-lg-9 -->

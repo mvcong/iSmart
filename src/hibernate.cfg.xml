@@ -36,6 +36,7 @@
 		<mapping class="iCore.model.PhieuThu" />
 		<mapping class="iCore.model.PhieuGiamSatTV" />
 		<mapping class="sanpham.SanPham" />
+		<mapping class="iCore.model.GioHang" />
 		<mapping class="sanpham.LoaiSanPham" />
 		<mapping class="iCore.model.TheThanhVien" />
 		<mapping class="iCore.model.ThongBao" />
