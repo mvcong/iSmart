@@ -5,12 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>footer</title>
-         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+         <link href="content/sanpham/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
+        <script src="content/sanpham/js/jquery.min.js"></script>
         <!-- Custom Theme files -->
         <!--theme-style-->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <link href="content/sanpham/css/style.css" rel="stylesheet" type="text/css" media="all" />	
         <!--//theme-style-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
             });
         </script>
         <!--slider-script-->
-        <script src="js/responsiveslides.min.js"></script>
+        <script src="content/sanpham/js/responsiveslides.min.js"></script>
         <script>
                     $(function () {
                         $("#slider1").responsiveSlides({

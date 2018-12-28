@@ -1,3 +1,6 @@
+<%@page import="sanpham.model.SanPham"%>
+<%@page import="sanpham.model.Cart"%>
+<%@page import="iCore.dao.SanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,12 +8,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>product</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="content/sanpham/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
+        <script src="content/sanpham/js/jquery.min.js"></script>
         <!-- Custom Theme files -->
         <!--theme-style-->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <link href="content/sanpham/css/style.css" rel="stylesheet" type="text/css" media="all" />	
         <!--//theme-style-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -63,10 +66,10 @@
     <body>
 
         <%
-            ProductDAO productDAO = new ProductDAO();
-            String category_id = "";
-            if (request.getParameter("category") != null) {
-                category_id = request.getParameter("category");
+            SanPhamDAO sanPhamDAO = new SanPhamDAO();
+            String maSP = "";
+            if (request.getParameter("loaisanpham") != null) {
+                maSP = request.getParameter("loaisanpham");
             }
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
@@ -86,17 +89,17 @@
                         <div class="content-top-in">
 
                         <%                    
-                            for (Product p : productDAO.getListProductByCategory(Long.parseLong(category_id))) {
+                            for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maSP)) {
                         %>
 
                         <div class="col-md-3 md-col">
                             <div class="col-md">
-                                <a href="single.jsp?productID=<%=p.getProductID()%>"><img  src="<%=p.getProductImage()%>" alt="<%=p.getProductName()%>" /></a>	
+                                <a href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"><img  src="<%=sp.getAnhSP()%>" alt="<%=sp.getTenSP()%>" /></a>	
                                 <div class="top-content">
-                                    <h5><a href="single.jsp?productID=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
+                                    <h5><a href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"><%=sp.getTenSP()%></a></h5>
                                     <div class="white">
-                                        <a href="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">ADD TO CART</a>
-                                        <p class="dollar"><span class="in-dollar">$</span><span><%=p.getProductPrice()%></span></p>
+                                        <a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>" class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">ADD TO CART</a>
+                                        <p class="dollar"><span class="in-dollar">$</span><span><%=sp.getGiaBan()%></span></p>
                                         <div class="clearfix"></div>
                                     </div>
 

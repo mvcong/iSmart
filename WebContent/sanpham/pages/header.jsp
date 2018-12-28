@@ -1,3 +1,8 @@
+<%@page import="sanpham.model.LoaiSanPham"%>
+<%@page import="sanpham.model.Item"%>
+<%@page import="java.util.Map"%>
+<%@page import="sanpham.model.Cart"%>
+<%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,11 +14,11 @@
     <body>
 
         <%
-            CategoryDAO categoryDAO = new CategoryDAO();
-            Users users = null;
-            if (session.getAttribute("user") != null) {
-                users = (Users) session.getAttribute("user");
-            }
+            LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
+//             Users users = null;
+//             if (session.getAttribute("user") != null) {
+//                 users = (Users) session.getAttribute("user");
+//             }
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
@@ -32,9 +37,9 @@
                         </div>
                         <div class="header-in">
                             <ul class="icon1 sub-icon1">
-                                <%if (users != null) {%>
-                                <li><a href="wishlist.html"><%=users.getUserEmail()%></a> </li>
-                                    <%}%>
+<%--                                 <%if (users != null) {%> --%>
+<%--                                 <li><a href="wishlist.html"><%=users.getUserEmail()%></a> </li> --%>
+<%--                                     <%}%> --%>
                                 <li><a href="wishlist.html">WISH LIST (0)</a> </li>
                                 <li><a href="account.html">  MY ACCOUNT</a></li>
                                 <li><a href="#"> SHOPPING CART</a></li>
@@ -47,13 +52,13 @@
                                         <h3>Recently added items</h3>
                                         <div class="shopping_cart">
 
-                                            <%for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {%>
+                                            <%for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {%>
                                             <div class="cart_box">
                                                 <div class="message">
                                                     <div class="alert-close"> </div> 
-                                                    <div class="list_img"><img src="<%=list.getValue().getProduct().getProductImage()%>" class="img-responsive" alt=""></div>
-                                                    <div class="list_desc"><h4><a href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a></h4>
-                                                        <%=list.getValue().getQuantity()%> x<span class="actual"> $<%=list.getValue().getProduct().getProductPrice()%></span>
+                                                    <div class="list_img"><img src="<%=list.getValue().getSanPham().getAnhSP()%>" class="img-responsive" alt=""></div>
+                                                    <div class="list_desc"><h4><a href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>"><%=list.getValue().getSanPham().getTenSP()%></a></h4>
+                                                        <%=list.getValue().getQuantity()%> x<span class="actual"> $<%=list.getValue().getSanPham().getGiaBan()%></span>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
@@ -85,13 +90,13 @@
                     <div class="h_menu4">
                         <a class="toggleMenu" href="#">Menu</a>
                         <ul class="nav">
-                            <li class="active"><a href="index.jsp"><i> </i>Home</a></li>
+                            <li class="active"><a href="home.jsp"><i> </i>Home</a></li>
                             <li><a href="#" >Danh mục</a>
                                 <ul class="drop">
                                     <%
-                                        for (Category c : categoryDAO.getListCategory()) {
+                                        for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
                                     %>
-                                    <li><a href="product.jsp?category=<%=c.getCategoryID()%>"><%=c.getCategoryName()%></a></li>
+                                    <li><a href="product.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><%=lsp.getTenLoai()%></a></li>
                                         <%
                                             }
                                         %>
@@ -105,7 +110,7 @@
                             <li><a href="contact.jsp" >Contact </a></li>
 
                         </ul>
-                        <script type="text/javascript" src="js/nav.js"></script>
+                        <script type="text/javascript" src="content/sanpham/js/nav.js"></script>
                     </div>
                 </div>
             </div>

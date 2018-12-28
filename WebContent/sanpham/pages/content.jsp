@@ -108,7 +108,7 @@
 
                             });
                         </script>
-                        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                        <script type="text/javascript" src="content/sanpham/js/jquery.flexisel.js"></script>
 
                     </div>
                 </div>
