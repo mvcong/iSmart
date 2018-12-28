@@ -5,26 +5,26 @@ import java.util.Map;
 
 //Giỏ hàng
 public class Cart {
-	private HashMap<Long, Item> cartItems;
+	private HashMap<String, Item> cartItems;
 
 	public Cart() {
-		// TODO Auto-generated constructor stub
+		cartItems = new HashMap<>();
 	}
 
-	public Cart(HashMap<Long, Item> cartItems) {
+	public Cart(HashMap<String, Item> cartItems) {
 		this.cartItems = cartItems;
 	}
 
-	public HashMap<Long, Item> getCartItems() {
+	public HashMap<String, Item> getCartItems() {
 		return cartItems;
 	}
 
-	public void setCartItems(HashMap<Long, Item> cartItems) {
+	public void setCartItems(HashMap<String, Item> cartItems) {
 		this.cartItems = cartItems;
 	}
 
 	// Thêm giỏ hàng(insert to cart)
-	public void plusToCart(Long key, Item item) {
+	public void plusToCart(String key, Item item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			int quantity_old = item.getQuantity();
@@ -36,7 +36,7 @@ public class Cart {
 	}
 
 	// Tính tổng sản phẩm trong giỏ
-	public void subToCart(Long key, Item item) {
+	public void subToCart(String key, Item item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			int quantity_old = item.getQuantity();
@@ -50,7 +50,7 @@ public class Cart {
 	}
 
 	// xóa giỏ hàng
-	public void removeToCart(Long key) {
+	public void removeToCart(String key) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			cartItems.remove(key);
@@ -66,7 +66,7 @@ public class Cart {
 	public double totalCart() {
 		int count = 0;
 		// count = giaBan * quantity
-		for (Map.Entry<Long, Item> list : cartItems.entrySet()) {
+		for (Map.Entry<String, Item> list : cartItems.entrySet()) {
 			count += list.getValue().getSanPham().getGiaBan() * list.getValue().getQuantity();
 		}
 		return count;

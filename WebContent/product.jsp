@@ -1,3 +1,6 @@
+<%@page import="sanpham.model.Item"%>
+<%@page import="java.util.Map"%>
+<%@page import="sanpham.model.Cart"%>
 <%@page import="iCore.dao.SanPhamDAO"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
@@ -36,6 +39,11 @@
 		if (request.getParameter("sanpham") != null) {
 			maLoai = request.getParameter("sanpham");
 		}
+		Cart cart = (Cart) session.getAttribute("cart");
+		if (cart == null) {
+			cart = new Cart();
+			session.setAttribute("cart", cart);
+		}
 	%>
 
 	<!-- Navigation -->
@@ -52,8 +60,56 @@
 				<li class="nav-item active"><a class="nav-link" href="home.jsp">Trang
 						chủ <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="giohang.jsp">Giỏ
-						hàng</a></li>
+				<!-- 				<li class="nav-item"><a class="nav-link" href="giohang.jsp">Giỏ -->
+				<!-- 						hàng</a></li> -->
+
+				<li><div class="cart">
+						<a href="#" class="cart-in"> </a> <span> <%=cart.countItem()%></span>
+					</div>
+					<ul class="sub-icon1 list">
+						<h3>Recently added items</h3>
+						<div class="shopping_cart">
+
+							<%
+								for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {
+							%>
+							<div class="cart_box">
+								<div class="message">
+									<div class="alert-close"></div>
+									<div class="list_img">
+										<img src="<%=list.getValue().getSanPham().getAnhSP()%>"
+											class="img-responsive" alt="">
+									</div>
+									<div class="list_desc">
+										<h4>
+											<a
+												href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>"><%=list.getValue().getSanPham().getTenSP()%></a>
+										</h4>
+										<%=list.getValue().getQuantity()%>
+										x<span class="actual"> $<%=list.getValue().getSanPham().getGiaBan()%></span>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<%
+								}
+							%>
+
+						</div>
+						<div class="total">
+							<div class="total_left">Cart Subtotal:</div>
+							<div class="total_right">
+								$<%=cart.totalCart()%></div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="login_buttons">
+							<div class="check_button">
+								<a href="checkout.html">Check out</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
+					</ul></li>
 
 			</ul>
 		</div>
@@ -141,8 +197,9 @@
 								</div>
 								<div class="card-footer">
 									<div align="left">
-										<input type="hidden" name="action" value="add"> <input
-											type="submit" name="addToCart" value="Add To Cart">
+										<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
+											class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">ADD
+											TO CART</a>
 									</div>
 									<div align="right">
 										<p>
