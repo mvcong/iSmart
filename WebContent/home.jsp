@@ -47,7 +47,7 @@
         <li class="nav-item"> <a class="nav-link" href="index.jsp">Trang quản lý</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#about">Thông báo</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="product.jsp">Cửa hàng</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="sanpham/pages/product.jsp">Cửa hàng</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#contact">Liên hệ</a> </li>
         </ul>
       </div>

@@ -23,8 +23,8 @@
         <!--fonts-->
         <link href='http://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
         <!--//fonts-->
-        <script type="text/javascript" src="js/move-top.js"></script>
-        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript" src="content/sanpham/js/move-top.js"></script>
+        <script type="text/javascript" src="content/sanpham/js/easing.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 $(".scroll").click(function (event) {
@@ -34,7 +34,7 @@
             });
         </script>
         <!--slider-script-->
-        <script src="js/responsiveslides.min.js"></script>
+        <script src="content/sanpham/js/responsiveslides.min.js"></script>
         <script>
             $(function () {
                 $("#slider1").responsiveSlides({
