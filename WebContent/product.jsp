@@ -12,7 +12,7 @@
 <!-- Head BEGIN -->
 <head>
 <meta charset="utf-8">
-<title>Men category | Metronic Shop UI</title>
+<title>GYM SHOP</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -81,6 +81,9 @@
 		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
 		String maSP = "";
+		if (request.getParameter("sanpham") != null) {
+			maSP = request.getParameter("sanpham");
+		}
 		String maLoai = "";
 		if (request.getParameter("loaisanpham") != null) {
 			maLoai = request.getParameter("loaisanpham");
@@ -94,15 +97,15 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">Shop GYM</a> <a
+			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
 			<!-- BEGIN CART -->
 			<div class="top-cart-block">
 				<div class="top-cart-info">
-					<a href="javascript:void(0);" class="top-cart-info-count">3
-						items</a> <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+					<a href="javascript:void(0);" class="top-cart-info-count"><%=cart.countItem()%></a>
+					<a href="javascript:void(0);" class="top-cart-info-value">VNĐ<%=cart.totalCart()%></a>
 				</div>
 				<i class="fa fa-shopping-cart"></i>
 
@@ -273,36 +276,37 @@
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
-					<%
-					for(SanPham sp : sanPhamDAO.getListAllSanPham(maSP)){
-					%>
+						<%
+							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+						%>
 						<!-- PRODUCT ITEM START -->
 						<div class="col-md-4 col-sm-6 col-xs-12">
 							<div class="product-item">
 								<div class="pi-img-wrapper">
-									<img src="<%=sp.getAnhSP() %>"
-										class="img-responsive" alt="Berry Lace Dress">
+									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
+										alt="Berry Lace Dress">
 									<div>
-										<a href="<%=sp.getAnhSP() %>"
+										<a href="<%=sp.getAnhSP()%>"
 											class="btn btn-default fancybox-button">Zoom</a> <a
 											href="#product-pop-up"
 											class="btn btn-default fancybox-fast-view">View</a>
 									</div>
 								</div>
 								<h3>
-									<a href="shop-item.html"><%=sp.getTenSP() %></a>
+									<a href="shop-item.html"><%=sp.getTenSP()%></a>
 								</h3>
-								<div class="pi-price">$<%=sp.getGiaBan() %></div>
+								<div class="pi-price">
+									$<%=sp.getGiaBan()%></div>
 								<a href="javascript:;" class="btn btn-default add2cart">Add
 									to cart</a>
 							</div>
 						</div>
 						<%
-					}
+							}
 						%>
 					</div>
-					
-					
+
+
 					<!-- END PRODUCT LIST -->
 					<!-- BEGIN PAGINATOR -->
 					<div class="row">
