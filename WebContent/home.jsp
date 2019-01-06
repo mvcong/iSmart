@@ -47,8 +47,8 @@
         <li class="nav-item"> <a class="nav-link" href="index.jsp">Trang quản lý</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#about">Thông báo</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="sanpham/pages/product.jsp">Cửa hàng</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#contact">Liên hệ</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="product.jsp">Cửa hàng</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="login.jsp">Đăng nhập|Đăng ký</a> </li>
         </ul>
       </div>
             </div>
@@ -61,13 +61,13 @@
 <div class="swiper-container main-slider" id="myCarousel">
   <div class="swiper-wrapper">
     <div class="swiper-slide slider-bg-position" style="background:url('content/home/img/gym1.jpg')" data-hash="slide1">
-      <h2>It is health that is real wealth and not pieces of gold and silver</h2>
+     
     </div>
     <div class="swiper-slide slider-bg-position" style="background:url('content/home/img/gym2.jpg')" data-hash="slide2">
-      <h2>Happiness is nothing more than good health and a bad memory</h2>
+     
     </div>
     <div class="swiper-slide slider-bg-position" style="background:url('content/home/img/gym3.jpg')" data-hash="slide3">
-      <h2>Happiness is nothing more than good health and a bad memory</h2>
+     
     </div>
   </div>
   <!-- Add Pagination -->

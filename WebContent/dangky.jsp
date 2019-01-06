@@ -219,235 +219,54 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">
-					<%
-						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
-					%>
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="shop-product-list.html"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
-					</ul>
-					<%
-						}
-					%>
-				</div>
 				<!-- BEGIN CONTENT -->
-				<div class="col-md-9 col-sm-7" align="center">
-					<div class="row list-view-sorting clearfix">
-						<div class="col-md-2 col-sm-2 list-view">
-							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
-								href="javascript:;"><i class="fa fa-th-list"></i></a>
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<div class="pull-right">
-								<label class="control-label">Show:</label> <select
-									class="form-control input-sm">
-									<option value="#?limit=24" selected="selected">24</option>
-									<option value="#?limit=25">25</option>
-									<option value="#?limit=50">50</option>
-									<option value="#?limit=75">75</option>
-									<option value="#?limit=100">100</option>
-								</select>
-							</div>
-							<div class="pull-right">
-								<label class="control-label">Sort&nbsp;By:</label> <select
-									class="form-control input-sm">
-									<option value="#?sort=p.sort_order&amp;order=ASC"
-										selected="selected">Default</option>
-									<option value="#?sort=pd.name&amp;order=ASC">Name (A -
-										Z)</option>
-									<option value="#?sort=pd.name&amp;order=DESC">Name (Z
-										- A)</option>
-									<option value="#?sort=p.price&amp;order=ASC">Price
-										(Low &gt; High)</option>
-									<option value="#?sort=p.price&amp;order=DESC">Price
-										(High &gt; Low)</option>
-									<option value="#?sort=rating&amp;order=DESC">Rating
-										(Highest)</option>
-									<option value="#?sort=rating&amp;order=ASC">Rating
-										(Lowest)</option>
-									<option value="#?sort=p.model&amp;order=ASC">Model (A
-										- Z)</option>
-									<option value="#?sort=p.model&amp;order=DESC">Model (Z
-										- A)</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<!-- BEGIN PRODUCT LIST -->
-					<div class="row product-list" align="center">
-						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
-						%>
-						<!-- PRODUCT ITEM START -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="product-item">
-								<div class="pi-img-wrapper">
-									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
-										alt="Berry Lace Dress">
-									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="#product-pop-up"
-											class="btn btn-default fancybox-fast-view">View</a>
-									</div>
+				<div class="col-md-12 col-sm-12">
+					<h1>Đăng ký thành viên</h1>
+					<!-- BEGIN CHECKOUT PAGE -->
+					<div class="panel-group checkout-page accordion scrollable"
+						id="checkout-page">
+						<!-- BEGIN PAYMENT ADDRESS -->
+						<div class="panel-body row">
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+									<label for="name">Họ và tên <span class="require">*</span></label>
+									<input type="text" id="tenTV" class="form-control">
 								</div>
-								<h3>
-									<a href="shop-item.html"><%=sp.getTenSP()%></a>
-								</h3>
-								<div class="pi-price">
-									$<%=sp.getGiaBan()%></div>
-								<a href="javascript:;" class="btn btn-default add2cart">Add
-									to cart</a>
+								<div class="form-group">
+									<label for="email">Email <span class="require">*</span></label>
+									<input type="text" id="email" class="form-control">
+								</div>
+								<div>
+									<button class="btn btn-primary  pull-right" type="submit"
+										data-toggle="collapse" data-parent="#checkout-page"
+										data-target="#shipping-address-content"
+										id="button-payment-address">Đăng ký</button>
+								</div>
 							</div>
 						</div>
-						<%
-							}
-						%>
+						<!-- END PAYMENT ADDRESS -->
 					</div>
-
-
-					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10
-							total</div>
-						<div class="col-md-8 col-sm-8">
-							<ul class="pagination pull-right">
-								<li><a href="javascript:;">&laquo;</a></li>
-								<li><a href="javascript:;">1</a></li>
-								<li><span>2</span></li>
-								<li><a href="javascript:;">3</a></li>
-								<li><a href="javascript:;">4</a></li>
-								<li><a href="javascript:;">5</a></li>
-								<li><a href="javascript:;">&raquo;</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- END PAGINATOR -->
+					<!-- END CHECKOUT PAGE -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
 			<!-- END SIDEBAR & CONTENT -->
 		</div>
 	</div>
-
-	<!-- BEGIN BRANDS -->
-	<div class="brands">
-		<div class="container">
-			<div class="owl-carousel owl-carousel6-brands">
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
-					title="canon"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
-					title="esprit"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/next.jpg" alt="next"
-					title="next"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
-					title="puma"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
-					title="zara"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
-					title="canon"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
-					title="esprit"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/next.jpg" alt="next"
-					title="next"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
-					title="puma"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
-					title="zara"></a>
-			</div>
-		</div>
-	</div>
-	<!-- END BRANDS -->
-
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
 		<div class="container">
-			<div class="row">				
+			<div class="row">
 				<div class="col-md-4 steps-block-col">
 					<div>						
 						<p style="color: white;">
 							Phát triển dự án: Sinh viên Mai Văn Công & GVHD
 						</p>						
 					</div>
-				</div>				
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- BEGIN fast view of a product -->
-	<div id="product-pop-up" style="display: none; width: 700px;">
-		<div class="product-page product-pop-up">
-			<div class="row">
-				<div class="col-md-6 col-sm-6 col-xs-3">
-					<div class="product-main-image">
-						<img src="content/assets/pages/img/products/model7.jpg"
-							alt="Cool green dress with red bell" class="img-responsive">
-					</div>
-					<div class="product-other-images">
-						<a href="javascript:;" class="active"><img
-							alt="Berry Lace Dress"
-							src="content/assets/pages/img/products/model3.jpg"></a> <a
-							href="javascript:;"><img alt="Berry Lace Dress"
-							src="content/assets/pages/img/products/model4.jpg"></a> <a
-							href="javascript:;"><img alt="Berry Lace Dress"
-							src="content/assets/pages/img/products/model5.jpg"></a>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6 col-xs-9">
-					<h1>Cool green dress with red bell</h1>
-					<div class="price-availability-block clearfix">
-						<div class="price">
-							<strong><span>$</span>47.00</strong> <em>$<span>62.00</span></em>
-						</div>
-						<div class="availability">
-							Availability: <strong>In Stock</strong>
-						</div>
-					</div>
-					<div class="description">
-						<p>Lorem ipsum dolor ut sit ame dolore adipiscing elit, sed
-							nonumy nibh sed euismod laoreet dolore magna aliquarm erat
-							volutpat Nostrud duis molestie at dolore.</p>
-					</div>
-					<div class="product-page-options">
-						<div class="pull-left">
-							<label class="control-label">Size:</label> <select
-								class="form-control input-sm">
-								<option>L</option>
-								<option>M</option>
-								<option>XL</option>
-							</select>
-						</div>
-						<div class="pull-left">
-							<label class="control-label">Color:</label> <select
-								class="form-control input-sm">
-								<option>Red</option>
-								<option>Blue</option>
-								<option>Black</option>
-							</select>
-						</div>
-					</div>
-					<div class="product-page-cart">
-						<div class="product-quantity">
-							<input id="product-quantity" type="text" value="1" readonly
-								name="product-quantity" class="form-control input-sm">
-						</div>
-						<button class="btn btn-primary" type="submit">Add to cart</button>
-						<a href="shop-item.html" class="btn btn-default">More details</a>
-					</div>
-				</div>
-
-				<div class="sticker sticker-sale"></div>
-			</div>
-		</div>
-	</div>
-	<!-- END fast view of a product -->
-
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>
