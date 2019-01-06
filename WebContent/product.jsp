@@ -1,3 +1,4 @@
+<%@page import="org.apache.xmlbeans.impl.xb.xmlschema.SpaceAttribute.Space"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
@@ -296,7 +297,7 @@
 									<a href="shop-item.html"><%=sp.getTenSP()%></a>
 								</h3>
 								<div class="pi-price">
-									$<%=sp.getGiaBan()%></div>
+									vnđ<%=sp.getGiaBan()%></div>
 								<a href="javascript:;" class="btn btn-default add2cart">Add
 									to cart</a>
 							</div>
@@ -400,19 +401,23 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-9">
-					<h1>Cool green dress with red bell</h1>
+				<%
+							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+						%>
+					<h1><%=sp.getTenSP() %></h1>
 					<div class="price-availability-block clearfix">
 						<div class="price">
-							<strong><span>$</span>47.00</strong> <em>$<span>62.00</span></em>
+							<strong><span>$</span><%=sp.getGiaBan()%></strong>
 						</div>
 						<div class="availability">
 							Availability: <strong>In Stock</strong>
 						</div>
 					</div>
 					<div class="description">
-						<p>Lorem ipsum dolor ut sit ame dolore adipiscing elit, sed
-							nonumy nibh sed euismod laoreet dolore magna aliquarm erat
-							volutpat Nostrud duis molestie at dolore.</p>
+						<%=sp.getNgayNhapHang() %>
+					</div>
+					<div class="description">
+						<%=sp.getHsd() %>
 					</div>
 					<div class="product-page-options">
 						<div class="pull-left">
@@ -441,6 +446,9 @@
 						<a href="shop-item.html" class="btn btn-default">More details</a>
 					</div>
 				</div>
+				<%
+							}
+				%>
 
 				<div class="sticker sticker-sale"></div>
 			</div>
