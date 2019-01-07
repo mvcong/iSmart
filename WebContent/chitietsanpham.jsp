@@ -82,15 +82,12 @@
 <body class="ecommerce">
 
 	<%
-		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		SanPham sanPham = new SanPham();
 		String maSP = "";
-		if (request.getParameter("sanpham") != null) {
-			maSP = request.getParameter("sanpham");
-		}
-		String maLoai = "";
-		if (request.getParameter("loaisanpham") != null) {
-			maLoai = request.getParameter("loaisanpham");
+		if (request.getParameter("maSP") != null) {
+			maSP = request.getParameter("maSP");
+			sanPham = sanPhamDAO.getSanPham(maSP);
 		}
 		Cart cart = (Cart) session.getAttribute("cart");
 		if (cart == null) {
@@ -114,7 +111,6 @@
 				<i class="fa fa-shopping-cart"></i>
 
 				<div class="top-cart-content-wrapper">
-
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
@@ -133,11 +129,10 @@
 							%>
 						</ul>
 						<div class="text-right">
-							<a href="chitietgiohang.jsp" class="btn btn-default">View
+							<a href="shop-shopping-cart.html" class="btn btn-default">View
 								Cart</a> <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<!--END CART -->
@@ -191,91 +186,77 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">
-					<%
-						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
-					%>
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="shop-product-list.html"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
-					</ul>
-					<%
-						}
-					%>
-				</div>
+				<div class="sidebar col-md-3 col-sm-5"></div>
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-9 col-sm-7" align="center">
 					<div class="row list-view-sorting clearfix">
-						<div class="col-md-2 col-sm-2 list-view">
-							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
-								href="javascript:;"><i class="fa fa-th-list"></i></a>
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<div class="pull-right">
-								<label class="control-label">Show:</label> <select
-									class="form-control input-sm">
-									<option value="#?limit=24" selected="selected">24</option>
-									<option value="#?limit=25">25</option>
-									<option value="#?limit=50">50</option>
-									<option value="#?limit=75">75</option>
-									<option value="#?limit=100">100</option>
-								</select>
+						<div id="product-pop-up" style="display: none; width: 700px;">
+							<div class="product-page product-pop-up">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-3">
+										<div class="product-main-image">
+											<img src="<%=sanPham.getAnhSP()%>"
+												alt="Cool green dress with red bell" class="img-responsive">
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-9">
+
+										<h1><%=sanPham.getTenSP()%></h1>
+										<div class="price-availability-block clearfix">
+											<div class="price">
+												<strong><span>vnđ</span><%=sanPham.getGiaBan()%></strong>
+											</div>
+											<div class="availability">
+												Availability: <strong>In Stock</strong>
+											</div>
+										</div>
+										<div class="description">
+											<%=sanPham.getNgayNhapHang()%>
+										</div>
+										<div class="description">
+											<%=sanPham.getHsd()%>
+										</div>
+										<div class="product-page-options">
+											<div class="pull-left">
+												<label class="control-label">Size:</label> <select
+													class="form-control input-sm">
+													<option>L</option>
+													<option>M</option>
+													<option>XL</option>
+												</select>
+											</div>
+											<div class="pull-left">
+												<label class="control-label">Color:</label> <select
+													class="form-control input-sm">
+													<option>Red</option>
+													<option>Blue</option>
+													<option>Black</option>
+												</select>
+											</div>
+										</div>
+										<div class="product-page-cart">
+											<div class="product-quantity">
+												<input id="product-quantity" type="text" value="1" readonly
+													name="product-quantity" class="form-control input-sm">
+											</div>
+											<button class="btn btn-primary" type="submit">Add to
+												cart</button>
+											<a href="shop-item.html" class="btn btn-default">More
+												details</a>
+										</div>
+									</div>
+
+
+									<div class="sticker sticker-sale"></div>
+								</div>
 							</div>
-							<div class="pull-right">
-								<label class="control-label">Sort&nbsp;By:</label> <select
-									class="form-control input-sm">
-									<option value="#?sort=p.sort_order&amp;order=ASC"
-										selected="selected">Default</option>
-									<option value="#?sort=pd.name&amp;order=ASC">Name (A -
-										Z)</option>
-									<option value="#?sort=pd.name&amp;order=DESC">Name (Z
-										- A)</option>
-									<option value="#?sort=p.price&amp;order=ASC">Price
-										(Low &gt; High)</option>
-									<option value="#?sort=p.price&amp;order=DESC">Price
-										(High &gt; Low)</option>
-									<option value="#?sort=rating&amp;order=DESC">Rating
-										(Highest)</option>
-									<option value="#?sort=rating&amp;order=ASC">Rating
-										(Lowest)</option>
-									<option value="#?sort=p.model&amp;order=ASC">Model (A
-										- Z)</option>
-									<option value="#?sort=p.model&amp;order=DESC">Model (Z
-										- A)</option>
-								</select>
-							</div>
 						</div>
+						<!-- END fast view of a product -->
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
-						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
-						%>
-						<!-- PRODUCT ITEM START -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="product-item">
-								<div class="pi-img-wrapper">
-									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
-										alt="Berry Lace Dress">
-									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
-									</div>
-								</div>
-								<h3>
-									<a href="shop-item.html"><%=sp.getTenSP()%></a>
-								</h3>
-								<div class="pi-price">
-									vnđ<%=sp.getGiaBan()%></div>
-								<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
-									class="btn btn-default add2cart">Add to cart</a>
-							</div>
-						</div>
-						<%
-							}
-						%>
+						<!-- BEGIN fast view of a product -->
+
 					</div>
 
 

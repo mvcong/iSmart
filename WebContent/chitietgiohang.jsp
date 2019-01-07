@@ -1,7 +1,6 @@
 <%@page import="sanpham.model.Item"%>
 <%@page import="java.util.Map"%>
-<%@page
-	import="org.apache.xmlbeans.impl.xb.xmlschema.SpaceAttribute.Space"%>
+<%@page import="org.apache.xmlbeans.impl.xb.xmlschema.SpaceAttribute.Space"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
@@ -114,7 +113,6 @@
 				<i class="fa fa-shopping-cart"></i>
 
 				<div class="top-cart-content-wrapper">
-
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
@@ -133,11 +131,10 @@
 							%>
 						</ul>
 						<div class="text-right">
-							<a href="chitietgiohang.jsp" class="btn btn-default">View
+							<a href="shop-shopping-cart.html" class="btn btn-default">View
 								Cart</a> <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<!--END CART -->
@@ -190,117 +187,81 @@
 		<div class="container">
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
-				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">
-					<%
-						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
+				<!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>Giỏ hàng</h1>
+            <div class="goods-page">
+              <div class="goods-data clearfix">
+                <div class="table-wrapper-responsive">
+                <table summary="Shopping cart">
+                  <tr>
+                    <th class="goods-page-image">Ảnh sản phẩm</th>
+                    <th class="goods-page-description">Tên sản phẩm</th>
+                    <th class="goods-page-ref-no">Ngày mua</th>
+                    <th class="goods-page-quantity">Số lượng</th>
+                    <th class="goods-page-price">Giá bán</th>
+                    <th class="goods-page-total" colspan="2">Thành tiền</th>
+                  </tr>
+                  <tr>
+                  <%
+						for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {
 					%>
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="shop-product-list.html"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
-					</ul>
-					<%
+                    <td class="goods-page-image">
+                      <a href="javascript:;"><img src="<%=list.getValue().getSanPham().getAnhSP()%>" alt="Berry Lace Dress"></a>
+                    </td>
+                    <td class="goods-page-description">
+                      <h3><a href="javascript:;"><%=list.getValue().getSanPham().getTenSP()%></a></h3>
+                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+                      <em>More info is here</em>
+                    </td>
+                    <td class="goods-page-ref-no">
+                      javc2133
+                    </td>
+                    <td class="goods-page-quantity">
+                      <div class="product-quantity">
+                          <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                      </div>
+                    </td>
+                    <td class="goods-page-price">
+                      <strong><span>vnđ</span><%=list.getValue().getSanPham().getGiaBan()%></strong>
+                    </td>
+                    <td class="goods-page-total">
+                      <strong><span>vnđ</span><%=list.getValue().getQuantity() * list.getValue().getSanPham().getGiaBan()%></strong>
+                    </td>
+                    <td class="del-goods-col">
+                      <a class="del-goods" href="javascript:;">&nbsp;</a>
+                    </td>
+                    			<%
 						}
 					%>
-				</div>
-				<!-- BEGIN CONTENT -->
-				<div class="col-md-9 col-sm-7" align="center">
-					<div class="row list-view-sorting clearfix">
-						<div class="col-md-2 col-sm-2 list-view">
-							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
-								href="javascript:;"><i class="fa fa-th-list"></i></a>
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<div class="pull-right">
-								<label class="control-label">Show:</label> <select
-									class="form-control input-sm">
-									<option value="#?limit=24" selected="selected">24</option>
-									<option value="#?limit=25">25</option>
-									<option value="#?limit=50">50</option>
-									<option value="#?limit=75">75</option>
-									<option value="#?limit=100">100</option>
-								</select>
-							</div>
-							<div class="pull-right">
-								<label class="control-label">Sort&nbsp;By:</label> <select
-									class="form-control input-sm">
-									<option value="#?sort=p.sort_order&amp;order=ASC"
-										selected="selected">Default</option>
-									<option value="#?sort=pd.name&amp;order=ASC">Name (A -
-										Z)</option>
-									<option value="#?sort=pd.name&amp;order=DESC">Name (Z
-										- A)</option>
-									<option value="#?sort=p.price&amp;order=ASC">Price
-										(Low &gt; High)</option>
-									<option value="#?sort=p.price&amp;order=DESC">Price
-										(High &gt; Low)</option>
-									<option value="#?sort=rating&amp;order=DESC">Rating
-										(Highest)</option>
-									<option value="#?sort=rating&amp;order=ASC">Rating
-										(Lowest)</option>
-									<option value="#?sort=p.model&amp;order=ASC">Model (A
-										- Z)</option>
-									<option value="#?sort=p.model&amp;order=DESC">Model (Z
-										- A)</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<!-- BEGIN PRODUCT LIST -->
-					<div class="row product-list" align="center">
-						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
-						%>
-						<!-- PRODUCT ITEM START -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="product-item">
-								<div class="pi-img-wrapper">
-									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
-										alt="Berry Lace Dress">
-									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
-									</div>
-								</div>
-								<h3>
-									<a href="shop-item.html"><%=sp.getTenSP()%></a>
-								</h3>
-								<div class="pi-price">
-									vnđ<%=sp.getGiaBan()%></div>
-								<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
-									class="btn btn-default add2cart">Add to cart</a>
-							</div>
-						</div>
-						<%
-							}
-						%>
-					</div>
+                  </tr>
+                 
+                </table>
+                </div>
 
-
-					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10
-							total</div>
-						<div class="col-md-8 col-sm-8">
-							<ul class="pagination pull-right">
-								<li><a href="javascript:;">&laquo;</a></li>
-								<li><a href="javascript:;">1</a></li>
-								<li><span>2</span></li>
-								<li><a href="javascript:;">3</a></li>
-								<li><a href="javascript:;">4</a></li>
-								<li><a href="javascript:;">5</a></li>
-								<li><a href="javascript:;">&raquo;</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- END PAGINATOR -->
-				</div>
-				<!-- END CONTENT -->
-			</div>
-			<!-- END SIDEBAR & CONTENT -->
+                <div class="shopping-total">
+                  <ul>
+                    <li>
+                      <em>Sub total</em>
+                      <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
+                    </li>
+                    <li>
+                      <em>Shipping cost</em>
+                      <strong class="price"><span>vnđ</span>3.00</strong>
+                    </li>
+                    <li class="shopping-total-price">
+                      <em>Total</em>
+                      <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
+              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+          </div>
 		</div>
 	</div>
 
@@ -341,16 +302,17 @@
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
 		<div class="container">
-			<div class="row">
+			<div class="row">				
 				<div class="col-md-4 steps-block-col">
-					<div>
-						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
-							Công & GVHD</p>
+					<div>						
+						<p style="color: white;">
+							Phát triển dự án: Sinh viên Mai Văn Công & GVHD
+						</p>						
 					</div>
-				</div>
+				</div>				
 			</div>
 		</div>
-	</div>
+	</div>	
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>

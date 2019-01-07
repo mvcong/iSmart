@@ -100,7 +100,7 @@
 				<div class="col-md-7 single-top-in">
 					<div class="single-para">
 						<h4><%=sanPham.getTenSP()%></h4>
-						<h4><%=sanPham.getLoaiSanPham().getTenLoai()%></h4>
+<%-- 						<h4><%=sanPham.getLoaiSanPham().getTenLoai()%></h4> --%>
 						<h4><%=sanPham.getNgayNhapHang()%></h4>
 						<h4><%=sanPham.getHsd()%></h4>
 						<div class="para-grid">
