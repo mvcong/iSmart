@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.jasper.tagplugins.jstl.core.Catch;
 
 import iCore.dao.SanPhamDAO;
-import sanpham.model.Cart;
-import sanpham.model.Item;
+import sanpham.model.GioHang;
+import sanpham.model.SanPhamTrongGio;
 import sanpham.model.SanPham;
 
 /**
@@ -34,7 +34,7 @@ public class CartServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String command = request.getParameter("command");
 		String maSP = request.getParameter("maSP");
-		Cart cart = (Cart) session.getAttribute("cart");
+		GioHang cart = (GioHang) session.getAttribute("cart");
 		
 		
 		try {
@@ -42,10 +42,10 @@ public class CartServlet extends HttpServlet {
 			 switch (command) {
              case "plus":
                  if (cart.getCartItems().containsKey(maSP)) {
-                     cart.plusToCart(maSP, new Item(sanPham,
-                             cart.getCartItems().get(maSP).getQuantity()));
+                     cart.plusToCart(maSP, new SanPhamTrongGio(sanPham,
+                             cart.getCartItems().get(maSP).getSoLuong()));
                  } else {
-                     cart.plusToCart(maSP, new Item(sanPham, 1));
+                     cart.plusToCart(maSP, new SanPhamTrongGio(sanPham, 1));
                  }
                  break;
              case "remove":
@@ -54,10 +54,10 @@ public class CartServlet extends HttpServlet {
          }
      } catch (Exception e) {
          e.printStackTrace();
-         response.sendRedirect("/iSmart/product.jsp");
+         response.sendRedirect("/iSmart/trangsanpham.jsp");
      }
      session.setAttribute("cart", cart);
-     response.sendRedirect("/iSmart/product.jsp");
+     response.sendRedirect("/iSmart/trangsanpham.jsp");
 	}
 
 

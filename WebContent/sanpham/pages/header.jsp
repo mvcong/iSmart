@@ -1,7 +1,7 @@
 <%@page import="sanpham.model.LoaiSanPham"%>
-<%@page import="sanpham.model.Item"%>
+<%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
-<%@page import="sanpham.model.Cart"%>
+<%@page import="sanpham.model.GioHang"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,17 +14,16 @@
     <body>
 
         <%
-            LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
-//             Users users = null;
-//             if (session.getAttribute("user") != null) {
-//                 users = (Users) session.getAttribute("user");
-//             }
-            Cart cart = (Cart) session.getAttribute("cart");
-            if (cart == null) {
-                cart = new Cart();
-                session.setAttribute("cart", cart);
-            }
-
+        	LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
+                //             Users users = null;
+                //             if (session.getAttribute("user") != null) {
+                //                 users = (Users) session.getAttribute("user");
+                //             }
+                            GioHang cart = (GioHang) session.getAttribute("cart");
+                            if (cart == null) {
+                                cart = new GioHang();
+                                session.setAttribute("cart", cart);
+                            }
         %>
 
         <!--header-->
@@ -52,13 +51,15 @@
                                         <h3>Recently added items</h3>
                                         <div class="shopping_cart">
 
-                                            <%for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {%>
+                                            <%
+                                            	for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+                                            %>
                                             <div class="cart_box">
                                                 <div class="message">
                                                     <div class="alert-close"> </div> 
                                                     <div class="list_img"><img src="<%=list.getValue().getSanPham().getAnhSP()%>" class="img-responsive" alt=""></div>
                                                     <div class="list_desc"><h4><a href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>"><%=list.getValue().getSanPham().getTenSP()%></a></h4>
-                                                        <%=list.getValue().getQuantity()%> x<span class="actual"> $<%=list.getValue().getSanPham().getGiaBan()%></span>
+                                                        <%=list.getValue().getSoLuong()%> x<span class="actual"> $<%=list.getValue().getSanPham().getGiaBan()%></span>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>

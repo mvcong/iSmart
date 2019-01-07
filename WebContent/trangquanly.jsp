@@ -75,7 +75,7 @@
 	// Thiện có thêm điều kiện kiểm tra phải là sinh viên nhập học đăng nhập không
 	String maDangNhap = session.getAttribute("maDangNhap") + "";
 	if (maDangNhap.equals("null")) {
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("dangnhap.jsp");
 	}
 %> 
 <body>
@@ -90,10 +90,10 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.jsp" style="color: white">
+			<a class="navbar-brand" href="trangchu.jsp" style="color: white">
 				&nbsp; <img src="content/images/logo.png"
 				style="display: inline-block;" width="30px" height="30px" /> <span
-				style="display: inline-block;"> iSmart </span>
+				style="display: inline-block;"> GYM-Smart </span>
 			</a>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse"
@@ -104,11 +104,11 @@
 
 				<li class="dropdown"><a class="dropdown-toggle"
 					style="color: white;" data-toggle="dropdown" role="button"
-					aria-haspopup="true" aria-expanded="false" href=index.jsp?p=><i
+					aria-haspopup="true" aria-expanded="false" href=trangquanly.jsp?p=><i
 						class="fa fa-user"></i> <span class="masked"> Tài khoản</a>
 					<ul class="dropdown-menu">
 						<!--thiện có sửa lại kiểm tra có phải sinh viên nhập học đăng nhập không -->
-						<li><a href=index.jsp?p=iCore/pages/doimatkhau.jsp><i class="glyphicon glyphicon-refresh">
+						<li><a href=trangquanly.jsp?p=iCore/pages/doimatkhau.jsp><i class="glyphicon glyphicon-refresh">
 							</i> &nbsp;&nbsp;Đổi mật khẩu </a></li>
 						<li><a href=dangXuat.action><i
 								class="fa fa-users"></i> &nbsp;&nbsp;Đăng xuất </a></li>

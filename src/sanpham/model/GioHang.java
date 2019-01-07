@@ -4,31 +4,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 //Giỏ hàng
-public class Cart {
-	private HashMap<String, Item> cartItems;
+public class GioHang {
+	private HashMap<String, SanPhamTrongGio> cartItems;
 
-	public Cart() {
+	public GioHang() {
 		cartItems = new HashMap<>();
 	}
 
-	public Cart(HashMap<String, Item> cartItems) {
+	public GioHang(HashMap<String, SanPhamTrongGio> cartItems) {
 		this.cartItems = cartItems;
 	}
 
-	public HashMap<String, Item> getCartItems() {
+	public HashMap<String, SanPhamTrongGio> getCartItems() {
 		return cartItems;
 	}
 
-	public void setCartItems(HashMap<String, Item> cartItems) {
+	public void setCartItems(HashMap<String, SanPhamTrongGio> cartItems) {
 		this.cartItems = cartItems;
 	}
 
 	// Thêm giỏ hàng(insert to cart)
-	public void plusToCart(String key, Item item) {
+	public void plusToCart(String key, SanPhamTrongGio item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
-			int quantity_old = item.getQuantity();
-			item.setQuantity(quantity_old + 1);
+			int soLuong_old = item.getSoLuong();
+			item.setSoLuong(soLuong_old + 1);
 			cartItems.put(key, item);
 		} else {
 			cartItems.put(key, item);
@@ -36,14 +36,14 @@ public class Cart {
 	}
 
 	// Tính tổng sản phẩm trong giỏ
-	public void subToCart(String key, Item item) {
+	public void subToCart(String key, SanPhamTrongGio item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
-			int quantity_old = item.getQuantity();
-			if (quantity_old <= 1) {
+			int soLuong_old = item.getSoLuong();
+			if (soLuong_old <= 1) {
 				cartItems.remove(key);
 			} else {
-				item.setQuantity(quantity_old - 1);
+				item.setSoLuong(soLuong_old - 1);
 				cartItems.put(key, item);
 			}
 		}
@@ -66,8 +66,8 @@ public class Cart {
 	public double totalCart() {
 		int count = 0;
 		// count = giaBan * quantity
-		for (Map.Entry<String, Item> list : cartItems.entrySet()) {
-			count += list.getValue().getSanPham().getGiaBan() * list.getValue().getQuantity();
+		for (Map.Entry<String, SanPhamTrongGio> list : cartItems.entrySet()) {
+			count += list.getValue().getSanPham().getGiaBan() * list.getValue().getSoLuong();
 		}
 		return count;
 	}

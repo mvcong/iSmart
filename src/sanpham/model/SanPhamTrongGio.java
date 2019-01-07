@@ -1,17 +1,17 @@
 package sanpham.model;
 
 // Chứa sản phẩm và số lượng trong giỏ
-public class Item {
+public class SanPhamTrongGio {
 	private SanPham sanPham;
-	private int quantity;
+	private int soLuong;
 
-	public Item() {
+	public SanPhamTrongGio() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item(SanPham sanPham, int quantity) {
+	public SanPhamTrongGio(SanPham sanPham, int soLuong) {
 		this.sanPham = sanPham;
-		this.quantity = quantity;
+		this.soLuong = soLuong;
 	}
 
 	public SanPham getSanPham() {
@@ -22,12 +22,12 @@ public class Item {
 		this.sanPham = sanPham;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getSoLuong() {
+		return soLuong;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
 	}
 
 }

@@ -1,11 +1,11 @@
-<%@page import="sanpham.model.Item"%>
+<%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
 <%@page
 	import="org.apache.xmlbeans.impl.xb.xmlschema.SpaceAttribute.Space"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="iCore.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
-<%@page import="sanpham.model.Cart"%>
+<%@page import="sanpham.model.GioHang"%>
 <%@page import="iCore.dao.SanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -84,7 +84,7 @@
 	<%
 		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
-		String maSP = "";
+		String maSP = "";		
 		if (request.getParameter("sanpham") != null) {
 			maSP = request.getParameter("sanpham");
 		}
@@ -92,9 +92,9 @@
 		if (request.getParameter("loaisanpham") != null) {
 			maLoai = request.getParameter("loaisanpham");
 		}
-		Cart cart = (Cart) session.getAttribute("cart");
+		GioHang cart = (GioHang) session.getAttribute("cart");
 		if (cart == null) {
-			cart = new Cart();
+			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		}
 	%>
@@ -118,12 +118,12 @@
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
-								for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {
+								for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
 							%>
 							<li><a href="shop-item.html"><img
 									src="<%=list.getValue().getSanPham().getAnhSP()%>"
 									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x <%=list.getValue().getQuantity()%></span>
+								class="cart-content-count">x <%=list.getValue().getSoLuong()%></span>
 								<strong><a href="shop-item.html"><%=list.getValue().getSanPham().getTenSP()%></a></strong>
 								<em>vnđ<%=list.getValue().getSanPham().getGiaBan()%></em> <a
 								href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>"
@@ -197,7 +197,7 @@
 					%>
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="shop-product-list.html"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
+							href="trangsanpham.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
 					</ul>
 					<%
 						}
@@ -247,9 +247,9 @@
 						</div>
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
-					<div class="row product-list" align="center">
+					<div class="row product-list" align="center">												
 						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+							for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maSP)) {
 						%>
 						<!-- PRODUCT ITEM START -->
 						<div class="col-md-4 col-sm-6 col-xs-12">
@@ -280,23 +280,23 @@
 
 
 					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10
-							total</div>
-						<div class="col-md-8 col-sm-8">
-							<ul class="pagination pull-right">
-								<li><a href="javascript:;">&laquo;</a></li>
-								<li><a href="javascript:;">1</a></li>
-								<li><span>2</span></li>
-								<li><a href="javascript:;">3</a></li>
-								<li><a href="javascript:;">4</a></li>
-								<li><a href="javascript:;">5</a></li>
-								<li><a href="javascript:;">&raquo;</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- END PAGINATOR -->
+<!-- 					BEGIN PAGINATOR -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+<!-- 							total</div> -->
+<!-- 						<div class="col-md-8 col-sm-8"> -->
+<!-- 							<ul class="pagination pull-right"> -->
+<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+<!-- 								<li><a href="javascript:;">1</a></li> -->
+<!-- 								<li><span>2</span></li> -->
+<!-- 								<li><a href="javascript:;">3</a></li> -->
+<!-- 								<li><a href="javascript:;">4</a></li> -->
+<!-- 								<li><a href="javascript:;">5</a></li> -->
+<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
@@ -304,39 +304,39 @@
 		</div>
 	</div>
 
-	<!-- BEGIN BRANDS -->
-	<div class="brands">
-		<div class="container">
-			<div class="owl-carousel owl-carousel6-brands">
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
-					title="canon"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
-					title="esprit"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/next.jpg" alt="next"
-					title="next"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
-					title="puma"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
-					title="zara"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
-					title="canon"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
-					title="esprit"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-				<a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/next.jpg" alt="next"
-					title="next"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
-					title="puma"></a> <a href="shop-product-list.html"><img
-					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
-					title="zara"></a>
-			</div>
-		</div>
-	</div>
-	<!-- END BRANDS -->
+<!-- 	<!-- BEGIN BRANDS --> -->
+<!-- 	<div class="brands"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+<!-- 					title="zara"></a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<!-- END BRANDS --> -->
 
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">

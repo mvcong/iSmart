@@ -1,5 +1,5 @@
 <%@page import="sanpham.model.SanPham"%>
-<%@page import="sanpham.model.Cart"%>
+<%@page import="sanpham.model.GioHang"%>
 <%@page import="iCore.dao.SanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -66,16 +66,16 @@
     <body>
 
         <%
-            SanPhamDAO sanPhamDAO = new SanPhamDAO();
-            String maSP = "";
-            if (request.getParameter("loaisanpham") != null) {
-                maSP = request.getParameter("loaisanpham");
-            }
-            Cart cart = (Cart) session.getAttribute("cart");
-            if (cart == null) {
-                cart = new Cart();
-                session.setAttribute("cart", cart);
-            }
+        	SanPhamDAO sanPhamDAO = new SanPhamDAO();
+                    String maSP = "";
+                    if (request.getParameter("loaisanpham") != null) {
+                        maSP = request.getParameter("loaisanpham");
+                    }
+                    GioHang cart = (GioHang) session.getAttribute("cart");
+                    if (cart == null) {
+                        cart = new GioHang();
+                        session.setAttribute("cart", cart);
+                    }
         %>
 
         <jsp:include page="header.jsp"></jsp:include>

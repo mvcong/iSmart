@@ -82,12 +82,15 @@
 <body class="ecommerce">
 
 	<%
+		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
-		SanPham sanPham = new SanPham();
 		String maSP = "";
-		if (request.getParameter("maSP") != null) {
-			maSP = request.getParameter("maSP");
-			sanPham = sanPhamDAO.getSanPham(maSP);
+		if (request.getParameter("sanpham") != null) {
+			maSP = request.getParameter("sanpham");
+		}
+		String maLoai = "";
+		if (request.getParameter("loaisanpham") != null) {
+			maLoai = request.getParameter("loaisanpham");
 		}
 		GioHang cart = (GioHang) session.getAttribute("cart");
 		if (cart == null) {
@@ -98,7 +101,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -111,6 +114,7 @@
 				<i class="fa fa-shopping-cart"></i>
 
 				<div class="top-cart-content-wrapper">
+
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
@@ -129,10 +133,10 @@
 							%>
 						</ul>
 						<div class="text-right">
-							<a href="shop-shopping-cart.html" class="btn btn-default">View
-								Cart</a> <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ hàng</a> <a href="dathang.jsp" class="btn btn-primary">Đặt hàng</a>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<!--END CART -->
@@ -141,7 +145,7 @@
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="trangchu.jsp">Trang chủ</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
@@ -186,81 +190,110 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5"></div>
+				<div class="sidebar col-md-3 col-sm-5">
+					<%
+						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
+					%>
+					<ul class="list-group margin-bottom-25 sidebar-menu">
+						<li class="list-group-item clearfix"><a
+							href="trangsanphamtheoloai.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
+					</ul>
+					<%
+						}
+					%>
+				</div>
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-9 col-sm-7" align="center">
 					<div class="row list-view-sorting clearfix">
-						<div id="product-pop-up" style="display: none; width: 700px;">
-							<div class="product-page product-pop-up">
-								<div class="row">
-									<div class="col-md-6 col-sm-6 col-xs-3">
-										<div class="product-main-image">
-											<img src="<%=sanPham.getAnhSP()%>"
-												alt="Cool green dress with red bell" class="img-responsive">
-										</div>
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-9">
-
-										<h1><%=sanPham.getTenSP()%></h1>
-										<div class="price-availability-block clearfix">
-											<div class="price">
-												<strong><span>vnđ</span><%=sanPham.getGiaBan()%></strong>
-											</div>
-											<div class="availability">
-												Availability: <strong>In Stock</strong>
-											</div>
-										</div>
-										<div class="description">
-											<%=sanPham.getNgayNhapHang()%>
-										</div>
-										<div class="description">
-											<%=sanPham.getHsd()%>
-										</div>
-										
-										<div class="product-page-cart">
-											<div class="product-quantity">
-												<input id="product-quantity" type="text" value="1" readonly
-													name="product-quantity" class="form-control input-sm">
-											</div>
-											<button class="btn btn-primary" type="submit">Add to
-												cart</button>
-											<a href="#" class="btn btn-default">More
-												details</a>
-										</div>
-									</div>
-
-
-									<div class="sticker sticker-sale"></div>
-								</div>
+						<div class="col-md-2 col-sm-2 list-view">
+							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
+								href="javascript:;"><i class="fa fa-th-list"></i></a>
+						</div>
+						<div class="col-md-10 col-sm-10">
+							<div class="pull-right">
+								<label class="control-label">Show:</label> <select
+									class="form-control input-sm">
+									<option value="#?limit=24" selected="selected">24</option>
+									<option value="#?limit=25">25</option>
+									<option value="#?limit=50">50</option>
+									<option value="#?limit=75">75</option>
+									<option value="#?limit=100">100</option>
+								</select>
+							</div>
+							<div class="pull-right">
+								<label class="control-label">Sort&nbsp;By:</label> <select
+									class="form-control input-sm">
+									<option value="#?sort=p.sort_order&amp;order=ASC"
+										selected="selected">Default</option>
+									<option value="#?sort=pd.name&amp;order=ASC">Name (A -
+										Z)</option>
+									<option value="#?sort=pd.name&amp;order=DESC">Name (Z
+										- A)</option>
+									<option value="#?sort=p.price&amp;order=ASC">Price
+										(Low &gt; High)</option>
+									<option value="#?sort=p.price&amp;order=DESC">Price
+										(High &gt; Low)</option>
+									<option value="#?sort=rating&amp;order=DESC">Rating
+										(Highest)</option>
+									<option value="#?sort=rating&amp;order=ASC">Rating
+										(Lowest)</option>
+									<option value="#?sort=p.model&amp;order=ASC">Model (A
+										- Z)</option>
+									<option value="#?sort=p.model&amp;order=DESC">Model (Z
+										- A)</option>
+								</select>
 							</div>
 						</div>
-						<!-- END fast view of a product -->
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
-						<!-- BEGIN fast view of a product -->
-
+						<%
+							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+						%>
+						<!-- PRODUCT ITEM START -->
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<div class="product-item">
+								<div class="pi-img-wrapper">
+									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
+										alt="Berry Lace Dress">
+									<div>
+										<a href="<%=sp.getAnhSP()%>"
+											class="btn btn-default fancybox-button">Zoom</a> <a
+											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
+											class="btn btn-default fancybox-fast-view">View</a>
+									</div>
+								</div>
+								<h3>
+									<a href="shop-item.html"><%=sp.getTenSP()%></a>
+								</h3>
+								<div class="pi-price">
+									vnđ<%=sp.getGiaBan()%></div>
+								<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
+									class="btn btn-default add2cart">Add to cart</a>
+							</div>
+						</div>
+						<%
+							}
+						%>												
 					</div>
-
-
 					<!-- END PRODUCT LIST -->
-					<!-- 					BEGIN PAGINATOR -->
-					<!-- 					<div class="row"> -->
-					<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-					<!-- 							total</div> -->
-					<!-- 						<div class="col-md-8 col-sm-8"> -->
-					<!-- 							<ul class="pagination pull-right"> -->
-					<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-					<!-- 								<li><a href="javascript:;">1</a></li> -->
-					<!-- 								<li><span>2</span></li> -->
-					<!-- 								<li><a href="javascript:;">3</a></li> -->
-					<!-- 								<li><a href="javascript:;">4</a></li> -->
-					<!-- 								<li><a href="javascript:;">5</a></li> -->
-					<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-					<!-- 							</ul> -->
-					<!-- 						</div> -->
-					<!-- 					</div> -->
-					<!-- 					END PAGINATOR -->
+					<!-- BEGIN PAGINATOR -->
+					<div class="row">
+<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+<!-- 							total</div> -->
+<!-- 						<div class="col-md-8 col-sm-8"> -->
+<!-- 							<ul class="pagination pull-right"> -->
+<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+<!-- 								<li><a href="javascript:;">1</a></li> -->
+<!-- 								<li><span>2</span></li> -->
+<!-- 								<li><a href="javascript:;">3</a></li> -->
+<!-- 								<li><a href="javascript:;">4</a></li> -->
+<!-- 								<li><a href="javascript:;">5</a></li> -->
+<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+					</div>
+					<!-- END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
@@ -268,39 +301,39 @@
 		</div>
 	</div>
 
-<!-- 	<!-- BEGIN BRANDS --> -->
-<!-- 	<div class="brands"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- 	<!-- END BRANDS --> -->
+	<!-- BEGIN BRANDS -->
+	<div class="brands">
+		<div class="container">
+			<div class="owl-carousel owl-carousel6-brands">
+				<a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
+					title="canon"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
+					title="esprit"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
+				<a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/next.jpg" alt="next"
+					title="next"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
+					title="puma"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
+					title="zara"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/canon.jpg" alt="canon"
+					title="canon"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit"
+					title="esprit"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
+				<a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/next.jpg" alt="next"
+					title="next"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/puma.jpg" alt="puma"
+					title="puma"></a> <a href="shop-product-list.html"><img
+					src="content/assets/pages/img/brands/zara.jpg" alt="zara"
+					title="zara"></a>
+			</div>
+		</div>
+	</div>
+	<!-- END BRANDS -->
 
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
