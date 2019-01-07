@@ -13,7 +13,7 @@ import sanpham.model.SanPham;
 public class SanPhamDAO {
 	public ArrayList<SanPham> getListSanPhamByLoaiSanPham(String maLoai) throws ClassNotFoundException, SQLException {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
-		String sql = "SELECT * FROM sanpham WHERE loaiSanPham_maLoai = '" + maLoai + "'";
+		String sql = "SELECT * FROM sanpham WHERE loaisanpham_maLoai = '" + maLoai + "'";
 		PreparedStatement ps = connection.prepareCall(sql);
 		ResultSet rs = ps.executeQuery();
 		ArrayList<SanPham> list = new ArrayList<>();

@@ -101,7 +101,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -146,7 +146,7 @@
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="trangchu.jsp">Trang chủ</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
@@ -247,9 +247,9 @@
 						</div>
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
-					<div class="row product-list" align="center">												
+					<div class="row product-list" align="center">
 						<%
-							for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maSP)) {
+							for (SanPham sp : sanPhamDAO.getListSanPhamByLoaiSanPham(maLoai)) {
 						%>
 						<!-- PRODUCT ITEM START -->
 						<div class="col-md-4 col-sm-6 col-xs-12">
@@ -275,7 +275,7 @@
 						</div>
 						<%
 							}
-						%>
+						%>												
 					</div>
 
 

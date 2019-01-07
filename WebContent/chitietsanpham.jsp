@@ -98,7 +98,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -141,7 +141,7 @@
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="trangchu.jsp">Trang chủ</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
 					<li><a href="shop-item.html">Kids</a></li>
