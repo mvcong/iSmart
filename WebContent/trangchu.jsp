@@ -44,7 +44,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse1">
         <ul class="navbar-nav ml-auto">
          <li class="nav-item active"> <a class="nav-link" href="trangchu.jsp">Trang chủ <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link" href="trangquanly.jsp">Trang quản lý</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index.jsp">Trang quản lý</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#about">Thông báo</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
         <li class="nav-item"> <a class="nav-link" href="trangsanpham.jsp">Cửa hàng</a> </li>      

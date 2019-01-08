@@ -8,7 +8,7 @@
 		<!-- Dang nhap -->
 		<action name="dangNhap" class="iCore.controller.Controller_XacThuc"
 			method="dangNhap">
-			<result name="SUCCESS">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/dangnhap.jsp</result>
 		</action>
 		<!-- Dang nhap -->
@@ -16,306 +16,353 @@
 		<action name="dangXuat" class="iCore.controller.Controller_XacThuc"
 			method="dangXuat">
 			<result name="SUCCESS">/dangnhap.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Dang xuat -->
 		<action name="doiMatKhauTaiKhoanNhanVien" class="iCore.controller.Controller_TaiKhoanNhanVien"
 			method="doiMatKhau">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 <!-- Tìm kiếm chức năng -->
 		<action name="timKiemChucNang" class="iCore.controller.Controller_ChucNang"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại chức năng -->
 		<action name="taiLaiChucNang" class="iCore.controller.Controller_ChucNang"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới chức năng -->
 		<action name="themMoiChucNang" class="iCore.controller.Controller_ChucNang"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu chức năng -->
 		<action name="luuDuLieuChucNang" class="iCore.controller.Controller_ChucNang"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietChucNang" class="iCore.controller.Controller_ChucNang"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaChucNang" class="iCore.controller.Controller_ChucNang"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa chức năng -->
 		<action name="deleteChucNang" class="iCore.controller.Controller_ChucNang"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý chức năng -->
 		<!-- Xử lý nhóm phân quyền -->
 		<!-- Tìm kiếm nhóm phân quyền -->
 		<action name="timKiemNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhóm phân quyền -->
 		<action name="taiLaiNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới nhóm phân quyền -->
 		<action name="themMoiNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu nhóm phân quyền -->
 		<action name="luuDuLieuNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa nhóm phân quyền -->
 		<action name="deleteNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý nhóm phân quyền -->
 		<action name="timKiemNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhân viên -->
 		<action name="taiLaiNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới NhanVien -->
 		<action name="themMoiNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu NhanVien -->
 		<action name="luuDuLieuNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa NhanVien -->
 		<action name="deleteNhanVien" class="iCore.controller.Controller_NhanVien"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý NhanVien -->
 		<!-- Sản phẩm -->
 		<action name="timKiemSanPham" class="iCore.controller.Controller_SanPham"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại sản phẩm -->
 		
 		<action name="taiLaiSanPham" class="iCore.controller.Controller_SanPham"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới sản phẩm -->
 		<action name="themMoiSanPham" class="iCore.controller.Controller_SanPham"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
 		<action name="luuDuLieuSanPham" class="iCore.controller.Controller_SanPham"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietSanPham" class="iCore.controller.Controller_SanPham"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaSanPham" class="iCore.controller.Controller_SanPham"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
 		<action name="deleteSanPham" class="iCore.controller.Controller_SanPham"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
 		<!-- Dụng cụ -->
 		<action name="timKiemDungCu" class="iCore.controller.Controller_DungCu"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại dụng cụ -->
 		<action name="taiLaiDungCu" class="iCore.controller.Controller_DungCu"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới dụng cụ -->
 		<action name="themMoiDungCu" class="iCore.controller.Controller_DungCu"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
 		<action name="luuDuLieuDungCu" class="iCore.controller.Controller_DungCu"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietDungCu" class="iCore.controller.Controller_DungCu"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaDungCu" class="iCore.controller.Controller_DungCu"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
 		<action name="deleteDungCu" class="iCore.controller.Controller_DungCu"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
 		<!-- Loại sản phẩm -->
 		<action name="timKiemLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="search">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại dụng cụ -->
 		<action name="taiLaiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="refresh">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới dụng cụ -->
 		<action name="themMoiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="addNew">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
 		<action name="luuDuLieuLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="saveOrUpdate">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
 		<action name="xemChiTietLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="viewDetail">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
 		<action name="xemChiTietVaChinhSuaLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="viewDetailAndEdit">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
 		<action name="deleteLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
 			method="delete">
-			<result name="SUCCESS">/trangquanly.jsp</result>
-			<result name="FAIL">/trangquanly.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
+		<action name="timKiemThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="search">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Tải lại nhân viên -->
+		<action name="taiLaiThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deleteThanhVien" class="iCore.controller.Controller_NhanVien"
+			method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
 		
 	</package>
 </struts>
