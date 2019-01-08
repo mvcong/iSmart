@@ -1,4 +1,4 @@
-package iCore.dao;
+package sanpham.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import org.apache.oro.text.regex.Perl5Pattern;
 
+import iCore.dao.MySQLConnUtils;
 import sanpham.model.SanPham;
 
 public class SanPhamDAO {
@@ -56,8 +57,11 @@ public class SanPhamDAO {
 			sanPham.setTenSP(rs.getString("tenSP"));
 			sanPham.setAnhSP(rs.getString("anhSP"));
 			sanPham.setGiaBan(rs.getLong("giaBan"));
+			sanPham.setNgayNhapHang(rs.getDate("ngayNhapHang"));
+			sanPham.setHsd(rs.getString("hsd"));
 		}
 		return sanPham;
 	}
 
+	
 }

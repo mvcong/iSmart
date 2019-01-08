@@ -16,8 +16,8 @@
 	// Lay ra ten trang hien tai
 	String pageName = getServletConfig().getServletContext().getRealPath(request.getServletPath());
 	String host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ request.getContextPath() + "/index.jsp";
-	if (!pageName.endsWith("index.jsp")) {
+			+ request.getContextPath() + "/trangquanly.jsp";
+	if (!pageName.endsWith("trangquanly.jsp")) {
 		// Ngăn cản truy cập trực tiếp trang này. Khi truy cập trực tiếp sẽ được trả về trang chủ.
 		response.sendRedirect(host);
 	}
@@ -40,7 +40,7 @@
 	} else {
 		session.setAttribute("p", p1);
 	}
-	p1 = "index.jsp?p=" + p1;
+	p1 = "trangquanly.jsp?p=" + p1;
 	// Kiểm tra có quyền truy cập chức năng này - Hồ Văn Bi - 10/5/2018
 	String p2 = request.getParameter("p") + "";
 	String maDangNhap1 = session.getAttribute("maDangNhap") != null

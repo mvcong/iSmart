@@ -1,8 +1,8 @@
 <%@page import="sanpham.model.LoaiSanPham"%>
-<%@page import="iCore.dao.LoaiSanPhamDAO"%>
+<%@page import="sanpham.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
 <%@page import="sanpham.model.GioHang"%>
-<%@page import="iCore.dao.SanPhamDAO"%>
+<%@page import="sanpham.dao.SanPhamDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -71,6 +71,30 @@
 	rel="stylesheet" id="style-color">
 <link href="content/assets/corporate/css/custom.css" rel="stylesheet">
 <!-- Theme styles END -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var x_timer;
+		$("#email").keyup(function(e) {
+			clearTimeout(x_timer);
+			var email = $(this).val();
+			x_timer = setTimeout(function() {
+				check_email_ajax(email);
+			}, 1000);
+		});
+
+		function check_email_ajax(email) {
+			$("#result").html('<img src="img/ajax-loader.gif"/>');
+			$.post('CheckEmailServlet', {
+				'email' : email
+			}, function(data) {
+				$("#result").html(data);
+			});
+		}
+
+	});
+</script>
 </head>
 <!-- Head END -->
 
@@ -79,20 +103,20 @@
 
 	<%
 		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
-			SanPhamDAO sanPhamDAO = new SanPhamDAO();
-			String maSP = "";
-			if (request.getParameter("sanpham") != null) {
-		maSP = request.getParameter("sanpham");
-			}
-			String maLoai = "";
-			if (request.getParameter("loaisanpham") != null) {
-		maLoai = request.getParameter("loaisanpham");
-			}
-			GioHang cart = (GioHang) session.getAttribute("cart");
-			if (cart == null) {
-		cart = new GioHang();
-		session.setAttribute("cart", cart);
-			}
+		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		String maSP = "";
+		if (request.getParameter("sanpham") != null) {
+			maSP = request.getParameter("sanpham");
+		}
+		String maLoai = "";
+		if (request.getParameter("loaisanpham") != null) {
+			maLoai = request.getParameter("loaisanpham");
+		}
+		GioHang cart = (GioHang) session.getAttribute("cart");
+		if (cart == null) {
+			cart = new GioHang();
+			session.setAttribute("cart", cart);
+		}
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
@@ -229,21 +253,45 @@
 						<div class="panel-body row">
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
-									<label for="name">Họ và tên <span class="require">*</span></label>
-									<input type="text" id="tenTV" class="form-control">
+									<label for="maTV">Mã thành viên <span class="require">*</span></label>
+									<input type="text" name="maTV" id="maTV" class="form-control">
+									<span></span>
+								</div>
+								<div class="form-group">
+									<label for="tenTV">Họ và tên <span class="require">*</span></label>
+									<input type="text" name="tenTV" id="tenTV" class="form-control">
+									<span id="result"></span>
 								</div>
 								<div class="form-group">
 									<label for="email">Email <span class="require">*</span></label>
-									<input type="text" id="email" class="form-control">
+									<input type="text" name="email" id="email" class="form-control">
+									<span id="result"></span>
+								</div>
+								<div class="form-group">
+									<label for="gioiTinh">Giới tính </label> <input type="text"
+										name="gioiTinh" id="gioiTinh" class="form-control"> <span
+										id="result"></span>
+								</div>
+								<div class="form-group">
+									<label for="ngaySinh">Ngày sinh </label> <input type="text"
+										name="ngaySinh" id="ngaySinh" class="form-control"> <span
+										id="result"></span>
+								</div>
+								<div class="form-group">
+									<label for="sDT">Số điện thoại</label> <input type="text"
+										name="sDT" id="sDT" class="form-control"> <span></span>
+								</div>
+								<div class="form-group">
+									<label for="diaChi">Địa chỉ </label> <input type="text"
+										name="diaChi" id="diaChi" class="form-control"> <span
+										id="result"></span>
 								</div>
 								<div>
-									<button class="btn btn-primary  pull-right" type="submit"
-										data-toggle="collapse" data-parent="#checkout-page"
-										data-target="#shipping-address-content"
-										id="button-payment-address">Đăng ký</button>
+									<input type="hidden" value="insert" name="command"> <input type="submit" value="Đăng ký"> 
 								</div>
 							</div>
 						</div>
+
 						<!-- END PAYMENT ADDRESS -->
 					</div>
 					<!-- END CHECKOUT PAGE -->
@@ -258,10 +306,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 steps-block-col">
-					<div>						
-						<p style="color: white;">
-							Phát triển dự án: Sinh viên Mai Văn Công & GVHD
-						</p>						
+					<div>
+						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
+							Công & GVHD</p>
 					</div>
 				</div>
 			</div>

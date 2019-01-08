@@ -14,7 +14,7 @@
 	<!-- 	<div class="col-md-3" style="padding: 1px"> -->
 	<button type="reset" class="btn btn-default" id="btntaomoi">
 		<img src="content/images/reset-32.png" width="16px" height="16px" />
-		&nbsp; Tạo mới
+		&nbsp; Nhập lại
 	</button>
 	<!-- 	</div> -->
 	<!-- 	<div class="col-md-3" style="padding: 1px"> -->

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.Catch;
 
-import iCore.dao.SanPhamDAO;
+import sanpham.dao.SanPhamDAO;
 import sanpham.model.GioHang;
 import sanpham.model.SanPhamTrongGio;
 import sanpham.model.SanPham;
