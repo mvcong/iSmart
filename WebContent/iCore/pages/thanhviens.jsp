@@ -63,7 +63,7 @@
 					<%
 						for (ThanhVien obj : list) {
 							//Bat buoc co de bo vao doan code xem chi tiet, chinh sua va xoa
-							String maDoiTuong = obj.getMaTV();
+							int maDoiTuong = obj.getMaTV();
 							String tenDoiTuong = obj.getTenTV();
 					%>
 					<tr class="odd gradeX">

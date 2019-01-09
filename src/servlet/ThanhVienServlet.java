@@ -36,7 +36,7 @@ public class ThanhVienServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		switch (command) {
 		case "insert":
-			thanhVien.setMaTV(request.getParameter("maTV"));
+			
 			thanhVien.setTenTV(request.getParameter("tenTV"));
 			thanhVien.setEmail(request.getParameter("email"));
 			thanhVien.setGioiTinh(request.getParameter("gioiTinh"));

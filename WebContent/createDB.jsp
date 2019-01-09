@@ -24,26 +24,25 @@
 <body>
 
 	<%
-// 		NhanVien admin = new NhanVien();
-// 		admin.setMaNV("NV01");
-// 		admin.setTenNV("Mai Van Cong");
-// 		admin.setEmail("mai.cong365@gmail.com");
-// 		ObjectDAO dao = new DAO_NhanVien();
-// 		dao.saveOrUpdate(admin);
+		NhanVien admin = new NhanVien();
+		admin.setMaNV("NV01");
+		admin.setTenNV("Mai Van Cong");
+		admin.setEmail("mai.cong365@gmail.com");
+		ObjectDAO dao = new DAO_NhanVien();
+		dao.saveOrUpdate(admin);
 
-// 		NhanVien nhanvien = new NhanVien();
-// 		nhanvien.setMaNV("NV02");
-// 		nhanvien.setTenNV("Dao Nhat Binh");
-// 		nhanvien.setEmail("nhatbinh0207@gmail.com");
-// 		ObjectDAO dao3 = new DAO_NhanVien();
-// 		dao3.saveOrUpdate(nhanvien);
+		NhanVien nhanvien = new NhanVien();
+		nhanvien.setMaNV("NV02");
+		nhanvien.setTenNV("Dao Nhat Binh");
+		nhanvien.setEmail("nhatbinh0207@gmail.com");
+		ObjectDAO dao3 = new DAO_NhanVien();
+		dao3.saveOrUpdate(nhanvien);
 		
-// 		ThanhVien tv = new ThanhVien();
-// 		tv.setMaTV("TV01");
-// 		tv.setTenTV("Nguyen Van Hieu");
-// 		tv.setEmail("nguyenhieu225@gmail.com");
-// 		ObjectDAO dao2 = new DAO_ThanhVien();
-// 		dao2.saveOrUpdate(tv);
+		ThanhVien tv = new ThanhVien();	
+		tv.setTenTV("Nguyen Van Hieu");
+		tv.setEmail("nguyenhieu225@gmail.com");
+		ObjectDAO dao2 = new DAO_ThanhVien();
+		dao2.saveOrUpdate(tv);
 		
 		ObjectDAO daochucnang = new DAO_ChucNang();
 	// chức năng và nhóm phân quyền
@@ -341,33 +340,33 @@
 		nhomPhanQuyentv.setChucNangs(chs3);
 		ObjectDAO daonpqtv = new DAO_NhomPhanQuyen();
 		daonpqtv.saveOrUpdate(nhomPhanQuyentv);
-// // tk admin		
-// 		TaiKhoanNhanVien tkadmin = new TaiKhoanNhanVien();
-// 		tkadmin.setMaDangNhap(admin.getEmail());
-// 		tkadmin.setEmail(admin.getEmail());
-// 		tkadmin.setMatKhau(Util_MD5.md5("123456"));
-// 		tkadmin.setNhanVien(admin);
-// 		tkadmin.setNhomPhanQuyen(nhomPhanQuyenadmin);
-// 		ObjectDAO daoadmin = new DAO_TaiKhoan();
-// 		daoadmin.saveOrUpdate(tkadmin);
-// // tk nhan vien		
-// 		TaiKhoanNhanVien tknv = new TaiKhoanNhanVien();
-// 		tknv.setMaDangNhap(nhanvien.getEmail());
-// 		tknv.setEmail(nhanvien.getEmail());
-// 		tknv.setMatKhau(Util_MD5.md5("123456"));
-// 		tknv.setNhanVien(nhanvien);
-// 		tknv.setNhomPhanQuyen(nhomPhanQuyennv);
-// 		ObjectDAO daonv = new DAO_TaiKhoan();
-// 		daonv.saveOrUpdate(tknv);
-// // tk thanh vien		
-// 		TaiKhoanThanhVien tktv = new TaiKhoanThanhVien();
-// 		tktv.setMaDangNhap(tv.getEmail());
-// 		tktv.setEmail(tv.getEmail());
-// 		tktv.setMatKhau(Util_MD5.md5("123456"));
-// 		tktv.setThanhVien(tv);
-// 		tktv.setNhomPhanQuyen(nhomPhanQuyentv);
-// 		ObjectDAO daotv = new DAO_TaiKhoan();
-// 		daotv.saveOrUpdate(tktv);
+// tk admin		
+		TaiKhoanNhanVien tkadmin = new TaiKhoanNhanVien();
+		tkadmin.setMaDangNhap(admin.getEmail());
+		tkadmin.setEmail(admin.getEmail());
+		tkadmin.setMatKhau(Util_MD5.md5("123456"));
+		tkadmin.setNhanVien(admin);
+		tkadmin.setNhomPhanQuyen(nhomPhanQuyenadmin);
+		ObjectDAO daoadmin = new DAO_TaiKhoan();
+		daoadmin.saveOrUpdate(tkadmin);
+// tk nhan vien		
+		TaiKhoanNhanVien tknv = new TaiKhoanNhanVien();
+		tknv.setMaDangNhap(nhanvien.getEmail());
+		tknv.setEmail(nhanvien.getEmail());
+		tknv.setMatKhau(Util_MD5.md5("123456"));
+		tknv.setNhanVien(nhanvien);
+		tknv.setNhomPhanQuyen(nhomPhanQuyennv);
+		ObjectDAO daonv = new DAO_TaiKhoan();
+		daonv.saveOrUpdate(tknv);
+// tk thanh vien		
+		TaiKhoanThanhVien tktv = new TaiKhoanThanhVien();
+		tktv.setMaDangNhap(tv.getEmail());
+		tktv.setEmail(tv.getEmail());
+		tktv.setMatKhau(Util_MD5.md5("123456"));
+		tktv.setThanhVien(tv);
+		tktv.setNhomPhanQuyen(nhomPhanQuyentv);
+		ObjectDAO daotv = new DAO_TaiKhoan();
+		daotv.saveOrUpdate(tktv);
 		
 	%>
 

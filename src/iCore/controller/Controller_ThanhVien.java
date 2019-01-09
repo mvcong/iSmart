@@ -25,17 +25,17 @@ public class Controller_ThanhVien extends ThanhVien implements ZEController {
 	String duongDanTrangView = "iCore/pages/thanhvien.jsp";
 	String tenCotTimDoiTuong = "maTV";
 	String maObj;
-	String s_ngaySinh;
 	
-	public String getS_ngaySinh() {
-		return s_ngaySinh;
-	}
-	public void setS_ngaySinh(String s_ngaySinh) {
-		this.s_ngaySinh = s_ngaySinh;
-	}
-	public Date getNgaySinh() {
-		return Util_Date.stringToDate(getS_ngaySinh());
-	}
+	
+//	public String getS_ngaySinh() {
+//		return s_ngaySinh;
+//	}
+//	public void setS_ngaySinh(String s_ngaySinh) {
+//		this.s_ngaySinh = s_ngaySinh;
+//	}
+//	public Date getNgaySinh() {
+//		return Util_Date.stringToDate(getS_ngaySinh());
+//	}
 	public String getTimKiemTheo() {
 		return timKiemTheo;
 	}
@@ -134,7 +134,7 @@ public class Controller_ThanhVien extends ThanhVien implements ZEController {
 	public String delete() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String maobj = request.getParameter("maobj");
+		int maobj = request.getContentLength();
 		ThanhVien obj = new ThanhVien();
 		obj.setMaTV(maobj);
 		if (dao.delete(obj)) {

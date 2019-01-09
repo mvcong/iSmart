@@ -73,28 +73,7 @@
 <!-- Theme styles END -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
 	type="text/javascript"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var x_timer;
-		$("#email").keyup(function(e) {
-			clearTimeout(x_timer);
-			var email = $(this).val();
-			x_timer = setTimeout(function() {
-				check_email_ajax(email);
-			}, 1000);
-		});
 
-		function check_email_ajax(email) {
-			$("#result").html('<img src="img/ajax-loader.gif"/>');
-			$.post('CheckEmailServlet', {
-				'email' : email
-			}, function(data) {
-				$("#result").html(data);
-			});
-		}
-
-	});
-</script>
 </head>
 <!-- Head END -->
 
@@ -116,6 +95,15 @@
 		if (cart == null) {
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
+		}
+	%>
+	<%
+		String tenTV_err = "", email_er = "";
+		if (request.getAttribute("tenTV_err") != null) {
+			tenTV_err = (String) request.getAttribute("tenTV_err");
+		}
+		if (request.getAttribute("email") != null) {
+			email_er = (String) request.getAttribute("email_err");
 		}
 	%>
 	<!-- BEGIN HEADER -->
@@ -247,35 +235,30 @@
 				<div class="col-md-12 col-sm-12">
 					<h1>Đăng ký thành viên</h1>
 					<!-- BEGIN CHECKOUT PAGE -->
-					<div class="panel-group checkout-page accordion scrollable"
-						id="checkout-page">
+					<form action="DangKyTVServlet" method="post">
 						<!-- BEGIN PAYMENT ADDRESS -->
 						<div class="panel-body row">
 							<div class="col-md-6 col-sm-6">
+
 								<div class="form-group">
-									<label for="maTV">Mã thành viên <span class="require">*</span></label>
-									<input type="text" name="maTV" id="maTV" class="form-control">
-									<span></span>
-								</div>
-								<div class="form-group">
+									<p style="color: red"><%=tenTV_err%></p>
 									<label for="tenTV">Họ và tên <span class="require">*</span></label>
 									<input type="text" name="tenTV" id="tenTV" class="form-control">
-									<span id="result"></span>
 								</div>
+
 								<div class="form-group">
+									<p style="color: red"><%=email_er%></p>
 									<label for="email">Email <span class="require">*</span></label>
-									<input type="text" name="email" id="email" class="form-control">
-									<span id="result"></span>
+									<input type="email" name="email" id="email"
+										class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="gioiTinh">Giới tính </label> <input type="text"
-										name="gioiTinh" id="gioiTinh" class="form-control"> <span
-										id="result"></span>
+										name="gioiTinh" id="gioiTinh" class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="ngaySinh">Ngày sinh </label> <input type="text"
-										name="ngaySinh" id="ngaySinh" class="form-control"> <span
-										id="result"></span>
+										name="ngaySinh" id="ngaySinh" class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="sDT">Số điện thoại</label> <input type="text"
@@ -283,17 +266,22 @@
 								</div>
 								<div class="form-group">
 									<label for="diaChi">Địa chỉ </label> <input type="text"
-										name="diaChi" id="diaChi" class="form-control"> <span
-										id="result"></span>
+										name="diaChi" id="diaChi" class="form-control">
 								</div>
 								<div>
-									<input type="hidden" value="insert" name="command"> <input type="submit" value="Đăng ký"> 
+
+									<button type="submit" class="btn btn-default">Đăng ký
+										thành viên</button>
+
 								</div>
 							</div>
+
+
+							<!-- END PAYMENT ADDRESS -->
 						</div>
 
-						<!-- END PAYMENT ADDRESS -->
-					</div>
+					</form>
+
 					<!-- END CHECKOUT PAGE -->
 				</div>
 				<!-- END CONTENT -->

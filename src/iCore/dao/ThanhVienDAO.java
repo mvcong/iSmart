@@ -32,7 +32,7 @@ public class ThanhVienDAO {
 	        String sql = "INSERT INTO thanhvien VALUES(?,?,?,?,?,?,?)";
 	        try {
 	            PreparedStatement ps = connection.prepareCall(sql);
-	            ps.setString(1, tv.getMaTV());
+	            ps.setInt(1, tv.getMaTV());
 	            ps.setString(2, tv.getTenTV());
 	            ps.setString(3, tv.getGioiTinh());		           
 	            ps.setString(5, tv.getsDT());

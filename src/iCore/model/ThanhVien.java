@@ -3,15 +3,18 @@ package iCore.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ThanhVien {
 	@Id
-	public String maTV;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int maTV = 0;
 	public String tenTV;
 	public String gioiTinh;
-	public Date ngaySinh;
+	public String ngaySinh;
 	public String sDT;
 	public String email;
 	public String diaChi;
@@ -21,7 +24,9 @@ public class ThanhVien {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ThanhVien(String maTV, String tenTV, String gioiTinh, Date ngaySinh, String sDT, String email, String diaChi,
+	
+
+	public ThanhVien(int maTV, String tenTV, String gioiTinh, String ngaySinh, String sDT, String email, String diaChi,
 			Date thoiGianCapNhat) {
 		this.maTV = maTV;
 		this.tenTV = tenTV;
@@ -33,11 +38,13 @@ public class ThanhVien {
 		this.thoiGianCapNhat = thoiGianCapNhat;
 	}
 
-	public String getMaTV() {
+
+
+	public int getMaTV() {
 		return maTV;
 	}
 
-	public void setMaTV(String maTV) {
+	public void setMaTV(int maTV) {
 		this.maTV = maTV;
 	}
 
@@ -57,13 +64,19 @@ public class ThanhVien {
 		this.gioiTinh = gioiTinh;
 	}
 
-	public Date getNgaySinh() {
+	
+
+	public String getNgaySinh() {
 		return ngaySinh;
 	}
 
-	public void setNgaySinh(Date ngaySinh) {
+
+
+	public void setNgaySinh(String ngaySinh) {
 		this.ngaySinh = ngaySinh;
 	}
+
+
 
 	public String getsDT() {
 		return sDT;
@@ -104,7 +117,7 @@ public class ThanhVien {
 		result = prime * result + ((diaChi == null) ? 0 : diaChi.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((gioiTinh == null) ? 0 : gioiTinh.hashCode());
-		result = prime * result + ((maTV == null) ? 0 : maTV.hashCode());
+		result = prime * result + maTV;
 		result = prime * result + ((ngaySinh == null) ? 0 : ngaySinh.hashCode());
 		result = prime * result + ((sDT == null) ? 0 : sDT.hashCode());
 		result = prime * result + ((tenTV == null) ? 0 : tenTV.hashCode());
@@ -136,10 +149,7 @@ public class ThanhVien {
 				return false;
 		} else if (!gioiTinh.equals(other.gioiTinh))
 			return false;
-		if (maTV == null) {
-			if (other.maTV != null)
-				return false;
-		} else if (!maTV.equals(other.maTV))
+		if (maTV != other.maTV)
 			return false;
 		if (ngaySinh == null) {
 			if (other.ngaySinh != null)
