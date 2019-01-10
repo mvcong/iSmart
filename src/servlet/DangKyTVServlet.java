@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import iCore.dao.TVDAOImpl;
 import iCore.model.ThanhVien;
 
+
 /**
  * Servlet implementation class DangKyServlet
  */
@@ -35,8 +36,7 @@ public class DangKyTVServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String tenTV = request.getParameter("tenTV");
-		String gioiTinh = request.getParameter("gioiTinh");
-		String ngaySinh = request.getParameter("ngaySinh");
+		String gioiTinh = request.getParameter("gioiTinh");		
 		String sDT = request.getParameter("sDT");
 		String email = request.getParameter("email");
 		String diaChi = request.getParameter("diaChi");
@@ -47,22 +47,25 @@ public class DangKyTVServlet extends HttpServlet {
 		if (tenTV.equals("") || email.equals("")) {
 			tenTV_err += "Vui lòng nhập họ tên !";
 			email_err += "Vui lòng nhập email !";
-		} else {
-			if (tvdaoImpl.checkEmail(email) == true) {
-				email_err += "Email đã tồn tại!";
-			}
-		}
+		} 
+//		else {
+//			if (tvdaoImpl.checkEmail(email) == true) {
+//				email_err += "Email đã tồn tại!";
+//			}
+//		}
+//		
 		if (tenTV_err.length() > 0) {
 			request.setAttribute("tenTV_err", tenTV_err);
 			request.setAttribute("tenTV", tenTV);
 		}
 		if (email_err.length() > 0) {
 			request.setAttribute("email_err", email_err);
+			request.setAttribute("email", email);
 		}
 
 		try {
 			if (tenTV_err.length() == 0 && email_err.length() == 0) {
-				tvdaoImpl.themTV(new ThanhVien(0, tenTV, gioiTinh, ngaySinh, sDT, email, diaChi, new Date()));
+				tvdaoImpl.themTV(new ThanhVien(0, tenTV, gioiTinh, sDT, email, diaChi, new Date()));
 				url = "/trangchu.jsp";
 			} else {
 				url = "/dangky.jsp";

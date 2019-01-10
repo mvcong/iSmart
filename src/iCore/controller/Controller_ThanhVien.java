@@ -114,7 +114,6 @@ public class Controller_ThanhVien extends ThanhVien implements ZEController {
 		obj.maTV = getMaTV();
 		obj.tenTV = getTenTV();
 		obj.gioiTinh = getGioiTinh();
-		obj.ngaySinh = getNgaySinh();
 		obj.sDT = getsDT();
 		obj.email = getEmail();
 		obj.diaChi = getDiaChi();

@@ -6,8 +6,8 @@
 	String tenLop = "ThanhVien";
 	String tenTrang = "Quản lý thành viên";
 	String trangDanhSach = "index.jsp?p=iCore/pages/thanhviens.jsp";
-	String[] tk_value = { "maTV", "tenTV", "email", "gioiTinh", "ngaySinh" };
-	String[] tk_show = { "Mã thành viên", "Họ và tên", "Email", "Giới tính", "Ngày sinh" };
+	String[] tk_value = { "maTV", "tenTV", "email", "gioiTinh" };
+	String[] tk_show = { "Mã thành viên", "Họ và tên", "Email", "Giới tính"};
 %>
 <%@ include file="../../iPartial/code-header.jsp"%>
 
@@ -76,15 +76,7 @@
 											<%=obj != null && obj.getGioiTinh() != null && obj.gioiTinh.equals("Nữ") ? "selected" : ""%>>Nữ</option>
 									</select>
 								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="form-group">
-									<label>Ngày sinh</label> <input class="form-control"
-										name="ngaySinh"
-										value="<%=(obj != null ? obj.getNgaySinh() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-							</div>
+							</div>							
 							<div class="col-lg-4">
 								<div class="form-group">
 									<label>Số điện thoại</label> <input class="form-control"

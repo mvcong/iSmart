@@ -16,7 +16,7 @@
 <!-- Head BEGIN -->
 <head>
 <meta charset="utf-8">
-<title>GYM SHOP</title>
+<title>GYM Smart</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -101,7 +101,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 

@@ -14,7 +14,6 @@ public class ThanhVien {
 	public int maTV = 0;
 	public String tenTV;
 	public String gioiTinh;
-	public String ngaySinh;
 	public String sDT;
 	public String email;
 	public String diaChi;
@@ -24,21 +23,17 @@ public class ThanhVien {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public ThanhVien(int maTV, String tenTV, String gioiTinh, String ngaySinh, String sDT, String email, String diaChi,
+	public ThanhVien(int maTV, String tenTV, String gioiTinh, String sDT, String email, String diaChi,
 			Date thoiGianCapNhat) {
 		this.maTV = maTV;
 		this.tenTV = tenTV;
 		this.gioiTinh = gioiTinh;
-		this.ngaySinh = ngaySinh;
+
 		this.sDT = sDT;
 		this.email = email;
 		this.diaChi = diaChi;
 		this.thoiGianCapNhat = thoiGianCapNhat;
 	}
-
-
 
 	public int getMaTV() {
 		return maTV;
@@ -63,20 +58,6 @@ public class ThanhVien {
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
-
-	
-
-	public String getNgaySinh() {
-		return ngaySinh;
-	}
-
-
-
-	public void setNgaySinh(String ngaySinh) {
-		this.ngaySinh = ngaySinh;
-	}
-
-
 
 	public String getsDT() {
 		return sDT;
@@ -118,7 +99,6 @@ public class ThanhVien {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((gioiTinh == null) ? 0 : gioiTinh.hashCode());
 		result = prime * result + maTV;
-		result = prime * result + ((ngaySinh == null) ? 0 : ngaySinh.hashCode());
 		result = prime * result + ((sDT == null) ? 0 : sDT.hashCode());
 		result = prime * result + ((tenTV == null) ? 0 : tenTV.hashCode());
 		result = prime * result + ((thoiGianCapNhat == null) ? 0 : thoiGianCapNhat.hashCode());
@@ -151,11 +131,7 @@ public class ThanhVien {
 			return false;
 		if (maTV != other.maTV)
 			return false;
-		if (ngaySinh == null) {
-			if (other.ngaySinh != null)
-				return false;
-		} else if (!ngaySinh.equals(other.ngaySinh))
-			return false;
+
 		if (sDT == null) {
 			if (other.sDT != null)
 				return false;
@@ -176,9 +152,8 @@ public class ThanhVien {
 
 	@Override
 	public String toString() {
-		return "ThanhVien [maTV=" + maTV + ", tenTV=" + tenTV + ", gioiTinh=" + gioiTinh + ", ngaySinh=" + ngaySinh
-				+ ", sDT=" + sDT + ", email=" + email + ", diaChi=" + diaChi + ", thoiGianCapNhat=" + thoiGianCapNhat
-				+ "]";
+		return "ThanhVien [maTV=" + maTV + ", tenTV=" + tenTV + ", gioiTinh=" + gioiTinh + ", sDT=" + sDT + ", email="
+				+ email + ", diaChi=" + diaChi + ", thoiGianCapNhat=" + thoiGianCapNhat + "]";
 	}
 
 }

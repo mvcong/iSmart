@@ -12,7 +12,7 @@
 <!-- Head BEGIN -->
 <head>
 <meta charset="utf-8">
-<title>GYM SHOP</title>
+<title>GYM Smart</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -98,18 +98,18 @@
 		}
 	%>
 	<%
-		String tenTV_err = "", email_er = "";
+		String tenTV_err = "", email_err = "";
 		if (request.getAttribute("tenTV_err") != null) {
 			tenTV_err = (String) request.getAttribute("tenTV_err");
 		}
 		if (request.getAttribute("email") != null) {
-			email_er = (String) request.getAttribute("email_err");
+			email_err = (String) request.getAttribute("email_err");
 		}
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="home.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -247,7 +247,7 @@
 								</div>
 
 								<div class="form-group">
-									<p style="color: red"><%=email_er%></p>
+									<p style="color: red"><%=email_err%></p>
 									<label for="email">Email <span class="require">*</span></label>
 									<input type="email" name="email" id="email"
 										class="form-control">
@@ -255,11 +255,7 @@
 								<div class="form-group">
 									<label for="gioiTinh">Giới tính </label> <input type="text"
 										name="gioiTinh" id="gioiTinh" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="ngaySinh">Ngày sinh </label> <input type="text"
-										name="ngaySinh" id="ngaySinh" class="form-control">
-								</div>
+								</div>								
 								<div class="form-group">
 									<label for="sDT">Số điện thoại</label> <input type="text"
 										name="sDT" id="sDT" class="form-control"> <span></span>

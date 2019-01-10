@@ -10,7 +10,6 @@ import org.hibernate.Transaction;
 
 import iCore.model.ThanhVien;
 
-@SuppressWarnings("unused")
 public class TVDAOImpl implements TVDAO {
 	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 

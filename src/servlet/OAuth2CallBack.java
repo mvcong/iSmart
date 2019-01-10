@@ -51,7 +51,7 @@ public class OAuth2CallBack extends HttpServlet {
 			String code = request.getParameter("code");
 			// format parameters to post
 			String urlParameters = "code=" + code
-					+ "&client_id=604162500762-8cc1fi8t3gkr6ramoch0dm57hrqpomea.apps.googleusercontent.com"
+					+ "&client_id=1065068278490-o58lnq7enkchiqa01lncqscacv35om2p.apps.googleusercontent.com"					
 					+ "&client_secret=rELT9xc3y0kV2rdlB3ZDCrmJ"
 					+ "&redirect_uri=http://localhost:8080/iSmart/OAuth2Callback" + "&grant_type=authorization_code";
 
@@ -115,7 +115,7 @@ public class OAuth2CallBack extends HttpServlet {
 			} else {
 				String err = "Tài khoản không tồn tại, hoặc mật khẩu không chính xác. <br/> Liên hệ bộ phận kỹ thuật khi quên mật khẩu đăng nhập. <hr/>";
 				session.setAttribute("err", err);
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("dangnhap.jsp");
 			}
 
 		} catch (Exception e) {
