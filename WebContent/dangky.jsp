@@ -1,3 +1,4 @@
+<%@page import="iCore.model.ThanhVien"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="sanpham.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
@@ -104,6 +105,13 @@
 		}
 		if (request.getAttribute("email") != null) {
 			email_err = (String) request.getAttribute("email_err");
+		}
+
+		ThanhVien obj = null;
+		if (session.getAttribute("obj") != null) {
+			if (session.getAttribute("obj") instanceof ThanhVien) {
+				obj = (ThanhVien) session.getAttribute("obj");
+			}
 		}
 	%>
 	<!-- BEGIN HEADER -->
@@ -239,7 +247,12 @@
 						<!-- BEGIN PAYMENT ADDRESS -->
 						<div class="panel-body row">
 							<div class="col-md-6 col-sm-6">
-
+								<div class="form-group">
+									<label for="maTV">Mã thành viên</label> <input type="text"
+										name="maTV" id="maTV" class="form-control"
+										value="<%=(obj != null ? obj.getMaTV() : System.currentTimeMillis())%>"
+										readonly required="required">
+								</div>
 								<div class="form-group">
 									<p style="color: red"><%=tenTV_err%></p>
 									<label for="tenTV">Họ và tên <span class="require">*</span></label>
@@ -255,7 +268,7 @@
 								<div class="form-group">
 									<label for="gioiTinh">Giới tính </label> <input type="text"
 										name="gioiTinh" id="gioiTinh" class="form-control">
-								</div>								
+								</div>
 								<div class="form-group">
 									<label for="sDT">Số điện thoại</label> <input type="text"
 										name="sDT" id="sDT" class="form-control"> <span></span>

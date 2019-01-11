@@ -39,6 +39,7 @@
 		dao3.saveOrUpdate(nhanvien);
 		
 		ThanhVien tv = new ThanhVien();	
+		tv.setMaTV("TV1");
 		tv.setTenTV("Nguyen Van Hieu");
 		tv.setEmail("nguyenhieu225@gmail.com");
 		ObjectDAO dao2 = new DAO_ThanhVien();

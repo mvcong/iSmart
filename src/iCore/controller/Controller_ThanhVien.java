@@ -135,7 +135,7 @@ public class Controller_ThanhVien extends ThanhVien implements ZEController {
 		HttpSession session = request.getSession();
 		int maobj = request.getContentLength();
 		ThanhVien obj = new ThanhVien();
-		obj.setMaTV(maobj);
+		obj.setMaTV(maObj);
 		if (dao.delete(obj)) {
 			session.setAttribute("msg", "Xóa dữ liệu thành công!");
 			session.setAttribute("p", duongDanTrang);

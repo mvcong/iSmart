@@ -35,6 +35,7 @@ public class DangKyTVServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		String maTV = request.getParameter("maTV");
 		String tenTV = request.getParameter("tenTV");
 		String gioiTinh = request.getParameter("gioiTinh");		
 		String sDT = request.getParameter("sDT");
@@ -65,7 +66,7 @@ public class DangKyTVServlet extends HttpServlet {
 
 		try {
 			if (tenTV_err.length() == 0 && email_err.length() == 0) {
-				tvdaoImpl.themTV(new ThanhVien(0, tenTV, gioiTinh, sDT, email, diaChi, new Date()));
+				tvdaoImpl.themTV(new ThanhVien(maTV, tenTV, gioiTinh, sDT, email, diaChi, new Date()));
 				url = "/trangchu.jsp";
 			} else {
 				url = "/dangky.jsp";

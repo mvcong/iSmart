@@ -110,7 +110,7 @@
 											for (ThanhVien tv : listThanhVien) {
 										%>
 										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().equals(tv.maTV)
+											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
 						? "selected"
 						: ""%>>
 											<%=tv.tenTV%>

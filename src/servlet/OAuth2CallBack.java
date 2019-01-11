@@ -52,7 +52,7 @@ public class OAuth2CallBack extends HttpServlet {
 			// format parameters to post
 			String urlParameters = "code=" + code
 					+ "&client_id=1065068278490-o58lnq7enkchiqa01lncqscacv35om2p.apps.googleusercontent.com"					
-					+ "&client_secret=rELT9xc3y0kV2rdlB3ZDCrmJ"
+					+ "&client_secret=KJscNHW-vRF2kt0tQ4JMQ1Kn"
 					+ "&redirect_uri=http://localhost:8080/iSmart/OAuth2Callback" + "&grant_type=authorization_code";
 
 			// post parameters

@@ -39,7 +39,7 @@
     <servlet-name>CartServlet</servlet-name>
     <url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>DangKyTVServlet</servlet-name>
     <servlet-class>servlet.DangKyTVServlet</servlet-class>
   </servlet>

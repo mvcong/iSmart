@@ -53,7 +53,7 @@
 						<th>Mã thành viên</th>
 						<th>Tên thành viên</th>
 						<th>Email</th>
-						<th>Ngày Sinh</th>
+						
 						<th>Số điện thoại</th>
 						<th>Xử lý</th>
 
@@ -63,14 +63,14 @@
 					<%
 						for (ThanhVien obj : list) {
 							//Bat buoc co de bo vao doan code xem chi tiet, chinh sua va xoa
-							int maDoiTuong = obj.getMaTV();
+							String maDoiTuong = obj.getMaTV();
 							String tenDoiTuong = obj.getTenTV();
 					%>
 					<tr class="odd gradeX">
 						<td><%=obj.getMaTV()%></td>
 						<td><%=obj.getTenTV() != null ? obj.getTenTV() : ""%></td>
 						<td><%=obj.getEmail() != null ? obj.getEmail() : ""%></td>
-						<td><%=obj.getNgaySinh() != null ? obj.getNgaySinh() : ""%></td>
+						
 						<td><%=obj.getsDT() != null ? obj.getsDT() : ""%></td>
 						<td style="text-align: center;"><%@ include
 								file="../../iPartial/menupullcuadoituong.jsp"%></td>

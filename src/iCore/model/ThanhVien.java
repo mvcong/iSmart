@@ -10,8 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class ThanhVien {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int maTV = 0;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public String maTV ;
 	public String tenTV;
 	public String gioiTinh;
 	public String sDT;
@@ -23,25 +23,34 @@ public class ThanhVien {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ThanhVien(int maTV, String tenTV, String gioiTinh, String sDT, String email, String diaChi,
+	
+
+	public ThanhVien(String maTV, String tenTV, String gioiTinh, String sDT, String email, String diaChi,
 			Date thoiGianCapNhat) {
 		this.maTV = maTV;
 		this.tenTV = tenTV;
 		this.gioiTinh = gioiTinh;
-
 		this.sDT = sDT;
 		this.email = email;
 		this.diaChi = diaChi;
 		this.thoiGianCapNhat = thoiGianCapNhat;
 	}
 
-	public int getMaTV() {
+
+
+	
+
+	public String getMaTV() {
 		return maTV;
 	}
 
-	public void setMaTV(int maTV) {
+
+
+	public void setMaTV(String maTV) {
 		this.maTV = maTV;
 	}
+
+
 
 	public String getTenTV() {
 		return tenTV;
@@ -98,7 +107,7 @@ public class ThanhVien {
 		result = prime * result + ((diaChi == null) ? 0 : diaChi.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((gioiTinh == null) ? 0 : gioiTinh.hashCode());
-		result = prime * result + maTV;
+		result = prime * result + ((maTV == null) ? 0 : maTV.hashCode());
 		result = prime * result + ((sDT == null) ? 0 : sDT.hashCode());
 		result = prime * result + ((tenTV == null) ? 0 : tenTV.hashCode());
 		result = prime * result + ((thoiGianCapNhat == null) ? 0 : thoiGianCapNhat.hashCode());
@@ -129,9 +138,11 @@ public class ThanhVien {
 				return false;
 		} else if (!gioiTinh.equals(other.gioiTinh))
 			return false;
-		if (maTV != other.maTV)
+		if (maTV == null) {
+			if (other.maTV != null)
+				return false;
+		} else if (!maTV.equals(other.maTV))
 			return false;
-
 		if (sDT == null) {
 			if (other.sDT != null)
 				return false;

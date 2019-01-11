@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>iSmart</title>
+<title>GYMSmart</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="content/css_scripts/bootstrap/css/bootstrap.min.css"

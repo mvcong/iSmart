@@ -38,6 +38,20 @@
 
 	}
 </script>
+<!-- <script type="text/javascript" src="content/qrcode.min.js"></script> -->
+<!-- 		<script type="text/javascript"> -->
+// 		function onReady()
+// 		{
+// 			var qrcode = new QRCode("id_qrcode", {
+<%-- 				text:"<%=obj.getMaThe()%>", --%>
+// 				width:100,
+// 				height:100,
+// 				colorDark:"#000000",
+// 				colorLight:"#ffffff",
+// 				correctLevel:QRCode.CorrectLevel.H
+// 			});
+// 		}
+<!-- 		</script> -->
 
 <div class="row">
 	<div class="col-lg-12">
@@ -110,7 +124,7 @@
 											for (ThanhVien tv : listThanhVien) {
 										%>
 										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().equals(tv.maTV)
+											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
 						? "selected"
 						: ""%>>
 											<%=tv.tenTV%>
@@ -120,6 +134,7 @@
 										%>
 									</select>
 								</div>
+<!-- 								<div onload=onReady() id="id_qrcode"></div> -->
 								<div class="panel-footer" style="text-align: left;">
 									<div class="col-md-12"></div>
 									<div class="col-md-12">
