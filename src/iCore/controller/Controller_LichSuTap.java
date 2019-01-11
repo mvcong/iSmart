@@ -1,12 +1,25 @@
 package iCore.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.struts2.ServletActionContext;
 
 import iCore.dao.ObjectDAO;
@@ -16,6 +29,7 @@ import iCore.model.ThanhVien;
 import iCore.modelDAO.DAO_LichSuTap;
 import iCore.modelDAO.DAO_ThanhVien;
 import iCore.util.Util_Date;
+import servlet.ServletDownload;
 
 public class Controller_LichSuTap extends LichSuTap implements ZEController {
 	ObjectDAO dao = new DAO_LichSuTap();
@@ -210,11 +224,150 @@ public class Controller_LichSuTap extends LichSuTap implements ZEController {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	private HttpServletRequest servletRequest;
+	private HttpServletResponse servletResponse;
 
+	private static HSSFCellStyle createStyleForTitle(HSSFWorkbook workbook) {
+		HSSFFont font = workbook.createFont();
+		font.setBold(true);
+		HSSFCellStyle style = workbook.createCellStyle();
+		style.setFont(font);
+		style.setAlignment(HorizontalAlignment.CENTER);
+		return style;
+	}
 	@Override
 	public String exportData() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet("Danh sách lịch sử tập");
+
+		HSSFCellStyle style = createStyleForTitle(workbook);
+
+		int rownum = 0;
+		Cell cell;
+		Row row;
+
+		row = sheet.createRow(rownum);
+		cell = row.createCell(0, CellType.STRING);
+		cell.setCellValue("DANH SÁCH THÔNG TIN LỊCH SỬ TẬP");
+		cell.setCellStyle(style);
+
+		rownum = rownum + 1;
+		row = sheet.createRow(rownum);
+
+		cell = row.createCell(0, CellType.STRING);
+		cell.setCellValue("STT");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(1, CellType.STRING);
+		cell.setCellValue("Mã lịch sử tập");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(2, CellType.STRING);
+		cell.setCellValue("Tên lịch sử tập");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(3, CellType.STRING);
+		cell.setCellValue("Ngày tập");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(4, CellType.STRING);
+		cell.setCellValue("Thời gian tập");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(5, CellType.STRING);
+		cell.setCellValue("Nội dung");
+		cell.setCellStyle(style);
+		
+		cell = row.createCell(6, CellType.STRING);
+		cell.setCellValue("Tên thành viên");
+		cell.setCellStyle(style);
+
+		rownum = rownum + 1;
+		row = sheet.createRow(rownum);
+
+		cell = row.createCell(0, CellType.STRING);
+		cell.setCellValue("(1)");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(1, CellType.STRING);
+		cell.setCellValue("(2)");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(2, CellType.STRING);
+		cell.setCellValue("(3)");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(3, CellType.STRING);
+		cell.setCellValue("(4)");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(4, CellType.STRING);
+		cell.setCellValue("(5)");
+		cell.setCellStyle(style);
+
+		cell = row.createCell(5, CellType.STRING);
+		cell.setCellValue("(6)");
+		cell.setCellStyle(style);
+		
+		cell = row.createCell(6, CellType.STRING);
+		cell.setCellValue("(7)");
+		cell.setCellStyle(style);
+
+		ObjectDAO<LichSuTap> dao = new DAO_LichSuTap();
+		ArrayList<LichSuTap> list = dao.listAll();
+		int stt = 0;
+		for (LichSuTap obj : list) {
+			rownum++;
+			stt++;
+			row = sheet.createRow(rownum);
+
+			cell = row.createCell(0, CellType.STRING);
+			cell.setCellValue(stt);
+
+			cell = row.createCell(1, CellType.STRING);
+			cell.setCellValue(obj.maLST);
+
+			cell = row.createCell(2, CellType.STRING);
+			cell.setCellValue(obj.tenLST);
+
+			cell = row.createCell(3, CellType.STRING);
+			cell.setCellValue(Util_Date.dateToString2(obj.ngayTap));
+
+			cell = row.createCell(4, CellType.STRING);
+			cell.setCellValue(obj.thoiGianTap);
+
+			cell = row.createCell(5, CellType.STRING);
+			cell.setCellValue(obj.noiDung);
+			
+			cell = row.createCell(6, CellType.STRING);
+			cell.setCellValue(obj.getThanhVien().getTenTV());
+
+		}
+		Calendar cld = Calendar.getInstance();
+		String nam = cld.get(Calendar.YEAR) + "";
+		String fileName = "Ho so lich su tap" + nam + ".xls";
+		String filePath = servletRequest.getSession().getServletContext().getRealPath("/").concat("report") + "/"
+				+ fileName;
+		System.out.println("filePath = " + filePath);
+		File file = new File(filePath);
+		file.getParentFile().mkdirs();
+
+		FileOutputStream outFile = new FileOutputStream(file);
+		workbook.write(outFile);
+		System.out.println("Created file: " + file.getAbsolutePath());
+
+		////////////////////////////////////////////////////
+		// DOWNLOAD FILE
+		////////////////////////////////////////////////////
+		ServletDownload dl = new ServletDownload();
+		try {
+			dl.doGet(servletRequest, servletResponse, filePath, fileName);
+
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "SUCCESS";
 	}
 	
 }

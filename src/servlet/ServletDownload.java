@@ -29,7 +29,7 @@ public class ServletDownload extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, String filePath, String fileName) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response, String filePath, String fileName) throws ServletException, IOException {
 		System.out.println("djaksjdkajdkajdkajdkajdkajdkajdkadjsak");
 		BufferedInputStream buf = null;
 		ServletOutputStream myOut = null;
