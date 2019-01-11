@@ -224,7 +224,7 @@ public class Controller_LichSuTap extends LichSuTap implements ZEController {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	private HttpServletRequest servletRequest;
+	private HttpServletRequest servletRequest;	
 	private HttpServletResponse servletResponse;
 
 	private static HSSFCellStyle createStyleForTitle(HSSFWorkbook workbook) {
@@ -369,5 +369,25 @@ public class Controller_LichSuTap extends LichSuTap implements ZEController {
 		}
 		return "SUCCESS";
 	}
+
+	public void setServletRequest(HttpServletRequest servletRequest) {
+		this.servletRequest = servletRequest;
+	}
+
 	
+
+	public void setServletResponse(HttpServletResponse servletResponse) {
+		this.servletResponse = servletResponse;
+	}
+//	@Override
+//	public void setServletResponse(HttpServletResponse servletResponse) {
+//		this.servletResponse = servletResponse;
+//
+//	}
+//
+//	@Override
+//	public void setServletRequest(HttpServletRequest servletRequest) {
+//		this.servletRequest = servletRequest;
+//
+//	}
 }
