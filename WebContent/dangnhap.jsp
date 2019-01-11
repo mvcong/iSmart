@@ -73,20 +73,7 @@
 					</div>
 					<div class="panel-body">
 						<form role="form" action="dangNhap.action" method="post">
-							<fieldset>
-								<div class="form-group" style="color: red; text-align: center;"><%=err%></div>
-								<div class="form-group">Sử dụng email</div>
-								<div class="form-group">
-									<a
-										href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/iSmart/OAuth2Callback&response_type=code&client_id=604162500762-8cc1fi8t3gkr6ramoch0dm57hrqpomea.apps.googleusercontent.com&approval_prompt=force"
-										class="btn btn-danger" style="width: 100%"> <i
-										class="fa fa-google-plus"></i> Đăng nhập
-									</a>
-								</div>
-								<div class="form-group">
-									<hr />
-									Hoặc dùng tài khoản iSmart
-								</div>
+							<fieldset>								
 								<div class="form-group">
 									<input class="form-control" placeholder="Tài khoản"
 										name="maDangNhap" type="text" autofocus>
