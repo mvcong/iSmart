@@ -11,6 +11,7 @@
 <meta name="author" content="">
 
 <title>GYMSmart</title>
+<link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
 
 <!-- Bootstrap Core CSS -->
 <link href="content/css_scripts/bootstrap/css/bootstrap.min.css"

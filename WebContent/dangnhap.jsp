@@ -10,6 +10,7 @@
 <meta name="author" content="">
 
 <title>GYMSmart</title>
+<link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
 
 <!-- Bootstrap Core CSS -->
 <link href="content/css_scripts/bootstrap/css/bootstrap.min.css"
@@ -88,7 +89,7 @@
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Tài khoản"
-										name="maDangNhap" type="email" autofocus>
+										name="maDangNhap" type="text" autofocus>
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Mật khẩu"
