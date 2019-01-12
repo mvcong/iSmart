@@ -8,7 +8,7 @@
 		function onReady()
 		{
 			var qrcode = new QRCode("id_qrcode", {
-				text:"abc",
+				text:"The gymer",
 				width:100,
 				height:100,
 				colorDark:"#000000",
@@ -19,7 +19,7 @@
 		</script>
 	</head>
 	<body onload=onReady()>
-	<h1>Hien thi QR Codes by Me</h1>
+	<h1>Hien thi QR Codes boi Stdio</h1>
 	<p>
 		<div id="id_qrcode"></div>
 	</p>
