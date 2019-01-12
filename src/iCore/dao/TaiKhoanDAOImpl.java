@@ -8,19 +8,20 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import iCore.model.TaiKhoan;
+import iCore.model.TaiKhoanThanhVien;
 import iCore.model.ThanhVien;
 
 public class TaiKhoanDAOImpl implements TaiKhoanDAO {
 	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 	@Override
-	public void themTK(TaiKhoan tk) {
+	public void themTK(TaiKhoanThanhVien tktv) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		try {
 			session = sessionFactory.openSession();
 			tx = session.beginTransaction();
-			session.save(tk);
+			session.save(tktv);
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -33,13 +34,14 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO {
 	}
 
 	@Override
-	public TaiKhoan getTaiKhoan(String maDangNhap) {
+	public TaiKhoanThanhVien getTaiKhoanThanhVien(String maDangNhap) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
-		TaiKhoan tk = null;
+		TaiKhoanThanhVien tktv = null;
 		try {
 			tx = session.beginTransaction();
-			tk = (TaiKhoan) session.createQuery("FROM taikhoan WHERE maDangNhap='" + maDangNhap + "'").uniqueResult();
+			tktv = (TaiKhoanThanhVien) session.createQuery("FROM taikhoan WHERE maDangNhap='" + maDangNhap + "'")
+					.uniqueResult();
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -48,7 +50,7 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO {
 		} finally {
 			session.close();
 		}
-		return tk;
+		return tktv;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -73,5 +75,4 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO {
 		}
 		return false;
 	}
-
 }

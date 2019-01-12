@@ -6,411 +6,735 @@
 	<package name="default" extends="struts-default">
 		<!-- LE NHAT TUNG -->
 		<!-- Dang nhap -->
-		<action name="dangNhap" class="iCore.controller.Controller_XacThuc"
-			method="dangNhap">
+		<action name="dangNhap"
+			class="iCore.controller.Controller_XacThuc" method="dangNhap">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/dangnhap.jsp</result>
 		</action>
 		<!-- Dang nhap -->
 		<!-- Dang xuat -->
-		<action name="dangXuat" class="iCore.controller.Controller_XacThuc"
-			method="dangXuat">
+		<action name="dangXuat"
+			class="iCore.controller.Controller_XacThuc" method="dangXuat">
 			<result name="SUCCESS">/dangnhap.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Dang xuat -->
-		<action name="doiMatKhauTaiKhoanNhanVien" class="iCore.controller.Controller_TaiKhoanNhanVien"
+		<action name="doiMatKhauTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien"
 			method="doiMatKhau">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
-<!-- Tìm kiếm chức năng -->
-		<action name="timKiemChucNang" class="iCore.controller.Controller_ChucNang"
-			method="search">
+		<!-- <action name="saveOrUpdate" -->
+		<!-- class="iCore.controller.Controller_DangKyTaiKhoan" method="saveOrUpdate"> -->
+		<!-- <result name="SUCCESS">/dangnhap.jsp</result> -->
+		<!-- <result name="FAIL">/dangkytktv.jsp</result> -->
+
+		<!-- </action> -->
+
+		<!-- Tìm kiếm chức năng -->
+		<action name="timKiemChucNang"
+			class="iCore.controller.Controller_ChucNang" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại chức năng -->
-		<action name="taiLaiChucNang" class="iCore.controller.Controller_ChucNang"
-			method="refresh">
+		<action name="taiLaiChucNang"
+			class="iCore.controller.Controller_ChucNang" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới chức năng -->
-		<action name="themMoiChucNang" class="iCore.controller.Controller_ChucNang"
-			method="addNew">
+		<action name="themMoiChucNang"
+			class="iCore.controller.Controller_ChucNang" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu chức năng -->
-		<action name="luuDuLieuChucNang" class="iCore.controller.Controller_ChucNang"
-			method="saveOrUpdate">
+		<action name="luuDuLieuChucNang"
+			class="iCore.controller.Controller_ChucNang" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietChucNang" class="iCore.controller.Controller_ChucNang"
-			method="viewDetail">
+		<action name="xemChiTietChucNang"
+			class="iCore.controller.Controller_ChucNang" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaChucNang" class="iCore.controller.Controller_ChucNang"
+		<action name="xemChiTietVaChinhSuaChucNang"
+			class="iCore.controller.Controller_ChucNang"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa chức năng -->
-		<action name="deleteChucNang" class="iCore.controller.Controller_ChucNang"
-			method="delete">
+		<action name="deleteChucNang"
+			class="iCore.controller.Controller_ChucNang" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý chức năng -->
 		<!-- Xử lý nhóm phân quyền -->
 		<!-- Tìm kiếm nhóm phân quyền -->
-		<action name="timKiemNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
-			method="search">
+		<action name="timKiemNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhóm phân quyền -->
-		<action name="taiLaiNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
-			method="refresh">
+		<action name="taiLaiNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới nhóm phân quyền -->
-		<action name="themMoiNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
-			method="addNew">
+		<action name="themMoiNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu nhóm phân quyền -->
-		<action name="luuDuLieuNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
+		<action name="luuDuLieuNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen"
 			method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
-			method="viewDetail">
+		<action name="xemChiTietNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
+		<action name="xemChiTietVaChinhSuaNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa nhóm phân quyền -->
-		<action name="deleteNhomPhanQuyen" class="iCore.controller.Controller_NhomPhanQuyen"
-			method="delete">
+		<action name="deleteNhomPhanQuyen"
+			class="iCore.controller.Controller_NhomPhanQuyen" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý nhóm phân quyền -->
-		<action name="timKiemNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="search">
+		<action name="timKiemNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhân viên -->
-		<action name="taiLaiNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="refresh">
+		<action name="taiLaiNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới NhanVien -->
-		<action name="themMoiNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="addNew">
+		<action name="themMoiNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu NhanVien -->
-		<action name="luuDuLieuNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="saveOrUpdate">
+		<action name="luuDuLieuNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="viewDetail">
+		<action name="xemChiTietNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaNhanVien" class="iCore.controller.Controller_NhanVien"
+		<action name="xemChiTietVaChinhSuaNhanVien"
+			class="iCore.controller.Controller_NhanVien"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa NhanVien -->
-		<action name="deleteNhanVien" class="iCore.controller.Controller_NhanVien"
-			method="delete">
+		<action name="deleteNhanVien"
+			class="iCore.controller.Controller_NhanVien" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý NhanVien -->
 		<!-- Sản phẩm -->
-		<action name="timKiemSanPham" class="iCore.controller.Controller_SanPham"
-			method="search">
+		<action name="timKiemSanPham"
+			class="iCore.controller.Controller_SanPham" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại sản phẩm -->
-		
-		<action name="taiLaiSanPham" class="iCore.controller.Controller_SanPham"
-			method="refresh">
+
+		<action name="taiLaiSanPham"
+			class="iCore.controller.Controller_SanPham" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới sản phẩm -->
-		<action name="themMoiSanPham" class="iCore.controller.Controller_SanPham"
-			method="addNew">
+		<action name="themMoiSanPham"
+			class="iCore.controller.Controller_SanPham" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
-		<action name="luuDuLieuSanPham" class="iCore.controller.Controller_SanPham"
-			method="saveOrUpdate">
+		<action name="luuDuLieuSanPham"
+			class="iCore.controller.Controller_SanPham" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietSanPham" class="iCore.controller.Controller_SanPham"
-			method="viewDetail">
+		<action name="xemChiTietSanPham"
+			class="iCore.controller.Controller_SanPham" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaSanPham" class="iCore.controller.Controller_SanPham"
+		<action name="xemChiTietVaChinhSuaSanPham"
+			class="iCore.controller.Controller_SanPham"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
-		<action name="deleteSanPham" class="iCore.controller.Controller_SanPham"
-			method="delete">
+		<action name="deleteSanPham"
+			class="iCore.controller.Controller_SanPham" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
 		<!-- Dụng cụ -->
-		<action name="timKiemDungCu" class="iCore.controller.Controller_DungCu"
-			method="search">
+		<action name="timKiemDungCu"
+			class="iCore.controller.Controller_DungCu" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại dụng cụ -->
-		<action name="taiLaiDungCu" class="iCore.controller.Controller_DungCu"
-			method="refresh">
+		<action name="taiLaiDungCu"
+			class="iCore.controller.Controller_DungCu" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới dụng cụ -->
-		<action name="themMoiDungCu" class="iCore.controller.Controller_DungCu"
-			method="addNew">
+		<action name="themMoiDungCu"
+			class="iCore.controller.Controller_DungCu" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
-		<action name="luuDuLieuDungCu" class="iCore.controller.Controller_DungCu"
-			method="saveOrUpdate">
+		<action name="luuDuLieuDungCu"
+			class="iCore.controller.Controller_DungCu" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietDungCu" class="iCore.controller.Controller_DungCu"
-			method="viewDetail">
+		<action name="xemChiTietDungCu"
+			class="iCore.controller.Controller_DungCu" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaDungCu" class="iCore.controller.Controller_DungCu"
-			method="viewDetailAndEdit">
+		<action name="xemChiTietVaChinhSuaDungCu"
+			class="iCore.controller.Controller_DungCu" method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
-		<action name="deleteDungCu" class="iCore.controller.Controller_DungCu"
-			method="delete">
+		<action name="deleteDungCu"
+			class="iCore.controller.Controller_DungCu" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
 		<!-- Loại sản phẩm -->
-		<action name="timKiemLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="search">
+		<action name="timKiemLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- Tải lại dụng cụ -->
-		<action name="taiLaiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="refresh">
+		<action name="taiLaiLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới dụng cụ -->
-		<action name="themMoiLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="addNew">
+		<action name="themMoiLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu Sản phẩm -->
-		<action name="luuDuLieuLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="saveOrUpdate">
+		<action name="luuDuLieuLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="viewDetail">
+		<action name="xemChiTietLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
+		<action name="xemChiTietVaChinhSuaLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa sản phẩm -->
-		<action name="deleteLoaiSanPham" class="iCore.controller.Controller_LoaiSanPham"
-			method="delete">
+		<action name="deleteLoaiSanPham"
+			class="iCore.controller.Controller_LoaiSanPham" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý sản phẩm -->
-		<action name="timKiemThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="search">
+		<action name="timKiemThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhân viên -->
-		<action name="taiLaiThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="refresh">
+		<action name="taiLaiThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới NhanVien -->
-		<action name="themMoiThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="addNew">
+		<action name="themMoiThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu NhanVien -->
-		<action name="luuDuLieuThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="saveOrUpdate">
+		<action name="luuDuLieuThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="viewDetail">
+		<action name="xemChiTietThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaThanhVien" class="iCore.controller.Controller_ThanhVien"
+		<action name="xemChiTietVaChinhSuaThanhVien"
+			class="iCore.controller.Controller_ThanhVien"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa NhanVien -->
-		<action name="deleteThanhVien" class="iCore.controller.Controller_ThanhVien"
-			method="delete">
+		<action name="deleteThanhVien"
+			class="iCore.controller.Controller_ThanhVien" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
-		
-		<action name="timKiemTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
-			method="search">
+
+		<action name="timKiemTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien" method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại nhân viên -->
-		<action name="taiLaiTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
-			method="refresh">
+		<action name="taiLaiTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien" method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới NhanVien -->
-		<action name="themMoiTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
-			method="addNew">
+		<action name="themMoiTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien" method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu NhanVien -->
-		<action name="luuDuLieuTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
+		<action name="luuDuLieuTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien"
 			method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
-			method="viewDetail">
+		<action name="xemChiTietTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien" method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
+		<action name="xemChiTietVaChinhSuaTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa NhanVien -->
-		<action name="deleteTheThanhVien" class="iCore.controller.Controller_TheThanhVien"
-			method="delete">
+		<action name="deleteTheThanhVien"
+			class="iCore.controller.Controller_TheThanhVien" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+
+		<action name="taiLaiLichSuTap"
+			class="iCore.controller.Controller_LichSuTap" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiLichSuTap"
+			class="iCore.controller.Controller_LichSuTap" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuLichSuTap"
+			class="iCore.controller.Controller_LichSuTap"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietLichSuTap"
+			class="iCore.controller.Controller_LichSuTap" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaLichSuTap"
+			class="iCore.controller.Controller_LichSuTap"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deleteLichSuTap"
+			class="iCore.controller.Controller_LichSuTap" method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		
+		
+		<action name="taiLaiThongBao"
+			class="iCore.controller.Controller_ThongBao" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiThongBao"
+			class="iCore.controller.Controller_ThongBao" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuThongBao"
+			class="iCore.controller.Controller_ThongBao"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietThongBao"
+			class="iCore.controller.Controller_ThongBao" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaThongBao"
+			class="iCore.controller.Controller_ThongBao"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deleteThongBao"
+			class="iCore.controller.Controller_ThongBao" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		
+		
+		<action name="taiLaiPhieuChi"
+			class="iCore.controller.Controller_PhieuChi" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiPhieuChi"
+			class="iCore.controller.Controller_PhieuChi" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuPhieuChi"
+			class="iCore.controller.Controller_PhieuChi"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietPhieuChi"
+			class="iCore.controller.Controller_PhieuChi" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaPhieuChi"
+			class="iCore.controller.Controller_PhieuChi"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deletePhieuChi"
+			class="iCore.controller.Controller_PhieuChi" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		
+		
+		<action name="taiLaiPhieuThu"
+			class="iCore.controller.Controller_PhieuThu" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiPhieuThu"
+			class="iCore.controller.Controller_PhieuThu" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuPhieuThu"
+			class="iCore.controller.Controller_PhieuThu"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietPhieuThu"
+			class="iCore.controller.Controller_PhieuThu" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaPhieuThu"
+			class="iCore.controller.Controller_PhieuThu"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deletePhieuThu"
+			class="iCore.controller.Controller_PhieuThu" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		
+		
+		<action name="taiLaiPhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiPhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuPhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietPhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaPhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deletePhieuGiamSatTV"
+			class="iCore.controller.Controller_PhieuGiamSatTV" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		
+		
+		<action name="taiLaiTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deleteTaiKhoanThanhVien"
+			class="iCore.controller.Controller_TaiKhoanThanhVien" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		
+		
+		<action name="taiLaiTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien" method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới NhanVien -->
+		<action name="themMoiTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien" method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu NhanVien -->
+		<action name="luuDuLieuTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien" method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa NhanVien -->
+		<action name="deleteTaiKhoanNhanVien"
+			class="iCore.controller.Controller_TaiKhoanNhanVien" method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
 	</package>
 </struts>

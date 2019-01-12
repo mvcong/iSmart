@@ -47,4 +47,14 @@
     <servlet-name>DangKyTVServlet</servlet-name>
     <url-pattern>/DangKyTVServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>DangKyTaiKhoanServlet</servlet-name>
+    <servlet-class>servlet.DangKyTaiKhoanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangKyTaiKhoanServlet</servlet-name>
+    <url-pattern>/DangKyTaiKhoanServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

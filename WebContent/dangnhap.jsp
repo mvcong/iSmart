@@ -68,7 +68,7 @@
 						<p class="panel-title">
 							<img src="content/images/logo.png" width="50px" height="50px" /><br />
 							ĐỒ ÁN TỐT NGHIỆP <br /> Hệ thống Quản lý phòng tập GYM
-							
+							<div class="form-group" style="color: red; text-align: center;"><%=err%></div>
 						</p>
 					</div>
 					<div class="panel-body">
