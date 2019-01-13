@@ -29,7 +29,7 @@ public class SanPhamDAO {
 		return list;
 	}
 
-	public ArrayList<SanPham> getListAllSanPham(String maSP) throws ClassNotFoundException, SQLException {
+	public ArrayList<SanPham> getListAllSanPham() throws ClassNotFoundException, SQLException {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
 		String sql = "SELECT * FROM sanpham ";
 		PreparedStatement ps = connection.prepareCall(sql);

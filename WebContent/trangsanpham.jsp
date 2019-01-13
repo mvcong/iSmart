@@ -17,7 +17,8 @@
 <head>
 <meta charset="utf-8">
 <title>GYM Smart</title>
-<link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
+<link rel="icon" type="image/png"
+	href="login_css/images/icons/favicon.ico" />
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -134,7 +135,8 @@
 							%>
 						</ul>
 						<div class="text-right">
-							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ hàng</a> <a href="dathang.jsp" class="btn btn-primary">Đặt hàng</a>
+							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
+								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Đặt hàng</a>
 						</div>
 					</div>
 
@@ -191,13 +193,19 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">
+				<div class="sidebar col-md-3 col-sm-5">	
+				<ul class="list-group margin-bottom-25 sidebar-menu">
+						<li class="list-group-item clearfix"><a
+							href="trangsanpham.jsp"><i
+								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
+					</ul>			
 					<%
 						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
 					%>
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="trangsanphamtheoloai.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
+							href="trangsanphamtheoloai.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i
+								class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
 					</ul>
 					<%
 						}
@@ -210,49 +218,18 @@
 							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
 								href="javascript:;"><i class="fa fa-th-list"></i></a>
 						</div>
-						<div class="col-md-10 col-sm-10">
-							<div class="pull-right">
-								<label class="control-label">Show:</label> <select
-									class="form-control input-sm">
-									<option value="#?limit=24" selected="selected">24</option>
-									<option value="#?limit=25">25</option>
-									<option value="#?limit=50">50</option>
-									<option value="#?limit=75">75</option>
-									<option value="#?limit=100">100</option>
-								</select>
-							</div>
-							<div class="pull-right">
-								<label class="control-label">Sort&nbsp;By:</label> <select
-									class="form-control input-sm">
-									<option value="#?sort=p.sort_order&amp;order=ASC"
-										selected="selected">Default</option>
-									<option value="#?sort=pd.name&amp;order=ASC">Name (A -
-										Z)</option>
-									<option value="#?sort=pd.name&amp;order=DESC">Name (Z
-										- A)</option>
-									<option value="#?sort=p.price&amp;order=ASC">Price
-										(Low &gt; High)</option>
-									<option value="#?sort=p.price&amp;order=DESC">Price
-										(High &gt; Low)</option>
-									<option value="#?sort=rating&amp;order=DESC">Rating
-										(Highest)</option>
-									<option value="#?sort=rating&amp;order=ASC">Rating
-										(Lowest)</option>
-									<option value="#?sort=p.model&amp;order=ASC">Model (A
-										- Z)</option>
-									<option value="#?sort=p.model&amp;order=DESC">Model (Z
-										- A)</option>
-								</select>
-							</div>
+						<div class="col-md-10 col-sm-10" align="center">
+							<p>
+								Sản phẩm
+								<%=maLoai%></p>
 						</div>
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
 						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham(maSP)) {
+							for (SanPham sp : sanPhamDAO.getListAllSanPham()) {
 						%>
-						<!-- PRODUCT ITEM START -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="col-sm-4">
 							<div class="product-item">
 								<div class="pi-img-wrapper">
 									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
@@ -275,24 +252,24 @@
 						</div>
 						<%
 							}
-						%>												
+						%>
 					</div>
 					<!-- END PRODUCT LIST -->
 					<!-- BEGIN PAGINATOR -->
 					<div class="row">
-<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-<!-- 							total</div> -->
-<!-- 						<div class="col-md-8 col-sm-8"> -->
-<!-- 							<ul class="pagination pull-right"> -->
-<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-<!-- 								<li><a href="javascript:;">1</a></li> -->
-<!-- 								<li><span>2</span></li> -->
-<!-- 								<li><a href="javascript:;">3</a></li> -->
-<!-- 								<li><a href="javascript:;">4</a></li> -->
-<!-- 								<li><a href="javascript:;">5</a></li> -->
-<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-<!-- 							</ul> -->
-<!-- 						</div> -->
+						<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+						<!-- 							total</div> -->
+						<!-- 						<div class="col-md-8 col-sm-8"> -->
+						<!-- 							<ul class="pagination pull-right"> -->
+						<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+						<!-- 								<li><a href="javascript:;">1</a></li> -->
+						<!-- 								<li><span>2</span></li> -->
+						<!-- 								<li><a href="javascript:;">3</a></li> -->
+						<!-- 								<li><a href="javascript:;">4</a></li> -->
+						<!-- 								<li><a href="javascript:;">5</a></li> -->
+						<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+						<!-- 							</ul> -->
+						<!-- 						</div> -->
 					</div>
 					<!-- END PAGINATOR -->
 				</div>
@@ -302,39 +279,41 @@
 		</div>
 	</div>
 
-<!-- 	<!-- BEGIN BRANDS --> -->
-<!-- 	<div class="brands"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- 	<!-- END BRANDS --> -->
+	<!-- 	<!-- BEGIN BRANDS -->
+	-->
+	<!-- 	<div class="brands"> -->
+	<!-- 		<div class="container"> -->
+	<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
+	<!-- 				<a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+	<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+	<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+	<!-- 				<a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+	<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+	<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+	<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+	<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+	<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+	<!-- 				<a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+	<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+	<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+	<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+	<!-- 					title="zara"></a> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+	<!-- 	<!-- END BRANDS -->
+	-->
 
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
