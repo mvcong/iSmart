@@ -76,8 +76,9 @@
 								<div class="form-group">
 									<label>Mã phiếu giám sát</label> <input class="form-control"
 										id="maPGS" name="maPGS" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaPGS() != null ? obj.getMaPGS() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaPGS() != null ? obj.getMaPGS() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên phiếu chi</label> <input class="form-control"
@@ -142,11 +143,11 @@
 										%>
 									</select>
 								</div>
-								<div class="panel-footer" style="text-align: left;">
-									<div class="col-md-12"></div>
-									<div class="col-md-12">
-										<%@ include file="../../iPartial/processform.jsp"%>
-									</div>
+							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
 								</div>
 							</div>
 						</div>

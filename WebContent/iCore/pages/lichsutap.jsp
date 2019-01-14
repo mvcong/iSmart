@@ -72,8 +72,9 @@
 								<div class="form-group">
 									<label>Mã lịch sử tập</label> <input class="form-control"
 										id="maLST" name="maLST" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaLST() != null ? obj.getMaLST() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaLST() != null ? obj.getMaLST() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên lịch sử tập</label> <input class="form-control"
@@ -120,11 +121,11 @@
 										%>
 									</select>
 								</div>
-								<div class="panel-footer" style="text-align: left;">
-									<div class="col-md-12"></div>
-									<div class="col-md-12">
-										<%@ include file="../../iPartial/processform.jsp"%>
-									</div>
+							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
 								</div>
 							</div>
 						</div>

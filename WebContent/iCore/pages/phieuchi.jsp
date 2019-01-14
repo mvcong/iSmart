@@ -72,8 +72,9 @@
 								<div class="form-group">
 									<label>Mã phiếu chi</label> <input class="form-control"
 										id="maPC" name="maPC" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaPC() != null ? obj.getMaPC() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaPC() != null ? obj.getMaPC() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên phiếu chi</label> <input class="form-control"
@@ -93,6 +94,8 @@
 										value="<%=(obj != null && obj.getSoLuong() != null ? obj.getSoLuong() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+							</div>
+							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Thành phần</label> <input class="form-control"
 										name="thanhPhan"
@@ -130,11 +133,11 @@
 										%>
 									</select>
 								</div>
-								<div class="panel-footer" style="text-align: left;">
-									<div class="col-md-12"></div>
-									<div class="col-md-12">
-										<%@ include file="../../iPartial/processform.jsp"%>
-									</div>
+							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
 								</div>
 							</div>
 						</div>

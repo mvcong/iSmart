@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
 <%@page
@@ -134,7 +135,7 @@
 						</ul>
 						<div class="text-right">
 							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
-								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Đặt hàng</a>
+								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh toán</a>
 						</div>
 					</div>
 				</div>
@@ -214,13 +215,10 @@
 												alt="Berry Lace Dress"></a></td>
 										<td class="goods-page-description">
 											<h3>
-												<a href="javascript:;"><%=list.getValue().getSanPham().getTenSP()%></a>
-											</h3>
-											<p>
-												<strong>Item 1</strong> - Color: Green; Size: S
-											</p> <em>More info is here</em>
+												<a href="chiteitsanpham.jsp"><%=list.getValue().getSanPham().getTenSP()%></a>
+											</h3>											
 										</td>
-										<td class="goods-page-ref-no">javc2133</td>
+										<td class="goods-page-ref-no"><%= new Date()%></td>
 										<td class="goods-page-quantity">
 											<div class="product-quantity">
 												<input id="product-quantity" type="text"
@@ -245,21 +243,21 @@
 
 							<div class="shopping-total">
 								<ul>
-									<li><em>Sub total</em> <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
+									<li><em>Tổng tiền</em> <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
 									</li>
-									<li><em>Shipping cost</em> <strong class="price"><span>vnđ</span>3.00</strong>
-									</li>
-									<li class="shopping-total-price"><em>Total</em> <strong
-										class="price"><span>vnđ</span><%=cart.totalCart()%></strong></li>
+<!-- 									<li><em>Shipping cost</em> <strong class="price"><span>vnđ</span>3.00</strong> -->
+<!-- 									</li> -->
+<!-- 									<li class="shopping-total-price"><em>Total</em> <strong -->
+<%-- 										class="price"><span>vnđ</span><%=cart.totalCart()%></strong></li> --%>
 								</ul>
 							</div>
 						</div>
-						<button class="btn btn-default" type="submit">
+						<a  href="trangsanpham.jsp"   class="btn btn-default">
 							Tiếp tục mua sắm <i class="fa fa-shopping-cart"></i>
-						</button>
-						<button class="btn btn-primary" type="submit">
-							Đặt hàng <i class="fa fa-check"></i>
-						</button>
+						</a>						
+						<a href="dathang.jsp" class="btn btn-primary" >
+							Thanh toán <i class="fa fa-check"></i>
+						</a>
 					</div>
 				</div>
 				<!-- END CONTENT -->

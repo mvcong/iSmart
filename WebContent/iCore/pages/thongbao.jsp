@@ -71,8 +71,8 @@
 								<div class="form-group">
 									<label>Mã thông báo</label> <input class="form-control"
 										id="maTB" name="maTB" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaTB() != null ? obj.getMaTB() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaTB() != null ? obj.getMaTB() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên thông báo</label> <input class="form-control"

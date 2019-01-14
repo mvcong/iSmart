@@ -72,8 +72,9 @@
 								<div class="form-group">
 									<label>Mã dụng cụ</label> <input class="form-control" id="maDC"
 										name="maDC" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaDC() != null ? obj.getMaDC() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaDC() != null ? obj.getMaDC() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên dụng cụ</label> <input class="form-control"
@@ -93,6 +94,8 @@
 										value="<%=(obj != null && obj.getSoLuong() != null ? obj.getSoLuong() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+							</div>
+							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Loại dụng cụ</label> <input class="form-control"
 										name="loaiDC"
@@ -130,11 +133,12 @@
 										%>
 									</select>
 								</div>
-								<div class="panel-footer" style="text-align: left;">
-									<div class="col-md-12"></div>
-									<div class="col-md-12">
-										<%@ include file="../../iPartial/processform.jsp"%>
-									</div>
+
+							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
 								</div>
 							</div>
 						</div>

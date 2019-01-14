@@ -280,7 +280,13 @@
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
-		<!-- kết thúc xử lý sản phẩm -->
+		<action name="exportDataDungCu"
+			class="iCore.controller.Controller_DungCu"
+			method="exportData">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		<!-- kết thúc xử lý dụng cụ-->
 		<!-- Loại sản phẩm -->
 		<action name="timKiemLoaiSanPham"
 			class="iCore.controller.Controller_LoaiSanPham" method="search">

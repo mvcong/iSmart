@@ -40,17 +40,10 @@
 </script>
 <!-- <script type="text/javascript" src="content/qrcode.min.js"></script> -->
 <!-- 		<script type="text/javascript"> -->
-// 		function onReady()
-// 		{
-// 			var qrcode = new QRCode("id_qrcode", {
+// function onReady() // { // var qrcode = new QRCode("id_qrcode", {
 <%-- 				text:"<%=obj.getMaThe()%>", --%>
-// 				width:100,
-// 				height:100,
-// 				colorDark:"#000000",
-// 				colorLight:"#ffffff",
-// 				correctLevel:QRCode.CorrectLevel.H
-// 			});
-// 		}
+// width:100, // height:100, // colorDark:"#000000", //
+colorLight:"#ffffff", // correctLevel:QRCode.CorrectLevel.H // }); // }
 <!-- 		</script> -->
 
 <div class="row">
@@ -85,8 +78,9 @@
 								<div class="form-group">
 									<label>Mã thẻ</label> <input class="form-control" id="maThe"
 										name="maThe" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaThe() != null ? obj.getMaThe() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaThe() != null ? obj.getMaThe() : System.currentTimeMillis())%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 
 								<div class="form-group">
@@ -134,12 +128,12 @@
 										%>
 									</select>
 								</div>
-<!-- 								<div onload=onReady() id="id_qrcode"></div> -->
-								<div class="panel-footer" style="text-align: left;">
-									<div class="col-md-12"></div>
-									<div class="col-md-12">
-										<%@ include file="../../iPartial/processform.jsp"%>
-									</div>
+								<!-- 								<div onload=onReady() id="id_qrcode"></div> -->
+							</div>
+							<div class="panel-footer" style="text-align: left;">
+								<div class="col-md-12"></div>
+								<div class="col-md-12">
+									<%@ include file="../../iPartial/processform.jsp"%>
 								</div>
 							</div>
 						</div>
