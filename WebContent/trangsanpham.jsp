@@ -103,7 +103,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangchu.jsp">GYM Smart</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -148,12 +148,8 @@
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="trangchu.jsp">Trang chủ</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
+				
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -247,7 +243,7 @@
 								<div class="pi-price">
 									vnđ<%=sp.getGiaBan()%></div>
 								<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
-									class="btn btn-default add2cart">Add to cart</a>
+									class="btn btn-default add2cart">Thêm vào giỏ</a>
 							</div>
 						</div>
 						<%
@@ -256,20 +252,7 @@
 					</div>
 					<!-- END PRODUCT LIST -->
 					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-						<!-- 							total</div> -->
-						<!-- 						<div class="col-md-8 col-sm-8"> -->
-						<!-- 							<ul class="pagination pull-right"> -->
-						<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-						<!-- 								<li><a href="javascript:;">1</a></li> -->
-						<!-- 								<li><span>2</span></li> -->
-						<!-- 								<li><a href="javascript:;">3</a></li> -->
-						<!-- 								<li><a href="javascript:;">4</a></li> -->
-						<!-- 								<li><a href="javascript:;">5</a></li> -->
-						<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-						<!-- 							</ul> -->
-						<!-- 						</div> -->
+					<div class="row">						
 					</div>
 					<!-- END PAGINATOR -->
 				</div>
@@ -277,44 +260,7 @@
 			</div>
 			<!-- END SIDEBAR & CONTENT -->
 		</div>
-	</div>
-
-	<!-- 	<!-- BEGIN BRANDS -->
-	-->
-	<!-- 	<div class="brands"> -->
-	<!-- 		<div class="container"> -->
-	<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
-	<!-- 				<a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-	<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-	<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-	<!-- 				<a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-	<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-	<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-	<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-	<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-	<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-	<!-- 				<a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-	<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-	<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-	<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-	<!-- 					title="zara"></a> -->
-	<!-- 			</div> -->
-	<!-- 		</div> -->
-	<!-- 	</div> -->
-	<!-- 	<!-- END BRANDS -->
-	-->
-
+	</div>	
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
 		<div class="container">

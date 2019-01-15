@@ -117,89 +117,15 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="trangsanpham.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="trangchu.jsp">GYM Smart</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
-				class="fa fa-bars"></i></a>
-
-			<!-- BEGIN CART -->
-			<div class="top-cart-block">
-				<div class="top-cart-info">
-					<a href="javascript:void(0);" class="top-cart-info-count"><%=cart.countItem()%></a>
-					<a href="javascript:void(0);" class="top-cart-info-value">VNĐ<%=cart.totalCart()%></a>
-				</div>
-				<i class="fa fa-shopping-cart"></i>
-
-				<div class="top-cart-content-wrapper">
-					<div class="top-cart-content">
-						<ul class="scroller" style="height: 250px;">
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-							<li><a href="shop-item.html"><img
-									src="content/assets/pages/img/cart-img.jpg"
-									alt="Rolex Classic Watch" width="37" height="34"></a> <span
-								class="cart-content-count">x 1</span> <strong><a
-									href="shop-item.html">Rolex Classic Watch</a></strong> <em>$1230</em> <a
-								href="javascript:void(0);" class="del-goods">&nbsp;</a></li>
-						</ul>
-						<div class="text-right">
-							<a href="shop-shopping-cart.html" class="btn btn-default">View
-								Cart</a> <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--END CART -->
-
+				class="fa fa-bars"></i></a>			
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
+			
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -221,19 +147,7 @@
 			<!-- END NAVIGATION -->
 		</div>
 	</div>
-	<!-- Header END -->
-
-	<div class="title-wrapper">
-		<div class="container">
-			<div class="container-inner">
-				<h1>
-					<span>MEN</span> CATEGORY
-				</h1>
-				<em>Over 4000 Items are available here</em>
-			</div>
-		</div>
-	</div>
-
+	<!-- Header END -->	
 	<div class="main">
 		<div class="container">
 			<!-- BEGIN SIDEBAR & CONTENT -->

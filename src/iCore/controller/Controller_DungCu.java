@@ -18,10 +18,14 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.BorderExtent;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.PropertyTemplate;
 import org.apache.struts2.ServletActionContext;
 
 import iCore.dao.ObjectDAO;
@@ -32,6 +36,7 @@ import iCore.modelDAO.DAO_DungCu;
 import iCore.modelDAO.DAO_LichSuTap;
 import iCore.modelDAO.DAO_NhanVien;
 import iCore.util.Util_Date;
+import iCore.util.Util_Excel;
 import servlet.ServletDownload;
 
 public class Controller_DungCu extends DungCu implements ZEController {
@@ -45,47 +50,37 @@ public class Controller_DungCu extends DungCu implements ZEController {
 	String maObj;
 	String s_ngayNhap;
 	String maNV;
-	
-	
-	File excel_myFile;
-	String excel_myFileContentType;
-	String excel_myFileFileName;
-	String excel_myFileName;
+
+	File myFile;
+	String myFileContentType;
+	String myFileFileName;
+	String myFileName;
 	String myFolder_iCore;
 
 	String tenDC;
 
-	
-	public File getExcel_myFile() {
-		return excel_myFile;
+	public String getMyFileContentType() {
+		return myFileContentType;
 	}
 
-	public void setExcel_myFile(File excel_myFile) {
-		this.excel_myFile = excel_myFile;
+	public void setMyFileContentType(String myFileContentType) {
+		this.myFileContentType = myFileContentType;
 	}
 
-	public String getExcel_myFileContentType() {
-		return excel_myFileContentType;
+	public String getMyFileFileName() {
+		return myFileFileName;
 	}
 
-	public void setExcel_myFileContentType(String excel_myFileContentType) {
-		this.excel_myFileContentType = excel_myFileContentType;
+	public void setMyFileFileName(String myFileFileName) {
+		this.myFileFileName = myFileFileName;
 	}
 
-	public String getExcel_myFileFileName() {
-		return excel_myFileFileName;
+	public String getMyFileName() {
+		return myFileName;
 	}
 
-	public void setExcel_myFileFileName(String excel_myFileFileName) {
-		this.excel_myFileFileName = excel_myFileFileName;
-	}
-
-	public String getExcel_myFileName() {
-		return excel_myFileName;
-	}
-
-	public void setExcel_myFileName(String excel_myFileName) {
-		this.excel_myFileName = excel_myFileName;
+	public void setMyFileName(String myFileName) {
+		this.myFileName = myFileName;
 	}
 
 	public String getMyFolder_iCore() {
@@ -284,7 +279,8 @@ public class Controller_DungCu extends DungCu implements ZEController {
 	public String importData() {
 		return null;
 	}
-	private HttpServletRequest servletRequest;	
+
+	private HttpServletRequest servletRequest;
 	private HttpServletResponse servletResponse;
 
 	private static HSSFCellStyle createStyleForTitle(HSSFWorkbook workbook) {
@@ -300,8 +296,10 @@ public class Controller_DungCu extends DungCu implements ZEController {
 	public String exportData() throws IOException {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Danh sách dụng cụ");
-
+		//
 		HSSFCellStyle style = createStyleForTitle(workbook);
+		// merged cell
+		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 5));
 
 		int rownum = 0;
 		Cell cell;
@@ -309,7 +307,27 @@ public class Controller_DungCu extends DungCu implements ZEController {
 
 		row = sheet.createRow(rownum);
 		cell = row.createCell(0, CellType.STRING);
-		cell.setCellValue("DANH SÁCH THÔNG TIN DỤNG CỤ");
+		cell.setCellValue("GYM XXX");
+		style.setAlignment(HorizontalAlignment.CENTER);
+		cell.setCellStyle(style);
+
+		rownum = rownum + 1;
+		row = sheet.createRow(rownum);
+
+		// merged cell
+		sheet.addMergedRegion(new CellRangeAddress(rownum, rownum, 0, 5));
+		cell = row.createCell(0, CellType.STRING);
+		cell.setCellValue("PHƯỜNG TÂN HƯNG THẬN,QUẬN 12");
+		style.setAlignment(HorizontalAlignment.CENTER);
+		cell.setCellStyle(style);
+
+		rownum = rownum + 2;
+		row = sheet.createRow(rownum);
+		// merged cell
+		sheet.addMergedRegion(new CellRangeAddress(rownum, rownum, 0, 5));
+		cell = row.createCell(0, CellType.STRING);
+		cell.setCellValue("DANH SÁCH DỤNG CỤ");
+		style.setAlignment(HorizontalAlignment.CENTER);
 		cell.setCellStyle(style);
 
 		rownum = rownum + 1;
@@ -328,72 +346,55 @@ public class Controller_DungCu extends DungCu implements ZEController {
 		cell.setCellStyle(style);
 
 		cell = row.createCell(3, CellType.STRING);
-		cell.setCellValue("Loại dụng cụ");
-		cell.setCellStyle(style);
-
-		cell = row.createCell(4, CellType.STRING);
 		cell.setCellValue("Ngày nhập");
 		cell.setCellStyle(style);
 
-		cell = row.createCell(5, CellType.STRING);
-		cell.setCellValue("Số lượng");
-		cell.setCellStyle(style);
-		
-		cell = row.createCell(6, CellType.STRING);
-		cell.setCellValue("Hạn sử dụng");
-		cell.setCellStyle(style);
-		
-		cell = row.createCell(7, CellType.STRING);
+		cell = row.createCell(4, CellType.STRING);
 		cell.setCellValue("Giá mua");
 		cell.setCellStyle(style);
-		
-		cell = row.createCell(8, CellType.STRING);
-		cell.setCellValue("Tên nhân viên");
-		cell.setCellStyle(style);
-
-		rownum = rownum + 1;
-		row = sheet.createRow(rownum);
-
-		cell = row.createCell(0, CellType.STRING);
-		cell.setCellValue("(1)");
-		cell.setCellStyle(style);
-
-		cell = row.createCell(1, CellType.STRING);
-		cell.setCellValue("(2)");
-		cell.setCellStyle(style);
-
-		cell = row.createCell(2, CellType.STRING);
-		cell.setCellValue("(3)");
-		cell.setCellStyle(style);
-
-		cell = row.createCell(3, CellType.STRING);
-		cell.setCellValue("(4)");
-		cell.setCellStyle(style);
-
-		cell = row.createCell(4, CellType.STRING);
-		cell.setCellValue("(5)");
-		cell.setCellStyle(style);
 
 		cell = row.createCell(5, CellType.STRING);
-		cell.setCellValue("(6)");
-		cell.setCellStyle(style);
-		
-		cell = row.createCell(6, CellType.STRING);
-		cell.setCellValue("(7)");
-		cell.setCellStyle(style);
-		
-		cell = row.createCell(7, CellType.STRING);
-		cell.setCellValue("(8)");
-		cell.setCellStyle(style);
-		
-		cell = row.createCell(8, CellType.STRING);
-		cell.setCellValue("(9)");
+		cell.setCellValue("Nhân viên mua");
 		cell.setCellStyle(style);
 
-		ObjectDAO<DungCu> dao = new DAO_DungCu();
-		ArrayList<DungCu> list = dao.listAll();
+		// Data
+		ObjectDAO<DungCu> dao_DungCu = new DAO_DungCu();
+		ArrayList<DungCu> list_DungCu = new ArrayList<DungCu>();
+		ArrayList<DungCu> list_Remove = new ArrayList<DungCu>();
+		String maNV = getMaNV();
+		String ngayNhap = getS_ngayNhap();
+		int flag = 0;
+		if (!(ngayNhap.isEmpty() || ngayNhap == null || ngayNhap.equals("all"))) {
+			flag = 1;
+		}
+
+		if (maNV.isEmpty() || maNV == null || maNV.equals("all")) {
+			System.out.println("case all or empty");
+			list_DungCu = dao_DungCu.listAll();
+			if (flag == 1) {
+				for (DungCu dc : list_DungCu) {
+					if (!(dc.getNgayNhap().equals(ngayNhap))) {
+						list_Remove.add(dc);
+						System.out.println("remove" + dc.getTenDC());
+					}
+				}
+			}
+		} else {
+			System.out.println("have data");
+			list_DungCu = dao_DungCu.listByColumns("nhanVien", maNV);
+			if (flag == 1) {
+				for (DungCu dc : list_DungCu) {
+					if (!(dc.getNgayNhap().equals(ngayNhap))) {
+						list_Remove.add(dc);
+						System.out.println("remove" + dc.getTenDC());
+					}
+				}
+			}
+		}
+		list_DungCu.removeAll(list_Remove);
+
 		int stt = 0;
-		for (DungCu obj : list) {
+		for (DungCu dungCu : list_DungCu) {
 			rownum++;
 			stt++;
 			row = sheet.createRow(rownum);
@@ -402,33 +403,38 @@ public class Controller_DungCu extends DungCu implements ZEController {
 			cell.setCellValue(stt);
 
 			cell = row.createCell(1, CellType.STRING);
-			cell.setCellValue(obj.maDC);
+			cell.setCellValue(dungCu.getMaDC());
 
 			cell = row.createCell(2, CellType.STRING);
-			cell.setCellValue(obj.tenDC);
+			cell.setCellValue(dungCu.getTenDC());
 
-			cell = row.createCell(3 , CellType.STRING);
-			cell.setCellValue(obj.loaiDC);
- 
+			cell = row.createCell(3, CellType.STRING);
+			cell.setCellValue(dungCu.getNgayNhap());
+
 			cell = row.createCell(4, CellType.STRING);
-			cell.setCellValue(Util_Date.dateToString2(obj.ngayNhap));
+			cell.setCellValue(dungCu.getGiaMua());
 
 			cell = row.createCell(5, CellType.STRING);
-			cell.setCellValue(obj.soLuong);
-
-			cell = row.createCell(6, CellType.STRING);
-			cell.setCellValue(obj.hsd);
-			
-			cell = row.createCell(7, CellType.STRING);
-			cell.setCellValue(obj.giaMua);
-			
-			cell = row.createCell(8, CellType.STRING);
-			cell.setCellValue(obj.getNhanVien().getTenNV());
+			cell.setCellValue(dungCu.getNhanVien().getTenNV());
 
 		}
-		Calendar cld = Calendar.getInstance();
-		String nam = cld.get(Calendar.YEAR) + "";
-		String fileName = "Ho so dung cu" + nam + ".xls";
+		System.out.println("rownum = " + rownum);
+		PropertyTemplate pt = new PropertyTemplate();
+		pt.drawBorders(new CellRangeAddress(4, 4, 0, 5), BorderStyle.THIN, BorderExtent.ALL);
+
+		pt.drawBorders(new CellRangeAddress(4, rownum, 0, 1), BorderStyle.THIN, BorderExtent.LEFT);
+
+		pt.drawBorders(new CellRangeAddress(4, rownum, 0, 6), BorderStyle.THIN, BorderExtent.INSIDE_VERTICAL);
+
+		pt.drawBorders(new CellRangeAddress(rownum + 1, rownum + 1, 0, 5), BorderStyle.THIN, BorderExtent.TOP);
+
+		pt.applyBorders(sheet);
+
+		// auto width all column
+		for (int i = 0; i < Util_Excel.getColumnsCount(sheet); i++)
+			sheet.autoSizeColumn(i);
+
+		String fileName = "Danh sach dung cu.xls";
 		String filePath = servletRequest.getSession().getServletContext().getRealPath("/").concat("report") + "/"
 				+ fileName;
 		System.out.println("filePath = " + filePath);
@@ -451,12 +457,166 @@ public class Controller_DungCu extends DungCu implements ZEController {
 			e.printStackTrace();
 		}
 		return "SUCCESS";
+		// HSSFWorkbook workbook = new HSSFWorkbook();
+		// HSSFSheet sheet = workbook.createSheet("Danh sách dụng cụ");
+		//
+		// HSSFCellStyle style = createStyleForTitle(workbook);
+		//
+		// int rownum = 0;
+		// Cell cell;
+		// Row row;
+		//
+		// row = sheet.createRow(rownum);
+		// cell = row.createCell(0, CellType.STRING);
+		// cell.setCellValue("DANH SÁCH THÔNG TIN DỤNG CỤ");
+		// cell.setCellStyle(style);
+		//
+		// rownum = rownum + 1;
+		// row = sheet.createRow(rownum);
+		//
+		// cell = row.createCell(0, CellType.STRING);
+		// cell.setCellValue("STT");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(1, CellType.STRING);
+		// cell.setCellValue("Mã dụng cụ");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(2, CellType.STRING);
+		// cell.setCellValue("Tên dụng cụ");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(3, CellType.STRING);
+		// cell.setCellValue("Loại dụng cụ");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(4, CellType.STRING);
+		// cell.setCellValue("Ngày nhập");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(5, CellType.STRING);
+		// cell.setCellValue("Số lượng");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(6, CellType.STRING);
+		// cell.setCellValue("Hạn sử dụng");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(7, CellType.STRING);
+		// cell.setCellValue("Giá mua");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(8, CellType.STRING);
+		// cell.setCellValue("Tên nhân viên");
+		// cell.setCellStyle(style);
+		//
+		// rownum = rownum + 1;
+		// row = sheet.createRow(rownum);
+		//
+		// cell = row.createCell(0, CellType.STRING);
+		// cell.setCellValue("(1)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(1, CellType.STRING);
+		// cell.setCellValue("(2)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(2, CellType.STRING);
+		// cell.setCellValue("(3)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(3, CellType.STRING);
+		// cell.setCellValue("(4)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(4, CellType.STRING);
+		// cell.setCellValue("(5)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(5, CellType.STRING);
+		// cell.setCellValue("(6)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(6, CellType.STRING);
+		// cell.setCellValue("(7)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(7, CellType.STRING);
+		// cell.setCellValue("(8)");
+		// cell.setCellStyle(style);
+		//
+		// cell = row.createCell(8, CellType.STRING);
+		// cell.setCellValue("(9)");
+		// cell.setCellStyle(style);
+		//
+		// ObjectDAO<DungCu> dao = new DAO_DungCu();
+		// ArrayList<DungCu> list = dao.listAll();
+		// int stt = 0;
+		// for (DungCu obj : list) {
+		// rownum++;
+		// stt++;
+		// row = sheet.createRow(rownum);
+		//
+		// cell = row.createCell(0, CellType.STRING);
+		// cell.setCellValue(stt);
+		//
+		// cell = row.createCell(1, CellType.STRING);
+		// cell.setCellValue(obj.maDC);
+		//
+		// cell = row.createCell(2, CellType.STRING);
+		// cell.setCellValue(obj.tenDC);
+		//
+		// cell = row.createCell(3 , CellType.STRING);
+		// cell.setCellValue(obj.loaiDC);
+		//
+		// cell = row.createCell(4, CellType.STRING);
+		// cell.setCellValue(Util_Date.dateToString2(obj.ngayNhap));
+		//
+		// cell = row.createCell(5, CellType.STRING);
+		// cell.setCellValue(obj.soLuong);
+		//
+		// cell = row.createCell(6, CellType.STRING);
+		// cell.setCellValue(obj.hsd);
+		//
+		// cell = row.createCell(7, CellType.STRING);
+		// cell.setCellValue(obj.giaMua);
+		//
+		// cell = row.createCell(8, CellType.STRING);
+		// cell.setCellValue(obj.getNhanVien().getTenNV());
+		//
+		// }
+		// Calendar cld = Calendar.getInstance();
+		// String nam = cld.get(Calendar.YEAR) + "";
+		// String fileName = "Ho so dung cu" + nam + ".xls";
+		// String filePath =
+		// servletRequest.getSession().getServletContext().getRealPath("/").concat("report")
+		// + "/"
+		// + fileName;
+		// System.out.println("filePath = " + filePath);
+		// File file = new File(filePath);
+		// file.getParentFile().mkdirs();
+		//
+		// FileOutputStream outFile = new FileOutputStream(file);
+		// workbook.write(outFile);
+		// System.out.println("Created file: " + file.getAbsolutePath());
+		//
+		// ////////////////////////////////////////////////////
+		// // DOWNLOAD FILE
+		// ////////////////////////////////////////////////////
+		// ServletDownload dl = new ServletDownload();
+		// try {
+		// dl.doGet(servletRequest, servletResponse, filePath, fileName);
+		//
+		// } catch (ServletException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		// return "SUCCESS";
 	}
+
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
-
-	
 
 	public void setServletResponse(HttpServletResponse servletResponse) {
 		this.servletResponse = servletResponse;

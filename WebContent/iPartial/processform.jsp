@@ -28,7 +28,7 @@
 	<button type="submit" class="btn btn-default" name="bt_in" value="In"
 		id="btnxxx" formtarget="_blank">
 		<img src="content/images/save-32.png" width="16px" height="16px" />
-		&nbsp; In phiếu biên nhận
+		&nbsp; In phiếu
 	</button>
 	<!-- 	</div> -->
 </div>

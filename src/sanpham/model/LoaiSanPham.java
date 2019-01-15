@@ -10,7 +10,6 @@ public class LoaiSanPham {
 	@Id
 	public String maLoai;
 	public String tenLoai;
-
 	public Date thoiGianCapNhat;
 
 	public LoaiSanPham() {
