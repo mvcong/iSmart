@@ -1,3 +1,5 @@
+<%@page import="sanpham.model.SanPhamTrongGio"%>
+<%@page import="java.util.Map"%>
 <%@page import="iCore.model.ThanhVien"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="sanpham.dao.LoaiSanPhamDAO"%>
@@ -119,7 +121,41 @@
 		<div class="container">
 			<a class="site-logo" href="trangchu.jsp">GYM Smart</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
-				class="fa fa-bars"></i></a>			
+				class="fa fa-bars"></i></a>	
+				<div class="top-cart-block">
+				<div class="top-cart-info">
+					<a href="javascript:void(0);" class="top-cart-info-count"><%=cart.countItem()%></a>
+					<a href="javascript:void(0);" class="top-cart-info-value">vnđ<%=cart.totalCart()%></a>
+				</div>
+				<i class="fa fa-shopping-cart"></i>
+
+				<div class="top-cart-content-wrapper">
+
+					<div class="top-cart-content">
+						<ul class="scroller" style="height: 250px;">
+							<%
+								for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+							%>
+							<li><a href="shop-item.html"><img
+									src="<%=list.getValue().getSanPham().getAnhSP()%>"
+									alt="Rolex Classic Watch" width="37" height="34"></a> <span
+								class="cart-content-count">x <%=list.getValue().getSoLuong()%></span>
+								<strong><a href="shop-item.html"><%=list.getValue().getSanPham().getTenSP()%></a></strong>
+								<em>vnđ<%=list.getValue().getSanPham().getGiaBan()%></em> <a
+								href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>"
+								class="del-goods">&nbsp;</a></li>
+							<%
+								}
+							%>
+						</ul>
+						<div class="text-right">
+							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
+								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh toán</a>
+						</div>
+					</div>
+
+				</div>
+			</div>		
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 

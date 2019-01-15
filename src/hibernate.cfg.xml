@@ -41,6 +41,8 @@
 		<mapping class="iCore.model.TheThanhVien" />
 		<mapping class="iCore.model.ThongBao" />
 		<mapping class="iCore.model.LichSuTap" />
+		<mapping class="sanpham.model.DonHang" />
+		<mapping class="sanpham.model.ChiTietDonHang" />
 		<!-- ket thuc quan ly core -->
 
 	</session-factory>

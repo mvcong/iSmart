@@ -1,7 +1,7 @@
+<%@page import="sanpham.model.DonHang"%>
 <%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
-<%@page
-	import="org.apache.xmlbeans.impl.xb.xmlschema.SpaceAttribute.Space"%>
+<%@page import="iCore.model.ThanhVien"%>
 <%@page import="sanpham.model.LoaiSanPham"%>
 <%@page import="sanpham.dao.LoaiSanPhamDAO"%>
 <%@page import="sanpham.model.SanPham"%>
@@ -17,8 +17,6 @@
 <head>
 <meta charset="utf-8">
 <title>GYM Smart</title>
-<link rel="icon" type="image/png"
-	href="login_css/images/icons/favicon.ico" />
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -77,6 +75,9 @@
 	rel="stylesheet" id="style-color">
 <link href="content/assets/corporate/css/custom.css" rel="stylesheet">
 <!-- Theme styles END -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+	type="text/javascript"></script>
+
 </head>
 <!-- Head END -->
 
@@ -100,14 +101,29 @@
 			session.setAttribute("cart", cart);
 		}
 	%>
+	<%
+		String tenTV_err = "", email_err = "";
+		if (request.getAttribute("tenTV_err") != null) {
+			tenTV_err = (String) request.getAttribute("tenTV_err");
+		}
+		if (request.getAttribute("email") != null) {
+			email_err = (String) request.getAttribute("email_err");
+		}
+
+		DonHang obj = null;
+		if (session.getAttribute("obj") != null) {
+			if (session.getAttribute("obj") instanceof DonHang) {
+				obj = (DonHang) session.getAttribute("obj");
+			}
+		}
+	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
 			<a class="site-logo" href="trangchu.jsp">GYM Smart</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
-			<!-- BEGIN CART -->
-			<div class="top-cart-block">
+				<div class="top-cart-block">
 				<div class="top-cart-info">
 					<a href="javascript:void(0);" class="top-cart-info-count"><%=cart.countItem()%></a>
 					<a href="javascript:void(0);" class="top-cart-info-value">vnđ<%=cart.totalCart()%></a>
@@ -138,18 +154,14 @@
 								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh toán</a>
 						</div>
 					</div>
+
 				</div>
 			</div>
-			<!--END CART -->
-
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 
 				<ul>
 					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
-				
-
-
 					<li class="menu-search"><span class="sep"></span> <i
 						class="fa fa-search search-btn"></i>
 						<div class="search-box">
@@ -170,95 +182,69 @@
 		</div>
 	</div>
 	<!-- Header END -->
-
-	<div class="title-wrapper">
-		<div class="container">
-			<div class="container-inner">
-				<h1>
-					<span>MEN</span> CATEGORY
-				</h1>
-				<em>Over 4000 Items are available here</em>
-			</div>
-		</div>
-	</div>
-
 	<div class="main">
 		<div class="container">
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">	
-				<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="trangsanpham.jsp"><i
-								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
-					</ul>			
-					<%
-						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
-					%>
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="trangsanphamtheoloai.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i
-								class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
-					</ul>
-					<%
-						}
-					%>
-				</div>
 				<!-- BEGIN CONTENT -->
-				<div class="col-md-9 col-sm-7" align="center">
-					<div class="row list-view-sorting clearfix">
-						<div class="col-md-2 col-sm-2 list-view">
-							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
-								href="javascript:;"><i class="fa fa-th-list"></i></a>
-						</div>
-						<div class="col-md-10 col-sm-10" align="center">
-							<p>
-								Sản phẩm
-								<%=maLoai%></p>
-						</div>
-					</div>
-					<!-- BEGIN PRODUCT LIST -->
-					<div class="row product-list" align="center">
-						<%
-							for (SanPham sp : sanPhamDAO.getListAllSanPham()) {
-						%>
-						<div class="col-sm-4" >
-							<div class="product-item">
-								<div class="pi-img-wrapper">
-									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
-										alt="Berry Lace Dress">
-									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
-									</div>
+				<div class="col-md-12 col-sm-12">
+					<h1>Thanh toán</h1>
+					<!-- BEGIN CHECKOUT PAGE -->
+					<form action="DangKyTVServlet" method="post">
+						<!-- BEGIN PAYMENT ADDRESS -->
+						<div class="panel-body row">
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+								<div class="form-group">
+									<label for="maDonHang">Mã đơn hàng</label> <input type="text"
+										name="maDonHang" id="maDonHang" class="form-control"
+										value="<%=(obj != null ? obj.getMaDonHang() : System.currentTimeMillis())%>"
+										readonly required="required">
 								</div>
-								<h3>
-									<a href="shop-item.html"><%=sp.getTenSP()%></a>
-								</h3>
-								<div class="pi-price">
-									vnđ<%=sp.getGiaBan()%></div>
-								<a href="CartServlet?command=plus&maSP=<%=sp.getMaSP()%>"
-									class="btn btn-default add2cart">Thêm vào giỏ</a>
+									<p style="color: red"><%=tenTV_err%></p>
+									<label for="tenNguoiNhan">Họ tên người nhận <span class="require">*</span></label>
+									<input type="text" name="tenNguoiNhan" id="tenNguoiNhan" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="diaChiNhan">Địa chỉ người nhận <span
+										class="require">*</span></label> <input type="text" name="diaChiNhan"
+										id="diaChiNhan" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="sDTNN">Số điện thoại người nhận<span
+										class="require">*</span></label> <input type="text" name="sDTNN"
+										id="sDTNN" class="form-control"> <span></span>
+								</div>
+								<div class="form-group">
+								<label for="hinhThucThanhToan">Hình thức thanh toán<span
+										class="require">*</span></label> <input type="text" name="hinhThucThanhToan"
+										id="hinhThucThanhToan" class="form-control"> <span></span>
+									<select>
+									<option value="tructuyen">Trực tuyến</option>
+									<option value="trasau">Thanh toán khi nhận hàng</option>
+									</select>
+								</div>
+								<div>
+									<button type="submit" class="btn btn-default">Thanh toán</button>
+
+								</div>
 							</div>
+
+
+							<!-- END PAYMENT ADDRESS -->
 						</div>
-						<%
-							}
-						%>
-					</div>
-					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">						
-					</div>
-					<!-- END PAGINATOR -->
+
+					</form>
+
+					<!-- END CHECKOUT PAGE -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
 			<!-- END SIDEBAR & CONTENT -->
 		</div>
-	</div>	
+	</div>
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
 		<div class="container">
