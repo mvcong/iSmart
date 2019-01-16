@@ -171,7 +171,7 @@
 					<%
 						for (SanPham obj : list) {
 							//Bat buoc co de bo vao doan code xem chi tiet, chinh sua va xoa
-							String maDoiTuong = obj.getMaSP();
+							long maDoiTuong = obj.getMaSP();
 							String tenDoiTuong = obj.getTenSP();
 					%>
 					<tr class="odd gradeX">

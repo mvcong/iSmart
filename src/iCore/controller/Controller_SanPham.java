@@ -267,21 +267,21 @@ public class Controller_SanPham extends SanPham implements ZEController {
 		}
 	}
 
-	@Override
-	public String delete() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		String maobj = request.getParameter("maobj");
-		SanPham obj = new SanPham();
-		obj.setMaSP(maobj);
-		if (dao.delete(obj)) {
-			session.setAttribute("msg", "Xóa dữ liệu thành công!");
-			session.setAttribute("p", duongDanTrang);
-			return "SUCCESS";
-		} else {
-			return "FAIL";
-		}
-	}
+//	@Override
+//	public String delete() {
+//		HttpServletRequest request = ServletActionContext.getRequest();
+//		HttpSession session = request.getSession();
+//		long maobj = request.getAttribute(maObj);
+//		SanPham obj = new SanPham();
+//		obj.setMaSP(maobj);
+//		if (dao.delete(obj)) {
+//			session.setAttribute("msg", "Xóa dữ liệu thành công!");
+//			session.setAttribute("p", duongDanTrang);
+//			return "SUCCESS";
+//		} else {
+//			return "FAIL";
+//		}
+//	}
 
 	@Override
 	public String search() {
@@ -315,6 +315,12 @@ public class Controller_SanPham extends SanPham implements ZEController {
 
 	@Override
 	public String exportData() throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -57,13 +57,14 @@ public class ThanhToanServlet extends HttpServlet {
 			donHang.setTongTien(cart.totalCart());
 			donHang.setHinhThucThanhToan(hinhThucThanhToan);
 			donHangDAO.themDonHang(donHang);
-			for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
-				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
-								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
-			}
+//			for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+//				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
+//								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
+//			}
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		response.sendRedirect("/iSmart/trangsanpham.jsp");
 	}

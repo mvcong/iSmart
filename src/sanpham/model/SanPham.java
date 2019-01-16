@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,7 +14,8 @@ import iCore.model.NhanVien;
 @Entity
 public class SanPham {
 	@Id
-	public String maSP;
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	public long maSP;
 	public String tenSP;
 	public String anhSP;
 	public String linkSP;
@@ -33,9 +36,8 @@ public class SanPham {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
-	public SanPham(String maSP, String tenSP, String anhSP, String linkSP, String soLuong, String donVi,
+	public SanPham(long maSP, String tenSP, String anhSP, String linkSP, String soLuong, String donVi,
 			Date ngayNhapHang, String hsd, long giaSP, long giaBan, Date thoiGianCapNhat, NhanVien nhanVien,
 			LoaiSanPham loaiSanPham) {
 		this.maSP = maSP;
@@ -54,14 +56,17 @@ public class SanPham {
 	}
 
 
+	
 
-	public String getMaSP() {
+	public long getMaSP() {
 		return maSP;
 	}
 
-	public void setMaSP(String maSP) {
+
+	public void setMaSP(long maSP) {
 		this.maSP = maSP;
 	}
+
 
 	public String getTenSP() {
 		return tenSP;
@@ -126,19 +131,14 @@ public class SanPham {
 	public void setGiaSP(long giaSP) {
 		this.giaSP = giaSP;
 	}
-	
 
 	public long getGiaBan() {
 		return giaBan;
 	}
 
-
-
 	public void setGiaBan(long giaBan) {
 		this.giaBan = giaBan;
 	}
-
-
 
 	public Date getThoiGianCapNhat() {
 		return thoiGianCapNhat;
@@ -175,7 +175,7 @@ public class SanPham {
 		result = prime * result + ((hsd == null) ? 0 : hsd.hashCode());
 		result = prime * result + ((linkSP == null) ? 0 : linkSP.hashCode());
 		result = prime * result + ((loaiSanPham == null) ? 0 : loaiSanPham.hashCode());
-		result = prime * result + ((maSP == null) ? 0 : maSP.hashCode());
+		result = prime * result + (int) (maSP ^ (maSP >>> 32));
 		result = prime * result + ((ngayNhapHang == null) ? 0 : ngayNhapHang.hashCode());
 		result = prime * result + ((nhanVien == null) ? 0 : nhanVien.hashCode());
 		result = prime * result + ((soLuong == null) ? 0 : soLuong.hashCode());
@@ -222,10 +222,7 @@ public class SanPham {
 				return false;
 		} else if (!loaiSanPham.equals(other.loaiSanPham))
 			return false;
-		if (maSP == null) {
-			if (other.maSP != null)
-				return false;
-		} else if (!maSP.equals(other.maSP))
+		if (maSP != other.maSP)
 			return false;
 		if (ngayNhapHang == null) {
 			if (other.ngayNhapHang != null)

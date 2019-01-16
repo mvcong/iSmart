@@ -5,26 +5,26 @@ import java.util.Map;
 
 //Giỏ hàng
 public class GioHang {
-	private HashMap<String, SanPhamTrongGio> cartItems;
+	private HashMap<Long, SanPhamTrongGio> cartItems;
 
 	public GioHang() {
 		cartItems = new HashMap<>();
 	}
 
-	public GioHang(HashMap<String, SanPhamTrongGio> cartItems) {
+	public GioHang(HashMap<Long, SanPhamTrongGio> cartItems) {
 		this.cartItems = cartItems;
 	}
 
-	public HashMap<String, SanPhamTrongGio> getCartItems() {
+	public HashMap<Long, SanPhamTrongGio> getCartItems() {
 		return cartItems;
 	}
 
-	public void setCartItems(HashMap<String, SanPhamTrongGio> cartItems) {
+	public void setCartItems(HashMap<Long, SanPhamTrongGio> cartItems) {
 		this.cartItems = cartItems;
 	}
 
 	// Thêm giỏ hàng(insert to cart)
-	public void plusToCart(String key, SanPhamTrongGio item) {
+	public void plusToCart(Long key, SanPhamTrongGio item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			int soLuong_old = item.getSoLuong();
@@ -36,7 +36,7 @@ public class GioHang {
 	}
 
 	// Tính tổng sản phẩm trong giỏ
-	public void subToCart(String key, SanPhamTrongGio item) {
+	public void subToCart(Long key, SanPhamTrongGio item) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			int soLuong_old = item.getSoLuong();
@@ -50,7 +50,7 @@ public class GioHang {
 	}
 
 	// xóa giỏ hàng
-	public void removeToCart(String key) {
+	public void removeToCart(Long key) {
 		boolean check = cartItems.containsKey(key);
 		if (check) {
 			cartItems.remove(key);
@@ -66,7 +66,7 @@ public class GioHang {
 	public double totalCart() {
 		int count = 0;
 		// count = giaBan * quantity
-		for (Map.Entry<String, SanPhamTrongGio> list : cartItems.entrySet()) {
+		for (Map.Entry<Long, SanPhamTrongGio> list : cartItems.entrySet()) {
 			count += list.getValue().getSanPham().getGiaBan() * list.getValue().getSoLuong();
 		}
 		return count;

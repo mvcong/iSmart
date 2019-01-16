@@ -12,7 +12,8 @@
 	String tenTrang = "Quản lý sản phẩm";
 	String trangDanhSach = "index.jsp?p=iCore/pages/sanphams.jsp";
 	String[] tk_value = {"maSP", "tenSP", "loaiSP", "anhSP", "soLuong", "giaSP", "nhanVien"};
-	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Ảnh", "Số lượng", "Giá nhập", "Nhân viên"};
+	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Ảnh", "Số lượng", "Giá nhập",
+			"Nhân viên"};
 %>
 <%@ include file="../../iPartial/code-header.jsp"%>
 
@@ -73,8 +74,9 @@
 								<div class="form-group">
 									<label>Mã sản phẩm</label> <input class="form-control"
 										id="maSP" name="maSP" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaSP() != null ? obj.getMaSP() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+										value="<%=(obj != null && obj.getMaSP() > 0 ? obj.getMaSP() : "")%>"
+										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+										required="required">
 								</div>
 								<div class="form-group">
 									<label>Tên sản phẩm</label> <input class="form-control"
@@ -82,7 +84,7 @@
 										value="<%=(obj != null && obj.getTenSP() != null ? obj.getTenSP() : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
-									<div class="form-group">
+								<div class="form-group">
 									<label>Loại sản phẩm</label> <select class="form-control"
 										name="maLoai" <%=(modeView ? " disabled " : "")%>>
 										<option value=""></option>
@@ -92,8 +94,9 @@
 											for (LoaiSanPham lsp : listLoaiSanPham) {
 										%>
 										<option value="<%=lsp.maLoai%> "
-											<%=obj != null && obj.getLoaiSanPham() != null && obj.getLoaiSanPham().maLoai.equals(lsp.maLoai) ? "selected"
-								: ""%>>
+											<%=obj != null && obj.getLoaiSanPham() != null && obj.getLoaiSanPham().maLoai.equals(lsp.maLoai)
+						? "selected"
+						: ""%>>
 											<%=lsp.tenLoai%>
 										</option>
 										<%

@@ -119,7 +119,7 @@
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
-								for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+								for (Map.Entry<Long, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
 							%>
 							<li><a href="shop-item.html"><img
 									src="<%=list.getValue().getSanPham().getAnhSP()%>"

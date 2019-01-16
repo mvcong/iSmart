@@ -36,20 +36,21 @@ public class CartServlet extends HttpServlet {
 		String maSP = request.getParameter("maSP");
 		GioHang cart = (GioHang) session.getAttribute("cart");
 		
-		
+
 		try {
-			SanPham sanPham = sanPhamDAO.getSanPham(maSP);
+			long maSanPham = Long.parseLong(maSP);
+			SanPham sanPham = sanPhamDAO.getSanPham(maSanPham);
 			 switch (command) {
              case "plus":
-                 if (cart.getCartItems().containsKey(maSP)) {
-                     cart.plusToCart(maSP, new SanPhamTrongGio(sanPham,
+                 if (cart.getCartItems().containsKey(maSanPham)) {
+                     cart.plusToCart(maSanPham, new SanPhamTrongGio(sanPham,
                              cart.getCartItems().get(maSP).getSoLuong()));
                  } else {
-                     cart.plusToCart(maSP, new SanPhamTrongGio(sanPham, 1));
+                     cart.plusToCart(maSanPham, new SanPhamTrongGio(sanPham, 1));
                  }
                  break;
              case "remove":
-                 cart.removeToCart(maSP);
+                 cart.removeToCart(maSanPham);
                  break;
          }
      } catch (Exception e) {

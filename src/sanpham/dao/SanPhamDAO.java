@@ -20,7 +20,7 @@ public class SanPhamDAO {
 		ArrayList<SanPham> list = new ArrayList<>();
 		while (rs.next()) {
 			SanPham sp = new SanPham();
-			sp.setMaSP(rs.getString("maSP"));
+			sp.setMaSP(rs.getLong("maSP"));
 			sp.setTenSP(rs.getString("tenSP"));
 			sp.setAnhSP(rs.getString("anhSP"));
 			sp.setGiaBan(rs.getLong("giaBan"));
@@ -37,7 +37,7 @@ public class SanPhamDAO {
 		ArrayList<SanPham> list = new ArrayList<>();
 		while (rs.next()) {
 			SanPham sp = new SanPham();
-			sp.setMaSP(rs.getString("maSP"));
+			sp.setMaSP(rs.getLong("maSP"));
 			sp.setTenSP(rs.getString("tenSP"));
 			sp.setAnhSP(rs.getString("anhSP"));
 			sp.setGiaBan(rs.getLong("giaBan"));
@@ -46,14 +46,14 @@ public class SanPhamDAO {
 		return list;
 	}
 
-	public SanPham getSanPham(String maSP) throws ClassNotFoundException, SQLException {
+	public SanPham getSanPham(long maSanPham) throws ClassNotFoundException, SQLException {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
-		String sql = "SELECT * FROM sanpham  WHERE maSP = '" + maSP + "'";
+		String sql = "SELECT * FROM sanpham  WHERE maSP = '" + maSanPham + "'";
 		PreparedStatement ps = connection.prepareCall(sql);
 		ResultSet rs = ps.executeQuery();
 		SanPham sanPham = new SanPham();
 		while (rs.next()) {
-			sanPham.setMaSP(rs.getString("maSP"));
+			sanPham.setMaSP(rs.getLong("maSP"));
 			sanPham.setTenSP(rs.getString("tenSP"));
 			sanPham.setAnhSP(rs.getString("anhSP"));
 			sanPham.setGiaBan(rs.getLong("giaBan"));
