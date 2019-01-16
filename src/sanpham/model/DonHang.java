@@ -3,17 +3,20 @@ package sanpham.model;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class DonHang {
 	@Id
-	public String maDonHang;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public long maDonHang;
 	public String maDangNhap;
 	public String tenNguoiNhan;
 	public String diaChiNhan;
 	public String sDTNN;
-	public long tongTien;
+	public double tongTien;
 	public String hinhThucThanhToan;
 	public Timestamp date;
 
@@ -21,8 +24,8 @@ public class DonHang {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DonHang(String maDonHang, String maDangNhap, String tenNguoiNhan, String diaChiNhan, String sDTNN,
-			long tongTien, String hinhThucThanhToan, Timestamp date) {
+	public DonHang(long maDonHang, String maDangNhap, String tenNguoiNhan, String diaChiNhan, String sDTNN,
+			double tongTien, String hinhThucThanhToan, Timestamp date) {
 		this.maDonHang = maDonHang;
 		this.maDangNhap = maDangNhap;
 		this.tenNguoiNhan = tenNguoiNhan;
@@ -33,11 +36,11 @@ public class DonHang {
 		this.date = date;
 	}
 
-	public String getMaDonHang() {
+	public long getMaDonHang() {
 		return maDonHang;
 	}
 
-	public void setMaDonHang(String maDonHang) {
+	public void setMaDonHang(long maDonHang) {
 		this.maDonHang = maDonHang;
 	}
 
@@ -73,11 +76,11 @@ public class DonHang {
 		this.sDTNN = sDTNN;
 	}
 
-	public long getTongTien() {
+	public double getTongTien() {
 		return tongTien;
 	}
 
-	public void setTongTien(long tongTien) {
+	public void setTongTien(double tongTien) {
 		this.tongTien = tongTien;
 	}
 

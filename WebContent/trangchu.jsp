@@ -33,6 +33,13 @@
 	rel="stylesheet"
 	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 	crossorigin="anonymous">
+
+
+<%
+	String taiKhoanDangNhap = request.getSession().getAttribute("maDangNhap") + "";
+	taiKhoanDangNhap = taiKhoanDangNhap.equals("null") ? "" : taiKhoanDangNhap;
+	System.out.println(taiKhoanDangNhap);
+%>
 </head>
 <body>
 	<div class="loader loader-bg">
@@ -66,8 +73,17 @@
 							ký tập</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="trangsanpham.jsp">Cửa hàng</a></li>
-					<li class="nav-item"><a class="nav-link" href="dangnhap.jsp">Đăng
-							nhập</a></li>
+					<li class="nav-item">
+						<%
+							if (!taiKhoanDangNhap.equals("")) {
+						%> <a href="dangXuat.action" class="nav-link"><%=taiKhoanDangNhap%></a> <%
+ 	} else {
+ %><a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> <%
+ 	}
+ %>>
+					</li>
+					<!-- 					<li class="nav-item"><a class="nav-link" href="dangnhap.jsp">Đăng -->
+					<!-- 							nhập</a></li> -->
 					<li class="nav-item"><a class="nav-link" href="dangky.jsp">Đăng
 							ký</a></li>
 				</ul>
@@ -171,34 +187,34 @@
 
 	<!-- About 
     ================================================== -->
-<!-- 	<section class="about-sec parallax-section" id="about"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="row"> -->
-<!-- 				<div class="col-md-3"> -->
-<!-- 					<h2> -->
-<!-- 						<small>Thông báo mới</small> -->
-<!-- 					</h2> -->
-<!-- 				</div> -->
-<!-- 				<div class="col-md-4"> -->
-<!-- 					<p style="color: white;"> -->
-<!-- 					<ul> -->
-<!-- 						<li><a -->
-<!-- 							href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html"><span>*</span>Mở -->
-<!-- 								các phòng GYM triệu đô</a></li> -->
-<!-- 					</ul> -->
-<!-- 					</p> -->
-<!-- 				</div> -->
-<!-- 				      <div class="col-md-4"> -->
-<!-- 				       <p> <a href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html">Mở các phòng GYM triệu đô</a></p> -->
-<!-- 				      </div> -->
-<!-- 				      <div class="col-md-4"> -->
-<!-- 				<!--         <p>Our greatest happiness does not depend on the condition of life in which chance has placed us, but is always the result of a good conscience, good health, occupation, and freedom in all just pursuits.</p> -->
-<!-- 				<!--         <p>Being in control of your life and having realistic expectations about your day-to-day challenges are the keys to stress management, which is perhaps the most important ingredient to living a happy, healthy and rewarding life.</p> -->
-<!-- 				<!--         <p><a href="#" class="btn btn-transparent-white btn-capsul">Explore More</a></p> -->
-<!-- 				      </div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</section> -->
+	<!-- 	<section class="about-sec parallax-section" id="about"> -->
+	<!-- 		<div class="container"> -->
+	<!-- 			<div class="row"> -->
+	<!-- 				<div class="col-md-3"> -->
+	<!-- 					<h2> -->
+	<!-- 						<small>Thông báo mới</small> -->
+	<!-- 					</h2> -->
+	<!-- 				</div> -->
+	<!-- 				<div class="col-md-4"> -->
+	<!-- 					<p style="color: white;"> -->
+	<!-- 					<ul> -->
+	<!-- 						<li><a -->
+	<!-- 							href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html"><span>*</span>Mở -->
+	<!-- 								các phòng GYM triệu đô</a></li> -->
+	<!-- 					</ul> -->
+	<!-- 					</p> -->
+	<!-- 				</div> -->
+	<!-- 				      <div class="col-md-4"> -->
+	<!-- 				       <p> <a href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html">Mở các phòng GYM triệu đô</a></p> -->
+	<!-- 				      </div> -->
+	<!-- 				      <div class="col-md-4"> -->
+	<!-- 				<!--         <p>Our greatest happiness does not depend on the condition of life in which chance has placed us, but is always the result of a good conscience, good health, occupation, and freedom in all just pursuits.</p> -->
+	<!-- 				<!--         <p>Being in control of your life and having realistic expectations about your day-to-day challenges are the keys to stress management, which is perhaps the most important ingredient to living a happy, healthy and rewarding life.</p> -->
+	<!-- 				<!--         <p><a href="#" class="btn btn-transparent-white btn-capsul">Explore More</a></p> -->
+	<!-- 				      </div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</section> -->
 
 	<!-- BLOG
     ================================================== -->
@@ -218,7 +234,9 @@
 						<img src="content/home/img/phonggym.jpg" alt="" class="img-fluid">
 					</div>
 					<h3 class="blog-title">
-						<small>Phòng GYM</small><a href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html">Đua mở phòng GYM triệu đô</a>
+						<small>Phòng GYM</small><a
+							href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html">Đua
+							mở phòng GYM triệu đô</a>
 					</h3>
 				</div>
 				<div class="col-md-4 blog-box">
@@ -226,17 +244,22 @@
 						<img src="content/home/img/thidau.jpg" alt="" class="img-fluid">
 					</div>
 					<h3 class="blog-title">
-						<small>Giải đấu, cuộc thi</small><a href="https://thethaovanhoa.vn/the-thao/khoi-dong-cuoc-thi-the-hinh-giai-thuong-500-ty-dong-trien-lam-lam-cho-cuoc-song-tot-dep-hon-n20180724200654591.htm">Khởi động cuộc thi thể hình giải thưởng 500 tỷ đồng, triển lãm 'Làm cho cuộc sống tốt đẹp hơn'</a>
-					</h3>				
+						<small>Giải đấu, cuộc thi</small><a
+							href="https://thethaovanhoa.vn/the-thao/khoi-dong-cuoc-thi-the-hinh-giai-thuong-500-ty-dong-trien-lam-lam-cho-cuoc-song-tot-dep-hon-n20180724200654591.htm">Khởi
+							động cuộc thi thể hình giải thưởng 500 tỷ đồng, triển lãm 'Làm
+							cho cuộc sống tốt đẹp hơn'</a>
+					</h3>
 				</div>
 				<div class="col-md-4 blog-box">
 					<div class="blog-image-block">
 						<img src="content/home/img/loiich.jpg" alt="" class="img-fluid">
 					</div>
 					<h3 class="blog-title">
-						<small>Tin khác</small><a href="http://www.nshapefitness.vn/6-loi-ich-tuyet-voi-khien-ban-muon-tap-gym-ngay-nd462289/">6 lợi ích từ việc tập GYM</a>
+						<small>Tin khác</small><a
+							href="http://www.nshapefitness.vn/6-loi-ich-tuyet-voi-khien-ban-muon-tap-gym-ngay-nd462289/">6
+							lợi ích từ việc tập GYM</a>
 					</h3>
-					
+
 				</div>
 			</div>
 		</div>

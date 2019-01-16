@@ -135,7 +135,7 @@
 						</ul>
 						<div class="text-right">
 							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
-								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh toán</a>
+								hàng</a> <a href="thanhtoan.jsp" class="btn btn-primary">Thanh toán</a>
 						</div>
 					</div>
 				</div>

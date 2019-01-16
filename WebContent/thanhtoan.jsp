@@ -1,3 +1,4 @@
+<%@page import="iCore.model.TaiKhoan"%>
 <%@page import="sanpham.model.DonHang"%>
 <%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
@@ -116,6 +117,12 @@
 				obj = (DonHang) session.getAttribute("obj");
 			}
 		}
+		
+		String maDangNhap = session.getAttribute("maDangNhap") + "";
+		if (maDangNhap.equals("null")) {
+			response.sendRedirect("dangnhap.jsp");
+		}
+   
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
@@ -189,19 +196,13 @@
 				<!-- BEGIN SIDEBAR -->
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-12 col-sm-12">
-					<h1>Thanh toán</h1>
+					<h1>Thanh toán đơn hàng</h1>
 					<!-- BEGIN CHECKOUT PAGE -->
-					<form action="DangKyTVServlet" method="post">
+					<form action="ThanhToanServlet" method="post">
 						<!-- BEGIN PAYMENT ADDRESS -->
 						<div class="panel-body row">
 							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-								<div class="form-group">
-									<label for="maDonHang">Mã đơn hàng</label> <input type="text"
-										name="maDonHang" id="maDonHang" class="form-control"
-										value="<%=(obj != null ? obj.getMaDonHang() : System.currentTimeMillis())%>"
-										readonly required="required">
-								</div>
+								<div class="form-group">								
 									<p style="color: red"><%=tenTV_err%></p>
 									<label for="tenNguoiNhan">Họ tên người nhận <span class="require">*</span></label>
 									<input type="text" name="tenNguoiNhan" id="tenNguoiNhan" class="form-control">
@@ -218,26 +219,20 @@
 										id="sDTNN" class="form-control"> <span></span>
 								</div>
 								<div class="form-group">
-								<label for="hinhThucThanhToan">Hình thức thanh toán<span
-										class="require">*</span></label> <input type="text" name="hinhThucThanhToan"
-										id="hinhThucThanhToan" class="form-control"> <span></span>
+								<span>Hình thức thanh toán</span>
 									<select>
 									<option value="tructuyen">Trực tuyến</option>
 									<option value="trasau">Thanh toán khi nhận hàng</option>
 									</select>
 								</div>
 								<div>
-									<button type="submit" class="btn btn-default">Thanh toán</button>
+									<input type="submit" value="Thanh Toán">
 
 								</div>
 							</div>
-
-
 							<!-- END PAYMENT ADDRESS -->
 						</div>
-
 					</form>
-
 					<!-- END CHECKOUT PAGE -->
 				</div>
 				<!-- END CONTENT -->

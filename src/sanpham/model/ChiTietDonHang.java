@@ -6,8 +6,8 @@ import javax.persistence.Id;
 @Entity
 public class ChiTietDonHang {
 	@Id
-	public String maChiTietDonHang;
-	public String maDonHang;
+	public long maChiTietDonHang;
+	public long maDonHang;
 	public String maSP;
 	public long giaBan;
 	public int soLuong;
@@ -16,7 +16,7 @@ public class ChiTietDonHang {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChiTietDonHang(String maChiTietDonHang, String maDonHang, String maSP, long giaBan, int soLuong) {
+	public ChiTietDonHang(long maChiTietDonHang, long maDonHang, String maSP, long giaBan, int soLuong) {
 		this.maChiTietDonHang = maChiTietDonHang;
 		this.maDonHang = maDonHang;
 		this.maSP = maSP;
@@ -24,19 +24,19 @@ public class ChiTietDonHang {
 		this.soLuong = soLuong;
 	}
 
-	public String getMaChiTietDonHang() {
+	public long getMaChiTietDonHang() {
 		return maChiTietDonHang;
 	}
 
-	public void setMaChiTietDonHang(String maChiTietDonHang) {
+	public void setMaChiTietDonHang(long maChiTietDonHang) {
 		this.maChiTietDonHang = maChiTietDonHang;
 	}
 
-	public String getMaDonHang() {
+	public long getMaDonHang() {
 		return maDonHang;
 	}
 
-	public void setMaDonHang(String maDonHang) {
+	public void setMaDonHang(long maDonHang) {
 		this.maDonHang = maDonHang;
 	}
 

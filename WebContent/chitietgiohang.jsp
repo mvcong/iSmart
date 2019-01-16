@@ -251,7 +251,7 @@
 						<a  href="trangsanpham.jsp"   class="btn btn-default">
 							Tiếp tục mua sắm <i class="fa fa-shopping-cart"></i>
 						</a>						
-						<a href="dathang.jsp" class="btn btn-primary" >
+						<a href="thanhtoan.jsp" class="btn btn-primary" >
 							Thanh toán <i class="fa fa-check"></i>
 						</a>
 					</div>
