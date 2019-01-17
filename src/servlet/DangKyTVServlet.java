@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import iCore.dao.TVDAOImpl;
 import iCore.model.ThanhVien;
+import tools.SendMail;
 
 
 /**
@@ -65,8 +66,11 @@ public class DangKyTVServlet extends HttpServlet {
 		}
 
 		try {
+			ThanhVien tv = new ThanhVien();
 			if (tenTV_err.length() == 0 && email_err.length() == 0) {
 				tvdaoImpl.themTV(new ThanhVien(maTV, tenTV, gioiTinh, sDT, email, diaChi, new Date()));
+				SendMail sm = new SendMail();
+				sm.sendMail("ilov3you365@gmail.com", "Đăng ký thành viên", "Chào Admin, vừa có một khách hàng đăng ký thành viên ");
 				url = "/trangchu.jsp";
 			} else {
 				url = "/dangky.jsp";

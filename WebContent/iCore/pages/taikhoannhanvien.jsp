@@ -1,3 +1,5 @@
+<%@page import="iCore.model.NhanVien"%>
+<%@page import="iCore.modelDAO.DAO_NhanVien"%>
 <%@page import="java.util.Date"%>
 <%@page import="iCore.util.Util_Date"%>
 <%@page import="iCore.modelDAO.DAO_NhomPhanQuyen"%>
@@ -123,10 +125,23 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label>Mã nhân viên</label> <input class="form-control"
-										name="maNV"
-										value="<%=(obj != null && obj.getNhanVien() != null ? obj.getNhanVien().getMaNV() : "")%>"
-										<%=(modeView ? " disabled " : "")%>>
+									<label>Nhân viên sở hữu</label> <select class="form-control"
+										name="maNV" <%=(modeView ? " disabled " : "")%>>
+										<option value=""></option>
+										<%
+											ObjectDAO objdao = new DAO_NhanVien();
+											ArrayList<NhanVien> listNhanVien = objdao.listAll();
+											for (NhanVien nv : listNhanVien) {
+										%>
+										<option value="<%=nv.maNV%> "
+											<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(nv.maNV) ? "selected"
+								: ""%>>
+											<%=nv.tenNV%>
+										</option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<input class="form-control" name="s_ngayTao" type="hidden"

@@ -134,7 +134,7 @@
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
-								for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+								for (Map.Entry<Long, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
 							%>
 							<li><a href="shop-item.html"><img
 									src="<%=list.getValue().getSanPham().getAnhSP()%>"
@@ -191,7 +191,8 @@
 				<!-- BEGIN SIDEBAR -->
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-12 col-sm-12">
-					<h1>Đăng ký thành viên</h1>
+					<h1>Đăng ký thành viên</h1></br>
+					<h3>(Sau khi đăng ký thành viên, admin sẽ tạo cho bạn một tài khoản với email bạn vừa nhập và mật khẩu mặc định là 1)</h3>
 					<!-- BEGIN CHECKOUT PAGE -->
 					<form action="DangKyTVServlet" method="post">
 						<!-- BEGIN PAYMENT ADDRESS -->
