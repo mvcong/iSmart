@@ -37,6 +37,7 @@ public class ThanhToanServlet extends HttpServlet {
 
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -46,7 +47,7 @@ public class ThanhToanServlet extends HttpServlet {
 		String hinhThucThanhToan = request.getParameter("hinhThucThanhToan");
 		HttpSession session = request.getSession();
 		GioHang cart = (GioHang) session.getAttribute("cart");
-		ThanhVien tv = (ThanhVien) session.getAttribute("thanhVien");
+		TaiKhoan tk = (TaiKhoan) session.getAttribute("taikhoan");
 		try {
 			long maDonHang = new Date().getTime();
 			DonHang donHang = new DonHang();
@@ -54,7 +55,7 @@ public class ThanhToanServlet extends HttpServlet {
 			donHang.setTenNguoiNhan(tenNguoiNhan);
 			donHang.setDiaChiNhan(diaChiNhan);
 			donHang.setsDTNN(sDTNN);
-//			donHang.setMaDangNhap(tv.getEmail());
+//			donHang.setMaDangNhap(tk.getEmail());
 			donHang.setDate(new Timestamp(new Date().getTime()));
 			donHang.setTongTien(cart.totalCart());
 			donHang.setHinhThucThanhToan(hinhThucThanhToan);
@@ -63,8 +64,8 @@ public class ThanhToanServlet extends HttpServlet {
 				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
 								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
 			}
-			SendMail sm = new SendMail();
-			sm.sendMail(tv.getEmail(), "GYM XXX", "Hello, "+tv.getEmail()+"/nTotal :"+cart.totalCart());
+//			SendMail sm = new SendMail();
+//			SendMail.sendMail(tk.getEmail(), "GYM XXX", "Xin chào, "+ tk.getEmail()+"/nTotal :"+ cart.totalCart());
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {
