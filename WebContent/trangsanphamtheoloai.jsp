@@ -17,7 +17,8 @@
 <head>
 <meta charset="utf-8">
 <title>GYM Smart</title>
-<link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
+<link rel="icon" type="image/png"
+	href="login_css/images/icons/favicon.ico" />
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -85,7 +86,7 @@
 	<%
 		LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
-		String maSP = "";		
+		String maSP = "";
 		if (request.getParameter("sanpham") != null) {
 			maSP = request.getParameter("sanpham");
 		}
@@ -134,8 +135,9 @@
 							%>
 						</ul>
 						<div class="text-right">
-							<a href="chitietgiohang.jsp" class="btn btn-default">View
-								Cart</a> <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
+								hàng</a> <a href="shop-checkout.html" class="btn btn-primary">Thanh
+								toán</a>
 						</div>
 					</div>
 
@@ -148,7 +150,7 @@
 
 				<ul>
 					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
-				
+
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -189,17 +191,18 @@
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
 				<div class="sidebar col-md-3 col-sm-5">
-				<ul class="list-group margin-bottom-25 sidebar-menu">
+					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="trangsanpham.jsp"><i
-								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
+							href="trangsanpham.jsp"><i class="fa fa-angle-right"></i>Tất
+								cả sản phẩm</a></li>
 					</ul>
 					<%
 						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
 					%>
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="trangsanpham.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
+							href="trangsanpham.jsp?loaisanpham=<%=lsp.getMaLoai()%>"><i
+								class="fa fa-angle-right"></i><%=lsp.getTenLoai()%></a></li>
 					</ul>
 					<%
 						}
@@ -215,7 +218,7 @@
 						<div class="col-md-10 col-sm-10">
 							<p>
 								Sản phẩm
-								<%=maLoai%></p>							
+								<%=maLoai%></p>
 						</div>
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
@@ -230,10 +233,7 @@
 									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
 										alt="Berry Lace Dress">
 									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
+										<a href="<%=sp.getAnhSP()%>"></a>
 									</div>
 								</div>
 								<h3>
@@ -247,7 +247,7 @@
 						</div>
 						<%
 							}
-						%>												
+						%>
 					</div>
 				</div>
 				<!-- END CONTENT -->

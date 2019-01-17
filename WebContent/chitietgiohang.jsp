@@ -217,7 +217,7 @@
 										<td class="goods-page-ref-no"><%= new Date()%></td>
 										<td class="goods-page-quantity">
 											<div class="product-quantity">
-												<input id="product-quantity" type="text"
+												<input id="soLuong" type="text"
 													value="<%=list.getValue().getSoLuong()%>" readonly
 													class="form-control input-sm">
 											</div>
