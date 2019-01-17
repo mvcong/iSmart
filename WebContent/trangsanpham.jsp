@@ -135,7 +135,8 @@
 						</ul>
 						<div class="text-right">
 							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
-								hàng</a> <a href="thanhtoan.jsp" class="btn btn-primary">Thanh toán</a>
+								hàng</a> <a href="thanhtoan.jsp" class="btn btn-primary">Thanh
+								toán</a>
 						</div>
 					</div>
 				</div>
@@ -181,12 +182,12 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">	
-				<ul class="list-group margin-bottom-25 sidebar-menu">
+				<div class="sidebar col-md-3 col-sm-5">
+					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="trangsanpham.jsp"><i
-								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
-					</ul>			
+							href="trangsanpham.jsp"><i class="fa fa-angle-right"></i>Tất
+								cả sản phẩm</a></li>
+					</ul>
 					<%
 						for (LoaiSanPham lsp : loaiSanPhamDAO.getListLoaiSanPham()) {
 					%>
@@ -217,16 +218,13 @@
 						<%
 							for (SanPham sp : sanPhamDAO.getListAllSanPham()) {
 						%>
-						<div class="col-sm-4" >
+						<div class="col-sm-4">
 							<div class="product-item">
 								<div class="pi-img-wrapper">
 									<img src="<%=sp.getAnhSP()%>" class="img-responsive"
 										alt="Berry Lace Dress">
 									<div>
-										<a href="<%=sp.getAnhSP()%>"
-											class="btn btn-default fancybox-button">Zoom</a> <a
-											href="chitietsanpham.jsp?maSP=<%=sp.getMaSP()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
+										<a href="<%=sp.getAnhSP()%>"></a>
 									</div>
 								</div>
 								<h3>
@@ -244,15 +242,14 @@
 					</div>
 					<!-- END PRODUCT LIST -->
 					<!-- BEGIN PAGINATOR -->
-					<div class="row">						
-					</div>
+					<div class="row"></div>
 					<!-- END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
 			<!-- END SIDEBAR & CONTENT -->
 		</div>
-	</div>	
+	</div>
 	<!-- BEGIN STEPS -->
 	<div class="steps-block steps-block-red">
 		<div class="container">
