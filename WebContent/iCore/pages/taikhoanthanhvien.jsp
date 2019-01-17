@@ -7,7 +7,7 @@
 <%
 	String tenLop = "TaiKhoanThanhVien";
 	String tenTrang = "Quản lý Tài Khoản Thành Viên";
-	String trangDanhSach = "index.jsp?p=eCore/pages/taikhoanthanhviens.jsp";
+	String trangDanhSach = "index.jsp?p=iCore/pages/taikhoanthanhviens.jsp";
 	String[] tk_value = { "maDangNhap", "ngayTao", "loaiTaiKhoan", "hoVaTen", "email" };
 	String[] tk_show = { "Mã đăng nhập", "Ngày tạo", "Loại tài khoản", "Họ và tên", "Email" };
 %>

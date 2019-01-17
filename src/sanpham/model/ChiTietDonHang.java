@@ -1,14 +1,17 @@
 package sanpham.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ChiTietDonHang {
 	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public long maChiTietDonHang;
 	public long maDonHang;
-	public String maSP;
+	public Long maSP;
 	public long giaBan;
 	public int soLuong;
 
@@ -16,7 +19,7 @@ public class ChiTietDonHang {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChiTietDonHang(long maChiTietDonHang, long maDonHang, String maSP, long giaBan, int soLuong) {
+	public ChiTietDonHang(long maChiTietDonHang, long maDonHang, Long maSP, long giaBan, int soLuong) {
 		this.maChiTietDonHang = maChiTietDonHang;
 		this.maDonHang = maDonHang;
 		this.maSP = maSP;
@@ -40,11 +43,11 @@ public class ChiTietDonHang {
 		this.maDonHang = maDonHang;
 	}
 
-	public String getMaSP() {
+	public Long getMaSP() {
 		return maSP;
 	}
 
-	public void setMaSP(String maSP) {
+	public void setMaSP(Long maSP) {
 		this.maSP = maSP;
 	}
 

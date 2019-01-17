@@ -11,7 +11,8 @@
 <meta name="author" content="">
 
 <title>GYMSmart</title>
-<link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
+<link rel="icon" type="image/png"
+	href="login_css/images/icons/favicon.ico" />
 
 <!-- Bootstrap Core CSS -->
 <link href="content/css_scripts/bootstrap/css/bootstrap.min.css"
@@ -75,10 +76,14 @@
 	// Nếu chưa đăng nhập => chuyển login.jsp
 	// Thiện có thêm điều kiện kiểm tra phải là sinh viên nhập học đăng nhập không
 	String maDangNhap = session.getAttribute("maDangNhap") + "";
+	// 	String thanhVien = session.getAttribute("xacThucTV") + "";
 	if (maDangNhap.equals("null")) {
 		response.sendRedirect("dangnhap.jsp");
 	}
-%> 
+	// 	if (maDangNhap.equals("null") && !thanhVien.equals("null")) {
+	// 		response.sendRedirect("dangnhapthanhvien.jsp");
+	// 	}
+%>
 <body>
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -109,10 +114,11 @@
 						class="fa fa-user"></i> <span class="masked"> Tài khoản</a>
 					<ul class="dropdown-menu">
 						<!--thiện có sửa lại kiểm tra có phải sinh viên nhập học đăng nhập không -->
-						<li><a href=trangquanly.jsp?p=iCore/pages/doimatkhau.jsp><i class="glyphicon glyphicon-refresh">
-							</i> &nbsp;&nbsp;Đổi mật khẩu </a></li>
-						<li><a href=dangXuat.action><i
-								class="fa fa-users"></i> &nbsp;&nbsp;Đăng xuất </a></li>
+						<li><a href=trangquanly.jsp?p=iCore/pages/doimatkhau.jsp><i
+								class="glyphicon glyphicon-refresh"> </i> &nbsp;&nbsp;Đổi mật
+								khẩu </a></li>
+						<li><a href=dangXuat.action><i class="fa fa-users"></i>
+								&nbsp;&nbsp;Đăng xuất </a></li>
 					</ul></li>
 			</ul>
 		</div>

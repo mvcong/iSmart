@@ -44,7 +44,7 @@ public class ThanhToanServlet extends HttpServlet {
 		String hinhThucThanhToan = request.getParameter("hinhThucThanhToan");
 		HttpSession session = request.getSession();
 		GioHang cart = (GioHang) session.getAttribute("cart");
-		TaiKhoanThanhVien taiKhoan = (TaiKhoanThanhVien) session.getAttribute("taiKhoan");
+		TaiKhoan taiKhoan = (TaiKhoan) session.getAttribute("taikhoan");
 		try {
 			long maDonHang = new Date().getTime();
 			DonHang donHang = new DonHang();
@@ -52,15 +52,15 @@ public class ThanhToanServlet extends HttpServlet {
 			donHang.setTenNguoiNhan(tenNguoiNhan);
 			donHang.setDiaChiNhan(diaChiNhan);
 			donHang.setsDTNN(sDTNN);
-			donHang.setMaDangNhap(taiKhoan.getMaDangNhap());
+//			donHang.setMaDangNhap(taiKhoan.getMaDangNhap());
 			donHang.setDate(new Timestamp(new Date().getTime()));
 			donHang.setTongTien(cart.totalCart());
 			donHang.setHinhThucThanhToan(hinhThucThanhToan);
 			donHangDAO.themDonHang(donHang);
-//			for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
-//				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
-//								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
-//			}
+			for (Map.Entry<Long, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
+								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
+			}
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {

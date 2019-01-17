@@ -11,6 +11,11 @@
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/dangnhap.jsp</result>
 		</action>
+<!-- 		<action name="dangNhapThanhVien" -->
+<!-- 			class="iCore.controller.Controller_XacThucThanhVien" method="dangNhap"> -->
+<!-- 			<result name="SUCCESS">/trangchu.jsp</result> -->
+<!-- 			<result name="FAIL">/dangnhap.jsp</result> -->
+<!-- 		</action> -->
 		<!-- Dang nhap -->
 		<!-- Dang xuat -->
 		<action name="dangXuat"

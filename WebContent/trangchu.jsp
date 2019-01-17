@@ -80,7 +80,7 @@
  	} else {
  %><a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> <%
  	}
- %>>
+ %>
 					</li>
 					<!-- 					<li class="nav-item"><a class="nav-link" href="dangnhap.jsp">Đăng -->
 					<!-- 							nhập</a></li> -->

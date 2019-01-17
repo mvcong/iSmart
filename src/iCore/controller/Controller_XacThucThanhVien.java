@@ -9,14 +9,17 @@ import org.apache.struts2.ServletActionContext;
 
 import iCore.dao.ObjectDAO;
 import iCore.model.TaiKhoan;
+import iCore.model.TaiKhoanThanhVien;
 import iCore.modelDAO.DAO_TaiKhoan;
+import iCore.modelDAO.DAO_TaiKhoanThanhVien;
 import iCore.util.Util_MD5;
 import iCore.util.Util_Menu;
 
-public class Controller_XacThuc {
-	ObjectDAO<TaiKhoan> dao = new DAO_TaiKhoan();
+public class Controller_XacThucThanhVien {
+	ObjectDAO<TaiKhoanThanhVien> dao = new DAO_TaiKhoanThanhVien();
 	String maDangNhap;
 	String matKhau;
+	String duongDanTrangView = "/trangchu.jsp";
 
 	public String getMaDangNhap() {
 		return maDangNhap;
@@ -37,18 +40,17 @@ public class Controller_XacThuc {
 	public String dangNhap() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		if(session.getAttribute("xacThucTV")!=null) {
-			session.removeAttribute("xacThucTV");
-		}
-		ArrayList<TaiKhoan> ls = dao.listByColumns("maDangNhap", getMaDangNhap());
-		TaiKhoan obj;
+		
+		ArrayList<TaiKhoanThanhVien> ls = dao.listByColumns("maDangNhap", getMaDangNhap());
+		TaiKhoanThanhVien obj;
 		if (ls.size() > 0) {
 			obj = ls.get(0);
 			String md5 = Util_MD5.md5(getMatKhau());
 			if (obj.getMatKhau().equals(md5) && obj.isTrangThaiHoatDong()==true) {
-				session.setAttribute("taiKhoanDangNhap", obj);
+				session.setAttribute("xacThucTV", "TV");
 				session.setAttribute("maDangNhap", obj.getMaDangNhap());
 				session.setAttribute("chucNangs", Util_Menu.getMenu2(session.getAttribute("maDangNhap") + ""));
+				session.setAttribute("p", duongDanTrangView);
 				return "SUCCESS";
 			}
 		}

@@ -16,7 +16,7 @@ public class ChiTietHoaDonDAO {
 		ps.setLong(1, chiTietDonHang.getMaChiTietDonHang());
 		ps.setLong(2, chiTietDonHang.getGiaBan());
 		ps.setLong(3, chiTietDonHang.getMaDonHang());
-		ps.setString(4, chiTietDonHang.getMaSP());
+		ps.setLong(4, chiTietDonHang.getMaSP());
 		ps.setInt(5, chiTietDonHang.getSoLuong());
 		ps.executeUpdate();
 	}

@@ -142,7 +142,7 @@
 					<div class="top-cart-content">
 						<ul class="scroller" style="height: 250px;">
 							<%
-								for (Map.Entry<String, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
+								for (Map.Entry<Long, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
 							%>
 							<li><a href="shop-item.html"><img
 									src="<%=list.getValue().getSanPham().getAnhSP()%>"
@@ -220,7 +220,7 @@
 								</div>
 								<div class="form-group">
 								<span>Hình thức thanh toán</span>
-									<select>
+									<select name="hinhThucThanhToan">
 									<option value="tructuyen">Trực tuyến</option>
 									<option value="trasau">Thanh toán khi nhận hàng</option>
 									</select>

@@ -144,12 +144,8 @@
 
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
-
 				<ul>
 					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
-				
-
-
 					<li class="menu-search"><span class="sep"></span> <i
 						class="fa fa-search search-btn"></i>
 						<div class="search-box">
@@ -170,7 +166,6 @@
 		</div>
 	</div>
 	<!-- Header END -->
-
 	<div class="title-wrapper">
 		<div class="container">
 			<div class="container-inner">
@@ -181,7 +176,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="main">
 		<div class="container">
 			<!-- BEGIN SIDEBAR & CONTENT -->
