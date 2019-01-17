@@ -37,9 +37,9 @@ public class Controller_XacThuc {
 	public String dangNhap() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		if(session.getAttribute("xacThucTV")!=null) {
-			session.removeAttribute("xacThucTV");
-		}
+//		if(session.getAttribute("xacThucTV")!=null) {
+//			session.removeAttribute("xacThucTV");
+//		}
 		ArrayList<TaiKhoan> ls = dao.listByColumns("maDangNhap", getMaDangNhap());
 		TaiKhoan obj;
 		if (ls.size() > 0) {

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="sanpham.model.SanPhamTrongGio"%>
 <%@page import="java.util.Map"%>
 <%@page
@@ -99,6 +100,21 @@
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		}
+		int pages = 0, firstResult = 0, maxResult=0,total = 0;
+		if(request.getParameter("pages")!=null){
+			pages = (int) Integer.parseInt(request.getParameter("pages"));
+			
+		}
+		total = sanPhamDAO.countSanPhamByLoaiSanPham(maLoai);
+		if(total <=6){
+			firstResult = 1;
+			maxResult = total;
+		}else{
+			firstResult = (pages -1)* 6;
+			maxResult = 6;
+		//ArrayList<SanPham> listSanPham = sanPhamDAO.getListProductByNav(maLoai, firstResult, maxResult);	
+		}
+		
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
@@ -242,7 +258,17 @@
 					</div>
 					<!-- END PRODUCT LIST -->
 					<!-- BEGIN PAGINATOR -->
-					<div class="row"></div>
+<!-- 					<div class="row"> -->
+<!-- 						<ul class="start"> -->
+<!-- 							<li><a href="#"><i></i></a></li> -->
+<%-- 							<%for(int i =1;i<=(total/6)+1;i++) {%> --%>
+<!-- 							<li class="arrow"><a -->
+<%-- 								href="trangsanpham.jsp?maLoai=<%=maLoai %>&pages=<%=i %>"></a></li> --%>
+<%-- 							<%} %> --%>
+<!-- 							<li><a href="#"><i class="" next></i></a></li> -->
+<!-- 						</ul> -->
+
+<!-- 					</div> -->
 					<!-- END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->

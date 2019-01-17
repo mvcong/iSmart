@@ -41,13 +41,15 @@ public class ThanhToanServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		String tenNguoiNhan = request.getParameter("tenNguoiNhan");
 		String diaChiNhan = request.getParameter("diaChiNhan");
 		String sDTNN = request.getParameter("sDTNN");
 		String hinhThucThanhToan = request.getParameter("hinhThucThanhToan");
 		HttpSession session = request.getSession();
 		GioHang cart = (GioHang) session.getAttribute("cart");
-		TaiKhoan tk = (TaiKhoan) session.getAttribute("taikhoan");
+		TaiKhoan tk = (TaiKhoan) session.getAttribute("taiKhoanDangNhap");
 		try {
 			long maDonHang = new Date().getTime();
 			DonHang donHang = new DonHang();
@@ -55,7 +57,7 @@ public class ThanhToanServlet extends HttpServlet {
 			donHang.setTenNguoiNhan(tenNguoiNhan);
 			donHang.setDiaChiNhan(diaChiNhan);
 			donHang.setsDTNN(sDTNN);
-//			donHang.setMaDangNhap(tk.getEmail());
+			donHang.setMaDangNhap(tk.getMaDangNhap());
 			donHang.setDate(new Timestamp(new Date().getTime()));
 			donHang.setTongTien(cart.totalCart());
 			donHang.setHinhThucThanhToan(hinhThucThanhToan);
@@ -64,8 +66,8 @@ public class ThanhToanServlet extends HttpServlet {
 				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
 								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
 			}
-//			SendMail sm = new SendMail();
-//			SendMail.sendMail(tk.getEmail(), "GYM XXX", "Xin chào, "+ tk.getEmail()+"/nTotal :"+ cart.totalCart());
+			SendMail sm = new SendMail();
+			SendMail.sendMail(tk.getMaDangNhap(), "GYM XXX", "Xin chào, "+ tk.getMaDangNhap()+"\nSố lượng : "+cart.countItem()+"\nMã đơn hàng :"+donHang.getMaDonHang()+"\nTổng tiền :"+ cart.totalCart());
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {

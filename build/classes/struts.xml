@@ -8,7 +8,7 @@
 		<!-- Dang nhap -->
 		<action name="dangNhap"
 			class="iCore.controller.Controller_XacThuc" method="dangNhap">
-			<result name="SUCCESS">/index.jsp</result>
+			<result name="SUCCESS">/trangchu.jsp</result>
 			<result name="FAIL">/dangnhap.jsp</result>
 		</action>
 <!-- 		<action name="dangNhapThanhVien" -->
