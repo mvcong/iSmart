@@ -63,11 +63,13 @@ public class ThanhToanServlet extends HttpServlet {
 			donHang.setHinhThucThanhToan(hinhThucThanhToan);
 			donHangDAO.themDonHang(donHang);
 			for (Map.Entry<Long, SanPhamTrongGio> list : cart.getCartItems().entrySet()) {
-				chiTietHoaDonDAO.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
+				chiTietHoaDonDAO
+						.themChiTietDonHang(new ChiTietDonHang(0, maDonHang, list.getValue().getSanPham().getMaSP(),
 								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
 			}
 			SendMail sm = new SendMail();
-			SendMail.sendMail(tk.getMaDangNhap(), "GYM XXX", "Xin chào, "+ tk.getMaDangNhap()+"\nMã đơn hàng :"+donHang.getMaDonHang()+"\nSố lượng : "+cart.countItem()+"\nTổng tiền :"+ cart.totalCart());
+			SendMail.sendMail(tk.getMaDangNhap(), "GYM XXX", "Xin chào, " + tk.getMaDangNhap() + "\nMã đơn hàng :"
+					+ donHang.getMaDonHang() + "\nSố lượng : " + cart.countItem() + "\nTổng tiền :" + cart.totalCart());
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {
