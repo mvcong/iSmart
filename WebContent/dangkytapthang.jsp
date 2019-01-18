@@ -1,3 +1,4 @@
+<%@page import="iCore.model.TheThanhVien"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,6 +43,19 @@
 %>
 </head>
 <body>
+
+<%
+TheThanhVien obj = null;
+if (session.getAttribute("obj") != null) {
+	if (session.getAttribute("obj") instanceof TheThanhVien) {
+		obj = (TheThanhVien) session.getAttribute("obj");
+	}
+}
+String maDangNhap = session.getAttribute("maDangNhap") + "";
+if (maDangNhap.equals("null")) {
+	response.sendRedirect("dangnhap.jsp");
+}
+%>
 	<div class="loader loader-bg">
 		<div class="loader-inner ball-clip-rotate-pulse">
 			<div></div>
@@ -118,17 +132,43 @@
 		</div>
 	</div>
 	<div class="container" >
-		<div class="row" style="height: 200px; width: 200px">
-			<div class="col-md-12">
+		<form action="DangKyTapServlet" method="post">
+						<!-- BEGIN PAYMENT ADDRESS -->
+						<div class="panel-body row">
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+									<label for="maTV">Mã thành viên</label> <input type="text"
+										name="maTV" id="maTV" class="form-control"
+										value="<%=(obj != null ? obj.getMaThe() : System.currentTimeMillis())%>"
+										readonly required="required">
+								</div>
+								<div class="form-group">
+									
+									<label for="tenTV">Họ và tên <span class="require">*</span></label>
+									<input type="text" name="tenTV" id="tenTV" class="form-control">
+								</div>
 
-				<a href="dangkytapthang.jsp" class="btn btn-primary"> Đăng ký tập
-					tháng <i class="fa fa-check"></i>
-				</a> <a href="dangkyngay.jsp" class="btn btn-primary"> Đăng ký tập
-					ngày <i class="fa fa-check"></i>
-				</a>
+								<div class="form-group">
+									
+									<label for="ngayTao">Ngày bắt đầu <span class="require">*</span></label>
+									<input type="text" name="ngayTao" id="ngayTao"
+										class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="gioiTinh">Ngày kết thúc </label> <input type="text"
+										name="ngayKT" id="gioiTinh" class="form-control">
+								</div>																
+								<div>
+									<button type="submit" class="btn btn-default">Đăng ký thẻ 
+									</button>
+								</div>
+							</div>
 
-			</div>
-		</div>
+
+							<!-- END PAYMENT ADDRESS -->
+						</div>
+
+					</form>
 	</div>
 
 

@@ -95,7 +95,7 @@
 		</div>
 		<div class="footer">
 			<hr />
-			<p style="color: white;">
+			<p style="color: white;">Đề tài: Xây dựng website "Quản lý phòng tập GYM"</br>
 				Phát triển dự án: Sinh viên Mai Văn Công
 				& GVHD<br />
 			</p>

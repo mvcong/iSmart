@@ -152,7 +152,7 @@
 	</div>
 	<div class="footer">
 		<div class="container">
-			<p class="text-muted">@SVTH: Mai Văn Công</p>
+			<p class="text-muted">Đề tài: Xây dựng website "Quản lý phòng tập GYM"</br>Phát triển dự án: Mai Văn Công & GVHD</p>
 		</div>
 	</div>
 	<!-- /#page-wrapper -->

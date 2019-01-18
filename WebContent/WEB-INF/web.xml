@@ -55,14 +55,23 @@
     <servlet-name>DangKyTaiKhoanServlet</servlet-name>
     <url-pattern>/DangKyTaiKhoanServlet</url-pattern>
   </servlet-mapping>
-  
-  
-   <servlet>
+  <servlet>
     <servlet-name>ThanhToanServlet</servlet-name>
     <servlet-class>servlet.ThanhToanServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ThanhToanServlet</servlet-name>
     <url-pattern>/ThanhToanServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <servlet-name>DangKyTapServlet</servlet-name>
+    <servlet-class>servlet.DangKyTapServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangKyTapServlet</servlet-name>
+    <url-pattern>/DangKyTapServlet</url-pattern>
   </servlet-mapping>
 </web-app>

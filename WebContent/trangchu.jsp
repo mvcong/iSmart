@@ -239,7 +239,7 @@
 		<div class="container">
 			<div class="row">
 				<div>
-					<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
+					<p style="color: white;">Đề tài: Xây dựng website "Quản lý phòng tập GYM"</br>Phát triển dự án: Sinh viên Mai Văn
 						Công & GVHD</p>
 				</div>
 			</div>
