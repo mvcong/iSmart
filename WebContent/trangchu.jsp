@@ -82,13 +82,13 @@
 								
 						%>
 						<a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> 
-						<a class="nav-link" href="dangky.jsp">Đăng
-							ký</a>
+						
 						<%
  	}
  %>
 					</li>					
-					<li class="nav-item"></li>
+					<li class="nav-item"><a class="nav-link" href="dangky.jsp">Đăng
+							ký</a></li>
 				</ul>
 			</div>
 		</div>

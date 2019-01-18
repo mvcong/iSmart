@@ -79,15 +79,13 @@
 						%> <a href="dangXuat.action" class="nav-link"><%=taiKhoanDangNhap%></a>
 						<%
 							} else {
-						%><a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> 
-						<a class="nav-link" href="dangky.jsp">Đăng
-							ký</a>
-						<%
+						%><a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> <%
  	}
  %>
- 
-					</li>					
-					<li class="nav-item"></li>
+
+					</li>
+					<li class="nav-item"><a class="nav-link" href="dangky.jsp">Đăng
+							ký</a></li>
 				</ul>
 			</div>
 		</div>
@@ -119,121 +117,21 @@
 			<i class="fa fa-chevron-right"></i>
 		</div>
 	</div>
+	<div class="container" >
+		<div class="row" style="height: 200px; width: 200px">
+			<div class="col-md-12">
 
-	<!-- Benefits
-    ================================================== -->
-	<section class="service-sec" id="benefits">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="heading text-md-center text-xs-center">
-						<h2>
-							<small>Lợi ích của việc tập GYM</small>Giúp bạn có thân hình đẹp,
-							thu hút người khác phái, nâng cao sức khỏe, phòng ngừa bệnh
-							tật,...
-						</h2>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-md-6 text-sm-center service-block">
-							<i class="fa fa-plus" aria-hidden="true"></i>
-							<h3>Tập gym cho bạn thân hình đẹp, săn chắc</h3>
-							<p>Luyện tập thể hình thường xuyên, đúng cách và kết hợp với
-								chế độ dinh dưỡng hợp lý giúp bạn có vóc dáng cân đối, săn chắc.</p>
-							<p>Người béo tập gym có tác dụng giảm mỡ thừa, khiến cơ bắp
-								sắn chắc và thân hình thon gọn. Tập gym giúp người gầy tăng cân,
-								cơ thể săn chắc, khỏe khoắn.</p>
-						</div>
-						<div class="col-md-6 text-sm-center service-block">
-							<i class="fa fa-leaf" aria-hidden="true"></i>
-							<h3>Tập gym tăng cường sức mạnh cơ bắp</h3>
-							<p>Việc tập gym đặc biệt phát huy tác dụng với cánh mày râu,
-								giúp nam giới tăng cường sức mạnh cơ bắp, thực hiện các công
-								việc đòi hỏi thể lực cao thật dễ dàng.</p>
-							<p>Khi luyện tập thể hình, các bài tập cơ vai, cơ lưng, cơ
-								bụng, chân có tác dụng tăng cường sức mạnh, độ dẻo dai và khả
-								năng chịu đựng của các cơ.</p>
-						</div>
-						<div class="col-md-6 text-sm-center service-block">
-							<i class="fa fa-leaf" aria-hidden="true"></i>
-							<h3>Tập gym giúp xương chắc khỏe</h3>
-							<p>Theo tuổi tác, các mô xương bị thoái hóa dần, thậm chí
-								nhiều người còn bị tình trạng loãng xương ngay khi còn trẻ.</p>
-							<p>Luyện tập thể hình tạo điều kiện cho việc kích thích quá
-								trình tạo xương mới, giúp xương khớp khỏe mạnh, ngăn ngừa chấn
-								thương, làm giảm tình trạng thoái hóa xương và phòng ngừa loãng
-								xương hiệu quả.</p>
-						</div>
-						<div class="col-md-6 text-sm-center service-block">
-							<i class="fa fa-bell" aria-hidden="true"></i>
-							<h3>Tập gym có tác dụng phòng ngừa bệnh tật</h3>
-							<p>Rất nhiều nghiên cứu của các nhà khoa học chỉ ra rằng: Tập
-								gym thường xuyên giúp cải thiện sức khỏe tim mạch, giảm
-								cholesterol, phòng bệnh tai biến mạch máu não, nhồi máu cơ tim,
-								cao huyết áp, xơ vữa động mạch…</p>
-							<p>Bên cạnh đó, bạn còn phòng tránh được các bệnh như loãng
-								xương, tiểu đường, béo phì, ung thư. Luyện tập thường xuyên
-								khiến cơ thể khỏe mạnh hơn, tăng cường sức đề kháng để chống lại
-								bệnh tật.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<img src="content/home/img/side-01.jpg" class="img-fluid" />
-				</div>
-			</div>
-			<!-- /.row -->
-		</div>
-	</section>
-	<section class="blog-sec" id="blog">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="heading text-md-center text-xs-center">
-						<h2>
-							<small>Tin nổi bật</small>
-						</h2>
-					</div>
-				</div>
-				<div class="col-md-4 blog-box">
-					<div class="blog-image-block">
-						<img src="content/home/img/phonggym.jpg" alt="" class="img-fluid">
-					</div>
-					<h3 class="blog-title">
-						<small>Phòng GYM</small><a
-							href="https://bizlive.vn/cau-chuyen-kinh-doanh/dua-mo-phong-gym-trieu-do-1890342.html">Đua
-							mở phòng GYM triệu đô</a>
-					</h3>
-				</div>
-				<div class="col-md-4 blog-box">
-					<div class="blog-image-block">
-						<img src="content/home/img/thidau.jpg" alt="" class="img-fluid">
-					</div>
-					<h3 class="blog-title">
-						<small>Giải đấu, cuộc thi</small><a
-							href="https://thethaovanhoa.vn/the-thao/khoi-dong-cuoc-thi-the-hinh-giai-thuong-500-ty-dong-trien-lam-lam-cho-cuoc-song-tot-dep-hon-n20180724200654591.htm">Khởi
-							động cuộc thi thể hình giải thưởng 500 tỷ đồng, triển lãm 'Làm
-							cho cuộc sống tốt đẹp hơn'</a>
-					</h3>
-				</div>
-				<div class="col-md-4 blog-box">
-					<div class="blog-image-block">
-						<img src="content/home/img/loiich.jpg" alt="" class="img-fluid">
-					</div>
-					<h3 class="blog-title">
-						<small>Tin khác</small><a
-							href="http://www.nshapefitness.vn/6-loi-ich-tuyet-voi-khien-ban-muon-tap-gym-ngay-nd462289/">6
-							lợi ích từ việc tập GYM</a>
-					</h3>
+				<a href="dangkythang.jsp" class="btn btn-primary"> Đăng ký tập
+					tháng <i class="fa fa-check"></i>
+				</a> <a href="dangkyngay.jsp" class="btn btn-primary"> Đăng ký tập
+					ngày <i class="fa fa-check"></i>
+				</a>
 
-				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
-	<!-- VIDEO
-    ================================================== -->
+
 	<footer>
 		<div class="container">
 			<div class="row">
