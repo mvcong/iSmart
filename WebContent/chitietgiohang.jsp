@@ -146,7 +146,7 @@
 			<div class="header-navigation">
 
 				<ul>
-					<li><a href="trangsanpha.jsp">Sản phẩm</a></li>
+					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
 				
 
 

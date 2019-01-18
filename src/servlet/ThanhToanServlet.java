@@ -68,8 +68,8 @@ public class ThanhToanServlet extends HttpServlet {
 								list.getValue().getSanPham().getGiaBan(), list.getValue().getSoLuong()));
 			}
 			SendMail sm = new SendMail();
-			SendMail.sendMail(tk.getMaDangNhap(), "GYM XXX", "Xin chào, " + tk.getMaDangNhap() + "\nMã đơn hàng :"
-					+ donHang.getMaDonHang() + "\nSố lượng : " + cart.countItem() + "\nTổng tiền :" + cart.totalCart());
+			SendMail.sendMail(tk.getMaDangNhap(), "GYM XXX[Thanh Toán Đơn Hàng]", "Xin chào, " + tk.getMaDangNhap() + "\nMã đơn hàng :"
+					+ donHang.getMaDonHang() + "\nSố lượng : " + cart.countItem() + "\nTổng tiền :" + cart.totalCart()+"\nTình trạng : Đang xử lý!!!");
 			cart = new GioHang();
 			session.setAttribute("cart", cart);
 		} catch (Exception e) {
