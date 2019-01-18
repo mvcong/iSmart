@@ -79,14 +79,13 @@
 						%> <a href="dangXuat.action" class="nav-link"><%=taiKhoanDangNhap%></a>
 						<%
 							} else {
-								
-						%>
-						<a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> 
+						%><a href="dangnhap.jsp" class="nav-link">Đăng nhập</a> 
 						<a class="nav-link" href="dangky.jsp">Đăng
 							ký</a>
 						<%
  	}
  %>
+ 
 					</li>					
 					<li class="nav-item"></li>
 				</ul>
@@ -245,7 +244,6 @@
 			</div>
 		</div>
 	</footer>
-
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
@@ -257,6 +255,7 @@
 	<script src="content/home/js/nivo-lightbox.min.js"></script>
 	<script src="content/home/js/wow.min.js"></script>
 	<script src="content/home/js/core.js"></script>
+
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
