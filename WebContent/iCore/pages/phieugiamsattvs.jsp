@@ -1,3 +1,5 @@
+<%@page import="iCore.model.NhanVien"%>
+<%@page import="iCore.modelDAO.DAO_TaiKhoanNhanVien"%>
 <%@page import="iCore.modelDAO.DAO_ThanhVien"%>
 <%@page import="iCore.model.ThanhVien"%>
 <%@page import="iCore.modelDAO.DAO_PhieuGiamSatTV"%>
@@ -126,8 +128,47 @@
 						<td><%=obj.getNgayBD() != null ? obj.getNgayBD() : ""%></td>
 						<td><%=obj.getNgayKT() != null ? obj.getNgayKT() : ""%></td>
 						<td><%=obj.getNoiDung() != null ? obj.getNoiDung() : ""%></td>
-						<td style="text-align: center;"><%@ include
-								file="../../iPartial/menupullcuadoituong.jsp"%></td>
+						<td style="text-align: center;">
+						
+<%-- 						<%@ include --%>
+<%-- 								file="../../iPartial/menupullcuadoituong.jsp"%></td> --%>
+
+<div class="pull-center">
+								<div class="btn-group">
+									<button type="button"
+										class="btn btn-default btn-xs dropdown-toggle"
+										data-toggle="dropdown">
+										<img src="content/images/menu-16.png" /> Chọn chức năng <span
+											class="caret"></span>
+									</button>
+
+
+
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li><a
+											href="xemChiTiet<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/detail-16.png" />&nbsp;&nbsp; Xem chi
+												tiết</a></li>
+
+										<%
+											ObjectDAO objdao_TaiKhoan = new DAO_TaiKhoanNhanVien();
+												String maDangNhap = session.getAttribute("maDangNhap").toString();
+												ArrayList<TaiKhoanNhanVien> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
+												if (listTaiKhoan.size() > 0) {
+													TaiKhoanNhanVien taiKhoan = listTaiKhoan.get(0);
+													NhanVien nv = taiKhoan.getNhanVien();
+										%>
+										<li><a
+											href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/edit-16.png" />&nbsp;&nbsp; Chỉnh sửa</a></li>
+										<li><a id="<%=tenLop%>" title="<%=maDoiTuong%>"
+											target="<%=tenDoiTuong%>" onclick="confirmDelete(this)"><img
+												src="content/images/delete-16.png" />&nbsp;&nbsp; Xóa</a></li>
+									</ul>
+									<%
+										}
+									%>
+								</div>
 					</tr>
 					<%
 						}

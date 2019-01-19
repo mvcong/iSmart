@@ -159,7 +159,7 @@
 												ArrayList<TaiKhoanNhanVien> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
 												if (listTaiKhoan.size() > 0) {
 													TaiKhoanNhanVien taiKhoan = listTaiKhoan.get(0);
-													NhanVien taixe = taiKhoan.getNhanVien();
+													NhanVien nv = taiKhoan.getNhanVien();
 										%>
 										<li><a
 											href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
