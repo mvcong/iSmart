@@ -22,23 +22,23 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import iCore.model.PhieuGiamSatTV;
-import iCore.model.PhieuThu;
-import iCore.modelDAO.DAO_PhieuGiamSatTV;
-import iCore.modelDAO.DAO_PhieuThu;
+import iCore.model.LichSuTap;
+import iCore.model.TheThanhVien;
+import iCore.modelDAO.DAO_LichSuTap;
+import iCore.modelDAO.DAO_TheThanhVien;
 import iCore.util.Util_Export;
 
 /**
- * Servlet implementation class File_ExportPGS
+ * Servlet implementation class File_ExportLST
  */
-@WebServlet("/File_ExportPGS")
-public class File_ExportPGS extends HttpServlet {
+@WebServlet("/File_ExportLST")
+public class File_ExportLST extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public File_ExportPGS() {
+    public File_ExportLST() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -55,13 +55,13 @@ public class File_ExportPGS extends HttpServlet {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		String dateString = df.format(date);
-		String tenFile = "DANH_SACH_PHIEU_GIAM_SAT " + dateString + "".concat(".xls");
+		String tenFile = "DANH_SACH_LICH_SU_TAP " + dateString + "".concat(".xls");
 		// tao file excel
 		HSSFWorkbook myWorkBook = new HSSFWorkbook();
 		
-		ArrayList<PhieuGiamSatTV>phieugiamsats = new DAO_PhieuGiamSatTV().listAll();
+		ArrayList<LichSuTap>lichsutaps = new DAO_LichSuTap().listAll();
 		
-		CreateSheet(myWorkBook, phieugiamsats);
+		CreateSheet(myWorkBook, lichsutaps);
 
 		/*
 		 * HSSFCellStyle styleConten = Util_Export.createStyle(myWorkBook, 12,
@@ -205,35 +205,40 @@ public class File_ExportPGS extends HttpServlet {
 		cell.setCellStyle(title);
 
 		cell = row.createCell(1, CellType.STRING);
-		cell.setCellValue("Mã phiếu");
+		cell.setCellValue("Mã lịch sử");
 		cell.setCellStyle(title);
 
 		cell = row.createCell(2, CellType.STRING);
-		cell.setCellValue("Tên phiếu");
+		cell.setCellValue("Tên lịch sử");
 		cell.setCellStyle(title);
 		
 		cell = row.createCell(3, CellType.STRING);
-		cell.setCellValue("Nội dung");
+		cell.setCellValue("Ngày tập");
 		cell.setCellStyle(title);
 		
 		cell = row.createCell(4, CellType.STRING);
-		cell.setCellValue("Thành viên sở hữu");
-		cell.setCellStyle(title);	
+		cell.setCellValue("Thời gian tập");
+		cell.setCellStyle(title);
 		
 		cell = row.createCell(5, CellType.STRING);
-		cell.setCellValue("Nhân viên giám sát");
+		cell.setCellValue("Nội dung");
 		cell.setCellStyle(title);
+		
+		cell = row.createCell(7, CellType.STRING);
+		cell.setCellValue("Thành viên sở hữu");
+		cell.setCellStyle(title);	
+				
 	}
 	
-	private void CreateSheet(HSSFWorkbook myWorkBook, ArrayList<PhieuGiamSatTV> phieugiamsats) {
+	private void CreateSheet(HSSFWorkbook myWorkBook, ArrayList<LichSuTap> lichsutaps) {
 			HSSFSheet mySheet = myWorkBook.createSheet();
 			CreateHead(mySheet, myWorkBook);
 			HSSFCellStyle styleConten = Util_Export.createStyle(myWorkBook, 12, false, false, false, true, false);
 			int rowst = 1;
 			Cell cell;
 			Row row;
-			for (int i = 0; i < phieugiamsats.size(); i++) {
-				PhieuGiamSatTV pgs = phieugiamsats.get(i);
+			for (int i = 0; i < lichsutaps.size(); i++) {
+				LichSuTap lst = lichsutaps.get(i);
 				
 				row = mySheet.createRow(rowst);
 
@@ -242,27 +247,29 @@ public class File_ExportPGS extends HttpServlet {
 				cell.setCellStyle(styleConten);
 
 				cell = row.createCell(1, CellType.STRING);
-				cell.setCellValue(pgs.getMaPGS());
+				cell.setCellValue(lst.getMaLST());
 				cell.setCellStyle(styleConten);
 
 				cell = row.createCell(2, CellType.STRING);
-				cell.setCellValue(pgs.getTenPGS());
+				cell.setCellValue(lst.getTenLST());
 				cell.setCellStyle(styleConten);
 
 				cell = row.createCell(3, CellType.STRING);
-				cell.setCellValue(pgs.getNoiDung());
+				cell.setCellValue(lst.getNgayTap());
 				cell.setCellStyle(styleConten);
-												
-				cell = row.createCell(4, CellType.STRING);
-				cell.setCellValue(pgs.getThanhVien().getTenTV());
-				cell.setCellStyle(styleConten);
-						
-				cell = row.createCell(5, CellType.STRING);
-				cell.setCellValue(pgs.getNhanVien().getTenNV());
-				cell.setCellStyle(styleConten);
-				rowst++;
-
 				
+				cell = row.createCell(4, CellType.STRING);
+				cell.setCellValue(lst.getThoiGianTap());
+				cell.setCellStyle(styleConten);
+				
+				cell = row.createCell(5, CellType.STRING);
+				cell.setCellValue(lst.getNoiDung());
+				cell.setCellStyle(styleConten);				
+				
+				cell = row.createCell(6, CellType.STRING);
+				cell.setCellValue(lst.getThanhVien().getTenTV());
+				cell.setCellStyle(styleConten);
+		
 			}
 			
 			mySheet.autoSizeColumn(0);
@@ -271,8 +278,8 @@ public class File_ExportPGS extends HttpServlet {
 			mySheet.autoSizeColumn(3);
 			mySheet.autoSizeColumn(4);
 			mySheet.autoSizeColumn(5);
-			/*mySheet.autoSizeColumn(6);
-			mySheet.autoSizeColumn(7);*/
+			mySheet.autoSizeColumn(6);
+			
 		}
 
 

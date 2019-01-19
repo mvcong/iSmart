@@ -93,7 +93,7 @@
 				</script>
 			</form>
 			<a class="btn  btn-default" style="text-align: left;"
-				href="./Servlet_FileExport" id="btnxuatexcel"> <img
+				href="./Servlet_FileExportLST" id="btnxuatexcel"> <img
 				src="content/images/excel-32.png" width="16px" height="16px" />
 				&nbsp; Xuất danh sách excel
 			</a>

@@ -54,7 +54,7 @@ public class File_ExportPT extends HttpServlet {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		String dateString = df.format(date);
-		String tenFile = "DANH_SACH_PHIEU_CHI " + dateString + "".concat(".xls");
+		String tenFile = "DANH_SACH_PHIEU_THU " + dateString + "".concat(".xls");
 		// tao file excel
 		HSSFWorkbook myWorkBook = new HSSFWorkbook();
 		
