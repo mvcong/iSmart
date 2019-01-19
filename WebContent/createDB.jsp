@@ -254,6 +254,40 @@
 		CN_QuanLyLichSuTap.setChucNangCha(CN_QuanLyHistory);
 		daochucnang.saveOrUpdate(CN_QuanLyLichSuTap);
 		
+		
+		ChucNang CN_DangKy = new ChucNang();
+		CN_DangKy.setMaChucNang("DangKy");
+		CN_DangKy.setDuongDan("null");
+		CN_DangKy.setHinhAnh("fa fa-filter");
+		CN_DangKy.setTenHienThi("Đăng ký tập");
+		CN_DangKy.setChucNangCha(null);
+		daochucnang.saveOrUpdate(CN_DangKy);
+		
+		ChucNang CN_DangSachDangKy = new ChucNang();
+		CN_DangSachDangKy.setMaChucNang("DanhSachDangKy");
+		CN_DangSachDangKy.setDuongDan("iCore/pages/thethanhviens.jsp");
+		CN_DangSachDangKy.setHinhAnh("fa fa-share-alt");
+		CN_DangSachDangKy.setTenHienThi("Danh sách đăng ký");
+		CN_DangSachDangKy.setChucNangCha(CN_DangKy);
+		daochucnang.saveOrUpdate(CN_DangSachDangKy);
+		
+		ChucNang CN_DangKyNgay = new ChucNang();
+		CN_DangKyNgay.setMaChucNang("DangKyNgay");
+		CN_DangKyNgay.setDuongDan("iCore/pages/dangkyngay.jsp");
+		CN_DangKyNgay.setHinhAnh("fa fa-share-alt");
+		CN_DangKyNgay.setTenHienThi("Đăng ký ngày");
+		CN_DangKyNgay.setChucNangCha(CN_DangKy);
+		daochucnang.saveOrUpdate(CN_DangKyNgay);
+		
+		
+		ChucNang CN_DangKyThang = new ChucNang();
+		CN_DangKyThang.setMaChucNang("DangKyThang");
+		CN_DangKyThang.setDuongDan("iCore/pages/dangkythang.jsp");
+		CN_DangKyThang.setHinhAnh("fa fa-share-alt");
+		CN_DangKyThang.setTenHienThi("Đăng ký tháng");
+		CN_DangKyThang.setChucNangCha(CN_DangKy);
+		daochucnang.saveOrUpdate(CN_DangKyThang);
+		
 	// sét quyền truy cập
 	//admin
 		NhomPhanQuyen nhomPhanQuyenadmin = new NhomPhanQuyen();
@@ -337,6 +371,11 @@
 		
 		chs3.add(CN_QuanLyHistory);
 		chs3.add(CN_QuanLyLichSuTap);
+		
+		chs3.add(CN_DangKy);
+		chs3.add(CN_DangSachDangKy);
+		chs3.add(CN_DangKyNgay);
+		chs3.add(CN_DangKyThang);
 		
 		nhomPhanQuyentv.setChucNangs(chs3);
 		ObjectDAO daonpqtv = new DAO_NhomPhanQuyen();

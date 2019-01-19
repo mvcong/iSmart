@@ -131,9 +131,9 @@
 							</div>
 							<div class="panel-footer" style="text-align: left;">
 								<div class="col-md-12"></div>
-								<div class="col-md-12">
-									<%@ include file="../../iPartial/processform.jsp"%>
-								</div>
+<!-- 								<div class="col-md-12"> -->
+<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+<!-- 								</div> -->
 							</div>
 							<!-- /.col-lg-6 (nested) -->
 							<!-- /.col-lg-6 (nested) -->

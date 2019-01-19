@@ -14,6 +14,8 @@ public class TheThanhVien {
 	public Date ngayTao;
 	public Date ngayKT;
 	public String hsd;
+	public String gioBD;
+	public String gioKT;
 	public String loaiThe;
 	public Date thoiGianCapNhat;
 
@@ -24,16 +26,22 @@ public class TheThanhVien {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TheThanhVien(String maThe, Date ngayTao, Date ngayKT, String hsd, String loaiThe, Date thoiGianCapNhat,
-			ThanhVien thanhVien) {
+	
+
+	public TheThanhVien(String maThe, Date ngayTao, Date ngayKT, String hsd, String gioBD, String gioKT, String loaiThe,
+			Date thoiGianCapNhat, ThanhVien thanhVien) {
 		this.maThe = maThe;
 		this.ngayTao = ngayTao;
 		this.ngayKT = ngayKT;
 		this.hsd = hsd;
+		this.gioBD = gioBD;
+		this.gioKT = gioKT;
 		this.loaiThe = loaiThe;
 		this.thoiGianCapNhat = thoiGianCapNhat;
 		this.thanhVien = thanhVien;
 	}
+
+
 
 	public String getMaThe() {
 		return maThe;
@@ -58,6 +66,30 @@ public class TheThanhVien {
 	public void setNgayKT(Date ngayKT) {
 		this.ngayKT = ngayKT;
 	}
+
+	public String getGioBD() {
+		return gioBD;
+	}
+
+
+
+	public void setGioBD(String gioBD) {
+		this.gioBD = gioBD;
+	}
+
+
+
+	public String getGioKT() {
+		return gioKT;
+	}
+
+
+
+	public void setGioKT(String gioKT) {
+		this.gioKT = gioKT;
+	}
+
+
 
 	public String getHsd() {
 		return hsd;
@@ -95,6 +127,8 @@ public class TheThanhVien {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((gioBD == null) ? 0 : gioBD.hashCode());
+		result = prime * result + ((gioKT == null) ? 0 : gioKT.hashCode());
 		result = prime * result + ((hsd == null) ? 0 : hsd.hashCode());
 		result = prime * result + ((loaiThe == null) ? 0 : loaiThe.hashCode());
 		result = prime * result + ((maThe == null) ? 0 : maThe.hashCode());
@@ -114,6 +148,16 @@ public class TheThanhVien {
 		if (getClass() != obj.getClass())
 			return false;
 		TheThanhVien other = (TheThanhVien) obj;
+		if (gioBD == null) {
+			if (other.gioBD != null)
+				return false;
+		} else if (!gioBD.equals(other.gioBD))
+			return false;
+		if (gioKT == null) {
+			if (other.gioKT != null)
+				return false;
+		} else if (!gioKT.equals(other.gioKT))
+			return false;
 		if (hsd == null) {
 			if (other.hsd != null)
 				return false;
@@ -155,7 +199,8 @@ public class TheThanhVien {
 	@Override
 	public String toString() {
 		return "TheThanhVien [maThe=" + maThe + ", ngayTao=" + ngayTao + ", ngayKT=" + ngayKT + ", hsd=" + hsd
-				+ ", loaiThe=" + loaiThe + ", thoiGianCapNhat=" + thoiGianCapNhat + ", thanhVien=" + thanhVien + "]";
+				+ ", gioBD=" + gioBD + ", gioKT=" + gioKT + ", loaiThe=" + loaiThe + ", thoiGianCapNhat="
+				+ thoiGianCapNhat + ", thanhVien=" + thanhVien + "]";
 	}
 
 }

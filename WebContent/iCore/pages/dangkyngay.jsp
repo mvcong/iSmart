@@ -7,7 +7,7 @@
 
 <%
 	String tenLop = "TheThanhVien";
-	String tenTrang = "Quản lý thẻ thành viên";
+	String tenTrang = "Đăng ký tập ngày";
 	String trangDanhSach = "index.jsp?p=iCore/pages/thethanhviens.jsp";
 	String[] tk_value = {"maThe", "ngayTao", "ngayKT", "gioBD","gioKT", "loaiThe", "thanhVien"};
 	String[] tk_show = {"Mã thẻ", "Ngày bắt đầu", "Ngày kết thúc", "Giờ bắt đầu","Giờ kết thúc", "Loại thẻ", "Thành viên"};
@@ -17,7 +17,7 @@
 <%
 	String mode = session.getAttribute("mode") + "";
 	String tenTrangChiTiet = "";
-	tenTrangChiTiet = mode.equals("addNew") ? "Thêm mới" : tenTrangChiTiet;
+	tenTrangChiTiet = mode.equals("addNew") ? "Đăng ký ngày" : tenTrangChiTiet;
 	tenTrangChiTiet = mode.equals("viewDetail") ? "Xem thông tin chi tiết" : tenTrangChiTiet;
 	tenTrangChiTiet = mode.equals("viewDetailAndEdit") ? "Chỉnh sửa thông tin" : tenTrangChiTiet;
 	tenTrangChiTiet = mode.equals("null") ? "" : tenTrangChiTiet;
@@ -59,11 +59,49 @@
 							<p style="color: red; display: inline;"><%=msg%></p>
 						</div>
 						<div class="col-md-7">
-							<%@ include file="../../iPartial/processform.jsp"%>
+														<%
+	if (!modeView) {
+%>
+<div class="row" style="text-align: right;">
+	<!-- 	<div class="col-md-3" style="padding: 1px"> -->
+	<a href="<%=trangDanhSach%>" class="btn btn-default" id="btntrangdanhsach"> <img
+		src="content/images/back-32.png" width="16px" height="16px"></img>
+		&nbsp; Quay về trang danh sách
+	</a>	
+	<button type="reset" class="btn btn-default" id="btntaomoi">
+		<img src="content/images/reset-32.png" width="16px" height="16px" />
+		&nbsp; Nhập lại
+	</button>
+	<!-- 	</div> -->
+	<!-- 	<div class="col-md-3" style="padding: 1px"> -->
+	<button type="submit" class="btn btn-default">
+		<img src="content/images/save-32.png" width="16px" height="16px" />
+		&nbsp; Đăng ký
+	</button>
+</div>
+<%
+	} else {
+%>
+<div class="row pull-right">
+	<div class="col-md-4" style="padding: 1px">
+		<a href="<%=trangDanhSach%>" class="btn btn-default"> <img
+			src="content/images/back-32.png" width="16px" height="16px"></img>
+			&nbsp; Quay về trang danh sách
+		</a>
+	</div>
+</div>
+<%
+	}
+%>
+<%
+	if (session.getAttribute("msg") != null) {
+		session.removeAttribute("msg");
+	}
+%>
 						</div>
 					</div>
 				</div>
-				<div class="panel-body" id = "printDiv">
+				<div class="panel-body">
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
@@ -78,15 +116,16 @@
 								<div class="form-group">
 									<label>Ngày bắt đầu</label> <input class="form-control"
 										name="ngayTao" type="date"
-										value="<%=(obj != null && obj.getNgayTao() != null ? Util_Date.dateToString(obj.getNgayTao()) : "")%>"
+										value="<%=(obj != null && obj.getNgayTao() != null ? Util_Date.dateToString(obj.getNgayTao())  : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Ngày kết thúc</label> <input class="form-control"
 										name="ngayKT" type="date"
-										value="<%=(obj != null && obj.getNgayKT() != null ? Util_Date.dateToString(obj.getNgayKT()) : "")%>"
+										value="<%=(obj != null && obj.getNgayKT() != null ? Util_Date.dateToString(obj.getNgayKT())  : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
+								
 								<div class="form-group">
 									<label>Giờ bắt đầu *</label>  <select class="form-control" <%=(modeView ? " disabled " : "")%>
 										name="gioBD">
@@ -157,13 +196,16 @@
 								<div class="form-group">
 									<label>Hạn thẻ</label> <input class="form-control" name="hsd"
 										value="<%=(obj != null && obj.getHsd() != null ? obj.getHsd() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
+										<%=(modeView ? " readonly " : "")%> readonly
+										required="required">
+								</div>							
 								<div class="form-group">
-									<label>Loại thẻ</label> <input class="form-control"
-										name="loaiThe"
-										value="<%=(obj != null && obj.getLoaiThe() != null ? obj.getLoaiThe() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
+									<label>Loại thẻ *</label>  <select class="form-control" <%=(modeView ? " disabled " : "")%>
+										name="loaiThe">
+										<option></option>
+										<option value="Thẻ ngày"
+											<%=obj != null && obj.getLoaiThe() != null && obj.loaiThe.equals("Thẻ ngày") ? "selected" : ""%>>Thẻ ngày</option>										
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Thành viên sở hữu</label> <select class="form-control"

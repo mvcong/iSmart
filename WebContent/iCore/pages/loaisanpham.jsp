@@ -59,7 +59,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" id = "printDiv">
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
@@ -78,9 +78,9 @@
 							</div>
 						</div>
 						<div class="col-md-12"></div>
-						<div class="col-md-12">
-							<%@ include file="../../iPartial/processform.jsp"%>
-						</div>
+<!-- 						<div class="col-md-12"> -->
+<%-- 							<%@ include file="../../iPartial/processform.jsp"%> --%>
+<!-- 						</div> -->
 					</div>
 					<!-- /.col-lg-6 (nested) -->
 					<!-- /.col-lg-6 (nested) -->

@@ -144,6 +144,8 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 		obj.maThe = getMaThe();
 		obj.ngayTao = getNgayTao();
 		obj.ngayKT = getNgayKT();
+		obj.gioBD = getGioBD();
+		obj.gioKT = getGioKT();
 		obj.hsd = getHsd();
 		obj.loaiThe = getLoaiThe();
 		obj.thanhVien = getThanhVien();

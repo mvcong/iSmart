@@ -69,7 +69,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" id = "printDiv">
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
@@ -88,13 +88,13 @@
 								</div>
 								<div class="form-group">
 									<label>Ngày bắt đầu</label> <input class="form-control"
-										name="ngayBD" type="date"
+										name="s_ngayBD" type="date"
 										value="<%=(obj != null && obj.getNgayBD() != null ? Util_Date.dateToString(obj.getNgayBD()) : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
 								<div class="form-group">
 									<label>Ngày kết thúc</label> <input class="form-control"
-										name="ngayKT" type="date"
+										name="s_ngayKT" type="date"
 										value="<%=(obj != null && obj.getNgayKT() != null ? Util_Date.dateToString(obj.getNgayKT()) : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
@@ -146,9 +146,9 @@
 							</div>
 							<div class="panel-footer" style="text-align: left;">
 								<div class="col-md-12"></div>
-								<div class="col-md-12">
-									<%@ include file="../../iPartial/processform.jsp"%>
-								</div>
+<!-- 								<div class="col-md-12"> -->
+<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+<!-- 								</div> -->
 							</div>
 						</div>
 					</div>

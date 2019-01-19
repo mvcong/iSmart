@@ -84,7 +84,7 @@
 								</div>
 								<div class="form-group">
 									<label>Ngày nhập</label> <input class="form-control"
-										name="ngayNhap" type="date"
+										name="s_ngayNhap" type="date"
 										value="<%=(obj != null && obj.getNgayNhap() != null ? Util_Date.dateToString(obj.getNgayNhap()) : "")%>"
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
@@ -137,9 +137,9 @@
 							</div>
 							<div class="panel-footer" style="text-align: left;">
 								<div class="col-md-12"></div>
-								<div class="col-md-12">
-									<%@ include file="../../iPartial/processform.jsp"%>
-								</div>
+<!-- 								<div class="col-md-12"> -->
+<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+<!-- 								</div> -->
 							</div>
 						</div>
 					</div>

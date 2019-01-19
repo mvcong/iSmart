@@ -26,7 +26,7 @@
 	<!-- 	thêm 14/05 --- thiện -->
 	<!-- 	<div class="col-md-3" style="padding: 1px" > -->
 	<button type="submit" class="btn btn-default" name="bt_in" value="In"
-		id="btnxxx" formtarget="_blank">
+		id="btnxxx" formtarget="_blank" onclick="printDiv('printDiv')">
 		<img src="content/images/save-32.png" width="16px" height="16px" />
 		&nbsp; In phiếu
 	</button>

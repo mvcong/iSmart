@@ -69,7 +69,7 @@
 							quản lý</a></li>
 					<li class="nav-item"><a class="nav-link" href="thongbao.jsp">Thông
 							báo</a></li>
-					<li class="nav-item"><a class="nav-link" href="dangkytap.jsp">Đăng
+					<li class="nav-item"><a class="nav-link" href="index.jsp">Đăng
 							ký tập</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="trangsanpham.jsp">Cửa hàng</a></li>

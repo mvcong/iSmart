@@ -63,9 +63,6 @@
     <servlet-name>ThanhToanServlet</servlet-name>
     <url-pattern>/ThanhToanServlet</url-pattern>
   </servlet-mapping>
-  
-  
-  
   <servlet>
     <servlet-name>DangKyTapServlet</servlet-name>
     <servlet-class>servlet.DangKyTapServlet</servlet-class>

@@ -1,3 +1,6 @@
+<%@page import="iCore.model.NhanVien"%>
+<%@page import="iCore.modelDAO.DAO_TaiKhoanNhanVien"%>
+<%@page import="iCore.modelDAO.DAO_TaiKhoanThanhVien"%>
 <%@page import="iCore.modelDAO.DAO_ThanhVien"%>
 <%@page import="iCore.model.ThanhVien"%>
 <%@page import="iCore.modelDAO.DAO_TheThanhVien"%>
@@ -8,8 +11,8 @@
 <%
 	String tenLop = "TheThanhVien";
 	String tenTrang = "Quản lý thẻ thành viên";
-	String[] tk_value = {"maThe", "ngayTao", "ngayKT", "hsd", "loaiThe"};
-	String[] tk_show = {"Mã thẻ", "Ngày bắt đầu", "Ngày kết thúc", "Hạn thẻ", "Loại thẻ"};
+	String[] tk_value = {"maThe", "ngayTao", "ngayKT", "gioBD","gioKT", "loaiThe"};
+	String[] tk_show = {"Mã thẻ", "Ngày bắt đầu", "Ngày kết thúc", "Giờ bắt đầu", "Giờ kết thúc", "Loại thẻ"};
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
@@ -102,7 +105,8 @@
 						<th>Ngày bắt đầu</th>
 						<th>Ngày kết thúc</th>
 						<th>Thành viên</th>
-						<th>Hạn thẻ</th>
+						<th>Giờ bắt đầu</th>
+						<th>Giờ kết thúc</th>
 						<th>Loại thẻ</th>
 						<th>Xử lý</th>
 
@@ -120,10 +124,63 @@
 						<td><%=obj.getNgayTao() != null ? obj.getNgayTao() : ""%></td>
 						<td><%=obj.getNgayKT() != null ? obj.getNgayKT() : ""%></td>
 						<td><%=obj.getThanhVien() == null ? "" : obj.getThanhVien().getTenTV()%></td>
-						<td><%=obj.getHsd() != null ? obj.getHsd() : ""%></td>
+						<td><%=obj.getGioBD() != null ? obj.getGioBD() : ""%></td>
+						<td><%=obj.getGioKT() != null ? obj.getGioKT() : ""%></td>
 						<td><%=obj.getLoaiThe() != null ? obj.getLoaiThe() : ""%></td>
-						<td style="text-align: center;"><%@ include
-								file="../../iPartial/menupullcuadoituong.jsp"%></td>
+						<td style="text-align: center;">
+<%-- 						<%@ include file="../../iPartial/menupullcuadoituong.jsp"%> --%>
+						
+						
+						
+						<div class="pull-center">
+	<div class="btn-group">
+		<button type="button" class="btn btn-default btn-xs dropdown-toggle"
+			data-toggle="dropdown">
+			<img src="content/images/menu-16.png" /> Chọn chức năng <span
+				class="caret"></span>
+		</button>
+		
+		
+		
+		<ul class="dropdown-menu pull-right" role="menu">
+			<li><a href="xemChiTiet<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+					src="content/images/detail-16.png" />&nbsp;&nbsp; Xem chi tiết</a></li>
+					
+					<%
+										ObjectDAO objdao_TaiKhoan = new DAO_TaiKhoanNhanVien();
+										String maDangNhap = session.getAttribute("maDangNhap").toString();
+										ArrayList<TaiKhoanNhanVien> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
+										if (listTaiKhoan.size() > 0) {
+											TaiKhoanNhanVien taiKhoan = listTaiKhoan.get(0);
+											NhanVien taixe = taiKhoan.getNhanVien();
+									%>
+			<li><a
+				href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+					src="content/images/edit-16.png" />&nbsp;&nbsp; Chỉnh sửa</a></li>
+			<li><a id="<%=tenLop%>" title="<%=maDoiTuong%>"
+				target="<%=tenDoiTuong%>" onclick="confirmDelete(this)"><img
+					src="content/images/delete-16.png" />&nbsp;&nbsp; Xóa</a></li>
+		</ul>
+		<%}%>
+		
+		
+
+		
+		
+		
+	</div>
+
+						
+						
+						
+						
+						</td>
+						
+						
+						
+						
+						
+						
 					</tr>
 					<%
 						}

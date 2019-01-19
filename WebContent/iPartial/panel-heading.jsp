@@ -44,12 +44,7 @@
 						data-target="#timKiemModal"> <img
 							src="content/images/search-32.png" width="16px" height="16px" />
 							&nbsp; Tìm kiếm
-					</a> <!-- 					</div> --> <!-- 					<div class="col-md-2" style="padding: 1px"> -->
-						<a class="btn  btn-default" style="text-align: left;"
-						href="exportData<%=tenLop%>.action" id="btnxuatexcel"> <img
-							src="content/images/excel-32.png" width="16px" height="16px" />
-							&nbsp; Xuất danh sách excel
-					</a> <!-- 					</div> -->
+					</a> <!-- 					</div> --> <!-- 					<div class="col-md-2" style="padding: 1px"> -->						<!-- 					</div> -->
 				</div>
 			</div>
 		</div>
