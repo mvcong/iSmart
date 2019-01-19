@@ -182,6 +182,18 @@
 								</div>
 								<!-- 								<div onload=onReady() id="id_qrcode"></div> -->
 							</div>
+							<div class="col-lg-6">
+								<h2 style="color: red;">Bảng giá tập tháng tại phòng GYM XXX</h2>
+								<h3 style="color: red;">Bạn vui lòng thanh toán trực tiếp tại
+									phòng GYM</h3>
+								<h3 style="color: blue;">1 tháng: 200.000VNĐ</h3>
+								<h3 style="color: blue;">2 tháng: 400.000VNĐ</h3>
+								<h3 style="color: blue;">3 tháng: 500.000VNĐ</h3>
+								<h3 style="color: blue;">6 tháng: 1.150.000VNĐ</h3><h3 style="color: red;">+</h3><h3 style="color: green;">1 tháng miễn phí</h3>
+								<h3 style="color: blue;">12 tháng: 2.300.000VNĐ</h3><h3 style="color: red;">+</h3><h3 style="color: green;">2 tháng miễn phí</h3>
+								<h3 style="color: red;">Nếu bạn muốn có huấn luyện viên riêng hỗ trợ</h3>
+								<h3 style="color: blue;">+ 150.000VNĐ mỗi tháng</h3>
+							</div>
 							<div class="panel-footer" style="text-align: left;">
 								<div class="col-md-12"></div>
 								<!-- 								<div class="col-md-12"> -->

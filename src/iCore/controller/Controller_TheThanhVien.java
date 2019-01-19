@@ -12,12 +12,14 @@ import org.apache.struts2.ServletActionContext;
 import iCore.dao.ObjectDAO;
 import iCore.model.DungCu;
 import iCore.model.NhanVien;
+import iCore.model.TaiKhoan;
 import iCore.model.ThanhVien;
 import iCore.model.TheThanhVien;
 import iCore.modelDAO.DAO_NhanVien;
 import iCore.modelDAO.DAO_ThanhVien;
 import iCore.modelDAO.DAO_TheThanhVien;
 import iCore.util.Util_Date;
+import tools.SendMail;
 
 public class Controller_TheThanhVien extends TheThanhVien implements ZEController{
 	ObjectDAO dao = new DAO_TheThanhVien();
@@ -139,7 +141,8 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 	public String saveOrUpdate() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-
+		TaiKhoan tk = (TaiKhoan) session.getAttribute("taiKhoanDangNhap");
+		SendMail sm = new SendMail();
 		TheThanhVien obj = new TheThanhVien();
 		obj.maThe = getMaThe();
 		obj.ngayTao = getNgayTao();
@@ -155,6 +158,7 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 			session.setAttribute("obj", obj);
 			session.setAttribute("mode", "viewDetailAndEdit");
 			session.setAttribute("p", duongDanTrangView);
+			sm.sendMail(tk.getMaDangNhap(),"GYM XXX [Đăng ký thẻ]","Xin chào, "+ tk.getMaDangNhap()+"\nBạn vừa đăng ký "+ obj.getLoaiThe()+"tại phòng GYM XXX của chúng tôi! Mong bạn hãy cố gắng đi tập đều đặn để có một thân hình săn chắc, quyến rũ");
 			return "SUCCESS";
 		} else {
 			session.setAttribute("msg", "Cập nhật dữ liệu thất bại!");
