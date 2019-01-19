@@ -236,7 +236,7 @@
 								<h2 style="color: red;">Bảng giá tập ngày tại phòng GYM XXX</h2>
 								<h3 style="color: red;">Bạn vui lòng thanh toán trực tiếp tại
 									phòng GYM</h3>
-								<h3 style="color: blue;">8h-10h AM: 20.000VNĐ</h3>
+								<h3 style="color: blue;">08h-10h AM: 20.000VNĐ</h3>
 								<h3 style="color: blue;">10h-12h AM: 20.000VNĐ</h3>
 								<h3 style="color: blue;">12h-14h PM: 20.000VNĐ</h3>
 								<h3 style="color: blue;">14h-16h PM: 30.000VNĐ</h3>
