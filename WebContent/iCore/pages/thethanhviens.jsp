@@ -11,7 +11,7 @@
 <%
 	String tenLop = "TheThanhVien";
 	String tenTrang = "Quản lý thẻ thành viên";
-	String[] tk_value = {"maThe", "ngayTao", "ngayKT", "gioBD","gioKT", "loaiThe"};
+	String[] tk_value = {"maThe", "ngayTao", "ngayKT", "gioBD", "gioKT", "loaiThe"};
 	String[] tk_show = {"Mã thẻ", "Ngày bắt đầu", "Ngày kết thúc", "Giờ bắt đầu", "Giờ kết thúc", "Loại thẻ"};
 %>
 
@@ -95,7 +95,11 @@
 					}
 				</script>
 			</form>
-
+			<a class="btn  btn-default" style="text-align: left;"
+				href="./Servlet_FileExportTHE" id="btnxuatexcel"> <img
+				src="content/images/excel-32.png" width="16px" height="16px" />
+				&nbsp; Xuất danh sách excel
+			</a>
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
 				id="dataTables-example">
@@ -128,59 +132,59 @@
 						<td><%=obj.getGioKT() != null ? obj.getGioKT() : ""%></td>
 						<td><%=obj.getLoaiThe() != null ? obj.getLoaiThe() : ""%></td>
 						<td style="text-align: center;">
-<%-- 						<%@ include file="../../iPartial/menupullcuadoituong.jsp"%> --%>
-						
-						
-						
-						<div class="pull-center">
-	<div class="btn-group">
-		<button type="button" class="btn btn-default btn-xs dropdown-toggle"
-			data-toggle="dropdown">
-			<img src="content/images/menu-16.png" /> Chọn chức năng <span
-				class="caret"></span>
-		</button>
-		
-		
-		
-		<ul class="dropdown-menu pull-right" role="menu">
-			<li><a href="xemChiTiet<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
-					src="content/images/detail-16.png" />&nbsp;&nbsp; Xem chi tiết</a></li>
-					
-					<%
-										ObjectDAO objdao_TaiKhoan = new DAO_TaiKhoanNhanVien();
-										String maDangNhap = session.getAttribute("maDangNhap").toString();
-										ArrayList<TaiKhoanNhanVien> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
-										if (listTaiKhoan.size() > 0) {
-											TaiKhoanNhanVien taiKhoan = listTaiKhoan.get(0);
-											NhanVien taixe = taiKhoan.getNhanVien();
+							<%-- 						<%@ include file="../../iPartial/menupullcuadoituong.jsp"%> --%>
+
+
+
+							<div class="pull-center">
+								<div class="btn-group">
+									<button type="button"
+										class="btn btn-default btn-xs dropdown-toggle"
+										data-toggle="dropdown">
+										<img src="content/images/menu-16.png" /> Chọn chức năng <span
+											class="caret"></span>
+									</button>
+
+
+
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li><a
+											href="xemChiTiet<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/detail-16.png" />&nbsp;&nbsp; Xem chi
+												tiết</a></li>
+
+										<%
+											ObjectDAO objdao_TaiKhoan = new DAO_TaiKhoanNhanVien();
+												String maDangNhap = session.getAttribute("maDangNhap").toString();
+												ArrayList<TaiKhoanNhanVien> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
+												if (listTaiKhoan.size() > 0) {
+													TaiKhoanNhanVien taiKhoan = listTaiKhoan.get(0);
+													NhanVien taixe = taiKhoan.getNhanVien();
+										%>
+										<li><a
+											href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/edit-16.png" />&nbsp;&nbsp; Chỉnh sửa</a></li>
+										<li><a id="<%=tenLop%>" title="<%=maDoiTuong%>"
+											target="<%=tenDoiTuong%>" onclick="confirmDelete(this)"><img
+												src="content/images/delete-16.png" />&nbsp;&nbsp; Xóa</a></li>
+									</ul>
+									<%
+										}
 									%>
-			<li><a
-				href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
-					src="content/images/edit-16.png" />&nbsp;&nbsp; Chỉnh sửa</a></li>
-			<li><a id="<%=tenLop%>" title="<%=maDoiTuong%>"
-				target="<%=tenDoiTuong%>" onclick="confirmDelete(this)"><img
-					src="content/images/delete-16.png" />&nbsp;&nbsp; Xóa</a></li>
-		</ul>
-		<%}%>
-		
-		
 
-		
-		
-		
-	</div>
 
-						
-						
-						
-						
+
+
+
+
+								</div>
 						</td>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 					</tr>
 					<%
 						}

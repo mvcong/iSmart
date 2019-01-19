@@ -92,7 +92,11 @@
 					}
 				</script>
 			</form>
-
+			<a class="btn  btn-default" style="text-align: left;"
+				href="./Servlet_FileExportPGS" id="btnxuatexcel"> <img
+				src="content/images/excel-32.png" width="16px" height="16px" />
+				&nbsp; Xuất danh sách excel
+			</a>
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
 				id="dataTables-example">

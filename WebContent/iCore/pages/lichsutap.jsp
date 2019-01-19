@@ -65,74 +65,76 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body" id = "printDiv">
-					<div class="row" style="padding: 10px">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Mã lịch sử tập</label> <input class="form-control"
-										id="maLST" name="maLST" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaLST() != null ? obj.getMaLST() : System.currentTimeMillis())%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
-										required="required">
-								</div>
-								<div class="form-group">
-									<label>Tên lịch sử tập</label> <input class="form-control"
-										name="tenLST"
-										value="<%=(obj != null && obj.getTenLST() != null ? obj.getTenLST() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Ngày Tập</label> <input class="form-control"
-										name="s_ngayTap" type="date"
-										value="<%=(obj != null && obj.getNgayTap() != null ? Util_Date.dateToString(obj.getNgayTap()) : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Thời gian tập</label> <input class="form-control"
-										name="thoiGianTap"
-										value="<%=(obj != null && obj.getThoiGianTap() != null ? obj.getThoiGianTap() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Nội dung</label>
-									<textarea class="form-control" cols="80" id="editor1" rows="5"
-										name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
-								</div>
+				<div id="printDiv">
+					<div class="panel-body">
+						<div class="row" style="padding: 10px">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Mã lịch sử tập</label> <input class="form-control"
+											id="maLST" name="maLST" onblur="thayDoiMyFileFileName()"
+											value="<%=(obj != null && obj.getMaLST() != null ? obj.getMaLST() : System.currentTimeMillis())%>"
+											<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+											required="required">
+									</div>
+									<div class="form-group">
+										<label>Tên lịch sử tập</label> <input class="form-control"
+											name="tenLST"
+											value="<%=(obj != null && obj.getTenLST() != null ? obj.getTenLST() : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Ngày Tập</label> <input class="form-control"
+											name="s_ngayTap" type="date"
+											value="<%=(obj != null && obj.getNgayTap() != null ? Util_Date.dateToString(obj.getNgayTap()) : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Thời gian tập</label> <input class="form-control"
+											name="thoiGianTap"
+											value="<%=(obj != null && obj.getThoiGianTap() != null ? obj.getThoiGianTap() : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Nội dung</label>
+										<textarea class="form-control" cols="80" id="editor1" rows="5"
+											name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
+									</div>
 
 
-								<div class="form-group">
-									<label>Thành viên</label> <select class="form-control"
-										name="maTV" <%=(modeView ? " disabled " : "")%>>
-										<option value=""></option>
-										<%
-											ObjectDAO objdao = new DAO_ThanhVien();
-											ArrayList<ThanhVien> listThanhVien = objdao.listAll();
-											for (ThanhVien tv : listThanhVien) {
-										%>
-										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
+									<div class="form-group">
+										<label>Thành viên</label> <select class="form-control"
+											name="maTV" <%=(modeView ? " disabled " : "")%>>
+											<option value=""></option>
+											<%
+												ObjectDAO objdao = new DAO_ThanhVien();
+												ArrayList<ThanhVien> listThanhVien = objdao.listAll();
+												for (ThanhVien tv : listThanhVien) {
+											%>
+											<option value="<%=tv.maTV%> "
+												<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
 						? "selected"
 						: ""%>>
-											<%=tv.tenTV%>
-										</option>
-										<%
-											}
-										%>
-									</select>
+												<%=tv.tenTV%>
+											</option>
+											<%
+												}
+											%>
+										</select>
+									</div>
 								</div>
-							</div>
-							<div class="panel-footer" style="text-align: left;">
-								<div class="col-md-12"></div>
-<!-- 								<div class="col-md-12"> -->
-<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
-<!-- 								</div> -->
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<!-- 								<div class="col-md-12"> -->
+									<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+									<!-- 								</div> -->
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<!-- /.col-lg-6 (nested) -->
 				</div>
-				<!-- /.col-lg-6 (nested) -->
-				<!-- /.col-lg-6 (nested) -->
 			</div>
 			<!-- /.row (nested) -->
 		</div>

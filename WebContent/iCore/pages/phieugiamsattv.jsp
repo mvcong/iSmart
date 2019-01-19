@@ -69,92 +69,94 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body" id = "printDiv">
-					<div class="row" style="padding: 10px">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Mã phiếu giám sát</label> <input class="form-control"
-										id="maPGS" name="maPGS" onblur="thayDoiMyFileFileName()"
-										value="<%=(obj != null && obj.getMaPGS() != null ? obj.getMaPGS() : System.currentTimeMillis())%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%> readonly
-										required="required">
-								</div>
-								<div class="form-group">
-									<label>Tên phiếu chi</label> <input class="form-control"
-										name="tenPGS"
-										value="<%=(obj != null && obj.getTenPGS() != null ? obj.getTenPGS() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Ngày bắt đầu</label> <input class="form-control"
-										name="s_ngayBD" type="date"
-										value="<%=(obj != null && obj.getNgayBD() != null ? Util_Date.dateToString(obj.getNgayBD()) : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Ngày kết thúc</label> <input class="form-control"
-										name="s_ngayKT" type="date"
-										value="<%=(obj != null && obj.getNgayKT() != null ? Util_Date.dateToString(obj.getNgayKT()) : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
-								</div>
-								<div class="form-group">
-									<label>Nội dung</label>
-									<textarea class="form-control" cols="80" id="editor1" rows="5"
-										name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
-								</div>
+				<div id="printDiv">
+					<div class="panel-body">
+						<div class="row" style="padding: 10px">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Mã phiếu giám sát</label> <input class="form-control"
+											id="maPGS" name="maPGS" onblur="thayDoiMyFileFileName()"
+											value="<%=(obj != null && obj.getMaPGS() != null ? obj.getMaPGS() : System.currentTimeMillis())%>"
+											<%=(modeView || modeEdit ? " readonly " : "")%> readonly
+											required="required">
+									</div>
+									<div class="form-group">
+										<label>Tên phiếu chi</label> <input class="form-control"
+											name="tenPGS"
+											value="<%=(obj != null && obj.getTenPGS() != null ? obj.getTenPGS() : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Ngày bắt đầu</label> <input class="form-control"
+											name="s_ngayBD" type="date"
+											value="<%=(obj != null && obj.getNgayBD() != null ? Util_Date.dateToString(obj.getNgayBD()) : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Ngày kết thúc</label> <input class="form-control"
+											name="s_ngayKT" type="date"
+											value="<%=(obj != null && obj.getNgayKT() != null ? Util_Date.dateToString(obj.getNgayKT()) : "")%>"
+											<%=(modeView ? " readonly " : "")%>>
+									</div>
+									<div class="form-group">
+										<label>Nội dung</label>
+										<textarea class="form-control" cols="80" id="editor1" rows="5"
+											name="noiDung" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getNoiDung() != null ? obj.getNoiDung() : "")%></textarea>
+									</div>
 
-								<div class="form-group">
-									<label>Huấn luyện viên</label> <select class="form-control"
-										name="maNV" <%=(modeView ? " disabled " : "")%>>
-										<option value=""></option>
-										<%
-											ObjectDAO objdao = new DAO_NhanVien();
-											ArrayList<NhanVien> listNhanVien = objdao.listAll();
-											for (NhanVien dv : listNhanVien) {
-										%>
-										<option value="<%=dv.maNV%> "
-											<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(dv.maNV) ? "selected"
+									<div class="form-group">
+										<label>Huấn luyện viên</label> <select class="form-control"
+											name="maNV" <%=(modeView ? " disabled " : "")%>>
+											<option value=""></option>
+											<%
+												ObjectDAO objdao = new DAO_NhanVien();
+												ArrayList<NhanVien> listNhanVien = objdao.listAll();
+												for (NhanVien dv : listNhanVien) {
+											%>
+											<option value="<%=dv.maNV%> "
+												<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(dv.maNV) ? "selected"
 								: ""%>>
-											<%=dv.tenNV%>
-										</option>
-										<%
-											}
-										%>
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Thành viên</label> <select class="form-control"
-										name="maTV" <%=(modeView ? " disabled " : "")%>>
-										<option value=""></option>
-										<%
-											ObjectDAO objdao1 = new DAO_ThanhVien();
-											ArrayList<ThanhVien> listThanhVien = objdao.listAll();
-											for (ThanhVien tv : listThanhVien) {
-										%>
-										<option value="<%=tv.maTV%> "
-											<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
+												<%=dv.tenNV%>
+											</option>
+											<%
+												}
+											%>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Thành viên</label> <select class="form-control"
+											name="maTV" <%=(modeView ? " disabled " : "")%>>
+											<option value=""></option>
+											<%
+												ObjectDAO objdao1 = new DAO_ThanhVien();
+												ArrayList<ThanhVien> listThanhVien = objdao.listAll();
+												for (ThanhVien tv : listThanhVien) {
+											%>
+											<option value="<%=tv.maTV%> "
+												<%=obj != null && obj.getThanhVien() != null && obj.getThanhVien().maTV.equals(tv.getMaTV())
 						? "selected"
 						: ""%>>
-											<%=tv.tenTV%>
-										</option>
-										<%
-											}
-										%>
-									</select>
+												<%=tv.tenTV%>
+											</option>
+											<%
+												}
+											%>
+										</select>
+									</div>
 								</div>
-							</div>
-							<div class="panel-footer" style="text-align: left;">
-								<div class="col-md-12"></div>
-<!-- 								<div class="col-md-12"> -->
-<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
-<!-- 								</div> -->
+								<div class="panel-footer" style="text-align: left;">
+									<div class="col-md-12"></div>
+									<!-- 								<div class="col-md-12"> -->
+									<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+									<!-- 								</div> -->
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<!-- /.col-lg-6 (nested) -->
 				</div>
-				<!-- /.col-lg-6 (nested) -->
-				<!-- /.col-lg-6 (nested) -->
 			</div>
 			<!-- /.row (nested) -->
 		</div>

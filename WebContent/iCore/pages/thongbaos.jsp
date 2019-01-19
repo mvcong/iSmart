@@ -91,8 +91,7 @@
 
 					}
 				</script>
-			</form>
-
+			</form>			
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
 				id="dataTables-example">

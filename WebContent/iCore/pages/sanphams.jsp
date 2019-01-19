@@ -10,8 +10,8 @@
 <%
 	String tenLop = "SanPham";
 	String tenTrang = "Quản lý sản phẩm";
-	String[] tk_value = {"maSP", "tenSP", "anhSP", "soLuong","giaSP", "giaBan"};
-	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng","Giá nhập", "Giá bán"};
+	String[] tk_value = {"maSP", "tenSP", "anhSP", "soLuong", "giaSP", "giaBan"};
+	String[] tk_show = {"Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng", "Giá nhập", "Giá bán"};
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
@@ -131,8 +131,8 @@
 						for (LoaiSanPham loaiSanPham : list_LoaiSanPham) {
 					%>
 					<option value="<%=loaiSanPham.getMaLoai()%>"
-						<%if (maLoai.equals(loaiSanPham.getMaLoai())) {%> selected="selected"
-						<%}%>><%=loaiSanPham.getTenLoai()%></option>
+						<%if (maLoai.equals(loaiSanPham.getMaLoai())) {%>
+						selected="selected" <%}%>><%=loaiSanPham.getTenLoai()%></option>
 					<%
 						}
 					%>
@@ -149,7 +149,11 @@
 					}
 				</script>
 			</form>
-
+			<a class="btn  btn-default" style="text-align: left;"
+				href="./Servlet_FileExportSP" id="btnxuatexcel"> <img
+				src="content/images/excel-32.png" width="16px" height="16px" />
+				&nbsp; Xuất danh sách excel
+			</a>
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
 				id="dataTables-example">

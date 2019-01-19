@@ -7,8 +7,8 @@
 <%
 	String tenLop = "ThanhVien";
 	String tenTrang = "Quản lý Thành Viên";
-	String[] tk_value = {"maTV", "tenTV", "gioiTinh", "ngaySinh", "email", "diaChi"};
-	String[] tk_show = {"Mã Nhân viên", "Tên Nhân viên", "Giới tính", "Ngày Sinh", "Email", "Địa chỉ"};
+	String[] tk_value = { "maTV", "tenTV", "gioiTinh", "ngaySinh", "email", "diaChi" };
+	String[] tk_show = { "Mã Nhân viên", "Tên Nhân viên", "Giới tính", "Ngày Sinh", "Email", "Địa chỉ" };
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
@@ -20,7 +20,7 @@
 	if (session.getAttribute("checkTimKiem") != null) {
 		ArrayList listTemp = (ArrayList) session.getAttribute("arr");
 		if (listTemp.size() > 0) {
-	if (listTemp.get(0) instanceof NhanVien) {
+			if (listTemp.get(0) instanceof NhanVien) {
 				list = (ArrayList<ThanhVien>) listTemp;
 			} else {
 				session.setAttribute("checkTimKiem", null);
@@ -45,6 +45,11 @@
 		<%@ include file="../../iPartial/panel-heading.jsp"%>
 		<!-- /.panel-heading -->
 		<div class="panel-body">
+			<a class="btn  btn-default" style="text-align: left;"
+				href="./Servlet_FileExport" id="btnxuatexcel"> <img
+				src="content/images/excel-32.png" width="16px" height="16px" />
+				&nbsp; Xuất danh sách excel
+			</a>
 			<table width="100%"
 				class="table table-striped table-bordered table-hover"
 				id="dataTables-example">
@@ -53,7 +58,7 @@
 						<th>Mã thành viên</th>
 						<th>Tên thành viên</th>
 						<th>Email</th>
-						
+
 						<th>Số điện thoại</th>
 						<th>Xử lý</th>
 
@@ -70,7 +75,7 @@
 						<td><%=obj.getMaTV()%></td>
 						<td><%=obj.getTenTV() != null ? obj.getTenTV() : ""%></td>
 						<td><%=obj.getEmail() != null ? obj.getEmail() : ""%></td>
-						
+
 						<td><%=obj.getsDT() != null ? obj.getsDT() : ""%></td>
 						<td style="text-align: center;"><%@ include
 								file="../../iPartial/menupullcuadoituong.jsp"%></td>

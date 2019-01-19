@@ -21,30 +21,31 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import iCore.model.DungCu;
-import iCore.modelDAO.DAO_DungCu;
+
+import iCore.model.PhieuThu;
+import iCore.modelDAO.DAO_PhieuChi;
+import iCore.modelDAO.DAO_PhieuThu;
 import iCore.util.Util_Export;
 
 /**
- * Servlet implementation class Servlet_FileExport
+ * Servlet implementation class File_ExportPT
  */
-@WebServlet("/Servlet_FileExport")
-public class File_Export extends HttpServlet {
+@WebServlet("/File_ExportPT")
+public class File_ExportPT extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public File_ExportPT() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public File_Export() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		//String maDC = request.getParameter("dungcu");
@@ -53,13 +54,13 @@ public class File_Export extends HttpServlet {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		String dateString = df.format(date);
-		String tenFile = "DANH_SACH_DUNG_CU " + dateString + "".concat(".xls");
+		String tenFile = "DANH_SACH_PHIEU_CHI " + dateString + "".concat(".xls");
 		// tao file excel
 		HSSFWorkbook myWorkBook = new HSSFWorkbook();
 		
-		ArrayList<DungCu>dungcus = new DAO_DungCu().listAll();
+		ArrayList<PhieuThu>phieuthus = new DAO_PhieuThu().listAll();
 		
-		CreateSheet(myWorkBook, dungcus);
+		CreateSheet(myWorkBook, phieuthus);
 
 		/*
 		 * HSSFCellStyle styleConten = Util_Export.createStyle(myWorkBook, 12,
@@ -140,15 +141,15 @@ public class File_Export extends HttpServlet {
 	private void CreateHead(Sheet mySheet, HSSFWorkbook myWorkBook) {
 		Cell cell;
 		Row row;
-	/*	// phanDau
+	// phanDau
 		HSSFCellStyle o1 = Util_Export.createStyle(myWorkBook, 9, true, false, false, false, false);
-		HSSFCellStyle o2 = Util_Export.createStyle(myWorkBook, 9, true, false, true, false, false);
+		/*HSSFCellStyle o2 = Util_Export.createStyle(myWorkBook, 9, true, false, true, false, false);
 		HSSFCellStyle o3 = Util_Export.createStyle(myWorkBook, 9, false, false, false, false, false);
 		HSSFCellStyle o4 = Util_Export.createStyle(myWorkBook, 9, true, true, true, false, false);
 		HSSFCellStyle o5 = Util_Export.createStyle(myWorkBook, 18, true, false, true, false, false);
-		HSSFCellStyle o6 = Util_Export.createStyle(myWorkBook, 11, false, false, true, false, false);
+		HSSFCellStyle o6 = Util_Export.createStyle(myWorkBook, 11, false, false, true, false, false);*/
 
-		row = mySheet.createRow(0);
+	/*	row = mySheet.createRow(0);
 		cell = row.createCell(0, CellType.STRING);
 		cell.setCellValue("TRƯỜNG ĐẠI HỌC GTVT");
 		cell.setCellStyle(o1);
@@ -174,21 +175,21 @@ public class File_Export extends HttpServlet {
 		cell = row.createCell(0, CellType.STRING);
 		cell.setCellValue("        * * * * * * * * *");
 		cell.setCellStyle(o3);
-		Util_Export.setMerge(mySheet, 2, 2, 0, 7, false);
+		Util_Export.setMerge(mySheet, 2, 2, 0, 7, false);*/
 
-		row = mySheet.createRow(3);
+		/*row = mySheet.createRow(0);
 		cell = row.createCell(0, CellType.STRING);
-		cell.setCellValue("DANH SÁCH THI SÁT HẠCH TIẾNG ANH");
-		cell.setCellStyle(o5);
-		Util_Export.setMerge(mySheet, 3, 3, 0, 7, false);
+		cell.setCellValue("DANH SÁCH DỤNG CỤ");
+		cell.setCellStyle(o1);
+		Util_Export.setMerge(mySheet, 3, 3, 0, 7, false);*/
 
-		row = mySheet.createRow(4);
-		cell = row.createCell(0, CellType.STRING);
+		/*row = mySheet.createRow(1);
+		cell = row.createCell(1, CellType.STRING);
 		cell.setCellValue("MÃ MÔN:                MÔN:                  LỚP: ");
 		cell.setCellStyle(o6);
 		Util_Export.setMerge(mySheet, 4, 4, 0, 7, false);
 
-		row = mySheet.createRow(5);
+		row = mySheet.createRow(2);
 		cell = row.createCell(0, CellType.STRING);
 		cell.setCellValue("NGÀY THI:                 GIỜ THI:                PHÒNG THI:                LẦN THI:  ");
 		cell.setCellStyle(o6);
@@ -203,23 +204,43 @@ public class File_Export extends HttpServlet {
 		cell.setCellStyle(title);
 
 		cell = row.createCell(1, CellType.STRING);
-		cell.setCellValue("cot 1");
+		cell.setCellValue("Mã phiếu thu");
 		cell.setCellStyle(title);
 
 		cell = row.createCell(2, CellType.STRING);
-		cell.setCellValue("cot 2");
+		cell.setCellValue("Tên phiếu thu");
+		cell.setCellStyle(title);
+		
+		cell = row.createCell(3, CellType.STRING);
+		cell.setCellValue("Thành phần");
+		cell.setCellStyle(title);
+		
+		cell = row.createCell(4, CellType.STRING);
+		cell.setCellValue("Số lượng");
+		cell.setCellStyle(title);
+		
+		cell = row.createCell(5, CellType.STRING);
+		cell.setCellValue("Đơn giá");
+		cell.setCellStyle(title);
+		
+		cell = row.createCell(6, CellType.STRING);
+		cell.setCellValue("Thành tiền");
+		cell.setCellStyle(title);
+		
+		cell = row.createCell(7, CellType.STRING);
+		cell.setCellValue("Nhân viên mua");
 		cell.setCellStyle(title);
 	}
 	
-	private void CreateSheet(HSSFWorkbook myWorkBook, ArrayList<DungCu> dungcus) {
+	private void CreateSheet(HSSFWorkbook myWorkBook, ArrayList<PhieuThu> phieuthus) {
 			HSSFSheet mySheet = myWorkBook.createSheet();
 			CreateHead(mySheet, myWorkBook);
 			HSSFCellStyle styleConten = Util_Export.createStyle(myWorkBook, 12, false, false, false, true, false);
 			int rowst = 1;
 			Cell cell;
 			Row row;
-			for (int i = 0; i < dungcus.size(); i++) {
-				DungCu ts = dungcus.get(i);
+			for (int i = 0; i < phieuthus.size(); i++) {
+				PhieuThu pt = phieuthus.get(i);
 				
 				row = mySheet.createRow(rowst);
 
@@ -228,25 +249,46 @@ public class File_Export extends HttpServlet {
 				cell.setCellStyle(styleConten);
 
 				cell = row.createCell(1, CellType.STRING);
-				cell.setCellValue(ts.getMaDC());
+				cell.setCellValue(pt.getMaPT());
 				cell.setCellStyle(styleConten);
 
 				cell = row.createCell(2, CellType.STRING);
-				cell.setCellValue(ts.getTenDC());
+				cell.setCellValue(pt.getTenPT());
 				cell.setCellStyle(styleConten);
 
+				cell = row.createCell(3, CellType.STRING);
+				cell.setCellValue(pt.getThanhPhan());
+				cell.setCellStyle(styleConten);
+				
+				cell = row.createCell(4, CellType.STRING);
+				cell.setCellValue(pt.getSoLuong());
+				cell.setCellStyle(styleConten);
+					
+				cell = row.createCell(5, CellType.STRING);
+				cell.setCellValue(pt.getDonGia());
+				cell.setCellStyle(styleConten);
+					
+				cell = row.createCell(6, CellType.STRING);
+				cell.setCellValue(pt.getThanhTien());
+				cell.setCellStyle(styleConten);
+					
+				
+				cell = row.createCell(7, CellType.STRING);
+				cell.setCellValue(pt.getNhanVien().getTenNV());
+				cell.setCellStyle(styleConten);
 				rowst++;
 
+				
 			}
 			
 			mySheet.autoSizeColumn(0);
 			mySheet.autoSizeColumn(1);
 			mySheet.autoSizeColumn(2);
-		/*	mySheet.autoSizeColumn(3);
+			mySheet.autoSizeColumn(3);
 			mySheet.autoSizeColumn(4);
 			mySheet.autoSizeColumn(5);
 			mySheet.autoSizeColumn(6);
-			mySheet.autoSizeColumn(7);*/
+			mySheet.autoSizeColumn(7);
 		}
 
 
