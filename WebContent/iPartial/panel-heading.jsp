@@ -30,21 +30,24 @@
 			<div class="col-md-9">
 				<div class="row pull-right" style="margin-right: 10px;">
 					<!-- 					<div class="col-md-2" style="padding: 1px"> -->
+					
 					<a type="submit" class="btn  btn-default"
-						href="taiLai<%=tenLop%>.action" style="text-align: left;"
-						style="width: 100%" id="nutTaiLai"> <img
-						src="content/images/refresh-32.png" width="16px" height="16px" />
-						&nbsp; Tải lại
-					</a> <a type="submit" class="btn  btn-default"
 						href="themMoi<%=tenLop%>.action" style="text-align: left;"
 						id="nutThemMoi"> <img src="content/images/new-32.png"
 						width="16px" height="16px" /> &nbsp; Thêm mới 
-						<a type="button" class="btn  btn-default"
+						
+						<a type="submit"
+						class="btn  btn-default" href="taiLai<%=tenLop%>.action"
+						style="text-align: left;" style="width: 100%" id="nutTaiLai">
+							<img src="content/images/refresh-32.png" width="16px"
+							height="16px" /> &nbsp; Tải lại
+					</a> <a type="button" class="btn  btn-default"
 						style="text-align: left;" data-toggle="modal"
 						data-target="#timKiemModal"> <img
 							src="content/images/search-32.png" width="16px" height="16px" />
 							&nbsp; Tìm kiếm
-					</a> <!-- 					</div> --> <!-- 					<div class="col-md-2" style="padding: 1px"> -->						<!-- 					</div> -->
+					</a> <!-- 					</div> --> <!-- 					<div class="col-md-2" style="padding: 1px"> -->
+						<!-- 					</div> -->
 				</div>
 			</div>
 		</div>
