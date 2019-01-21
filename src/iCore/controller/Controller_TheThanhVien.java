@@ -159,7 +159,7 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 			session.setAttribute("msg", "Cập nhật dữ liệu thành công!");
 			session.setAttribute("obj", obj);
 			session.setAttribute("mode", "viewDetailAndEdit");
-			session.setAttribute("p", duongDanTrangView);
+			session.setAttribute("p", duongDanTrangView);			
 			sm.sendMail(tk.getMaDangNhap(),"GYM XXX [Đăng ký thẻ]","Xin chào, "+ tk.getMaDangNhap()+"\nBạn vừa đăng ký "+ obj.getLoaiThe()+"\nGiờ tập: "+obj.getGioBD()+"\nGiờ kết thúc:"+obj.getGioKT()+"tại phòng GYM XXX của chúng tôi! Mong bạn hãy cố gắng đi tập đều đặn để có một thân hình săn chắc, quyến rũ");			
 			return "SUCCESS";
 		} else {
