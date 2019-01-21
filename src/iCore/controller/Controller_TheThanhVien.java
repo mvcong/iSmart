@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import QRCode.QRCode;
 import iCore.dao.ObjectDAO;
 import iCore.model.DungCu;
 import iCore.model.NhanVien;
@@ -142,6 +143,7 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		TaiKhoan tk = (TaiKhoan) session.getAttribute("taiKhoanDangNhap");
+		QRCode qr = new QRCode();
 		SendMail sm = new SendMail();
 		TheThanhVien obj = new TheThanhVien();
 		obj.maThe = getMaThe();
@@ -158,7 +160,7 @@ public class Controller_TheThanhVien extends TheThanhVien implements ZEControlle
 			session.setAttribute("obj", obj);
 			session.setAttribute("mode", "viewDetailAndEdit");
 			session.setAttribute("p", duongDanTrangView);
-			sm.sendMail(tk.getMaDangNhap(),"GYM XXX [Đăng ký thẻ]","Xin chào, "+ tk.getMaDangNhap()+"\nBạn vừa đăng ký "+ obj.getLoaiThe()+"tại phòng GYM XXX của chúng tôi! Mong bạn hãy cố gắng đi tập đều đặn để có một thân hình săn chắc, quyến rũ");
+			sm.sendMail(tk.getMaDangNhap(),"GYM XXX [Đăng ký thẻ]","Xin chào, "+ tk.getMaDangNhap()+"\nBạn vừa đăng ký "+ obj.getLoaiThe()+"\nGiờ tập: "+obj.getGioBD()+"\nGiờ kết thúc:"+obj.getGioKT()+"tại phòng GYM XXX của chúng tôi! Mong bạn hãy cố gắng đi tập đều đặn để có một thân hình săn chắc, quyến rũ");			
 			return "SUCCESS";
 		} else {
 			session.setAttribute("msg", "Cập nhật dữ liệu thất bại!");

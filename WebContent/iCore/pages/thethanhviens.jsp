@@ -45,6 +45,7 @@
 			list = dao.pagination("1=1  ORDER BY thanhVien ASC", (long) recordPerPage,
 					(long) Long.parseLong(pid) * recordPerPage);
 	}
+	
 %>
 
 
@@ -185,6 +186,8 @@
 				<tbody>
 					<%
 						for (TheThanhVien obj : list) {
+// 							ThanhVien thanhVien = new ThanhVien();
+// 							list = dao.listByColumns("thanhVien", thanhVien.getMaTV());
 							//Bat buoc co de bo vao doan code xem chi tiet, chinh sua va xoa
 							String maDoiTuong = obj.getMaThe();
 							String tenDoiTuong = obj.getLoaiThe();
