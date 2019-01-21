@@ -16,6 +16,11 @@
 
 <!-- Head BEGIN -->
 <head>
+<script type="text/javascript">
+    function myFunction() {
+    	document.getElementById("tt").value=document.getElementById("soLuong").value*document.getElementById("gia").value;
+    
+    </script>
 <meta charset="utf-8">
 <title>GYM Smart</title>
 <link rel="icon" type="image/png" href="login_css/images/icons/favicon.ico"/>
@@ -217,14 +222,14 @@
 										<td class="goods-page-ref-no"><%= new Date()%></td>
 										<td class="goods-page-quantity">
 											<div class="product-quantity">
-												<input id="soLuong" type="text"
+												<input id="soLuong" type="text" onclick="myFunction()"
 													value="<%=list.getValue().getSoLuong()%>" readonly
-													class="form-control input-sm">
+													class="">
 											</div>
 										</td>
-										<td class="goods-page-price"><strong><span>vnđ</span><%=list.getValue().getSanPham().getGiaBan()%></strong>
+										<td id="gia "class="goods-page-price"><strong><span>vnđ</span><%=list.getValue().getSanPham().getGiaBan()%></strong>
 										</td>
-										<td class="goods-page-total"><strong><span>vnđ</span><%=list.getValue().getSoLuong() * list.getValue().getSanPham().getGiaBan()%></strong>
+										<td id="tt"class="goods-page-total"><strong><span>vnđ</span><%=list.getValue().getSoLuong() * list.getValue().getSanPham().getGiaBan()%></strong>
 										</td>
 										<td class="del-goods-col"><a class="del-goods"
 											href="CartServlet?command=remove&maSP=<%=list.getValue().getSanPham().getMaSP()%>">&nbsp;</a>
@@ -239,7 +244,7 @@
 
 							<div class="shopping-total">
 								<ul>
-									<li><em>Tổng tiền</em> <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
+									<li ><em>Tổng tiền</em> <strong class="price"><span>vnđ</span><%=cart.totalCart()%></strong>
 									</li>
 <!-- 									<li><em>Shipping cost</em> <strong class="price"><span>vnđ</span>3.00</strong> -->
 <!-- 									</li> -->
@@ -278,6 +283,8 @@
 	<!--[if lt IE 9]>
     <script src="assets/plugins/respond.min.js"></script>  
     <![endif]-->
+    
+    </script>
 	<script src="content/assets/plugins/jquery.min.js"
 		type="text/javascript"></script>
 	<script src="content/assets/plugins/jquery-migrate.min.js"
