@@ -62,10 +62,23 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Mã đăng nhập</label> <input class="form-control"
-										name="maDangNhap"
-										value="<%=(obj != null ? obj.getMaDangNhap() : "")%>"
-										<%=(modeView || modeEdit ? " readonly " : "")%>>
+									<label>Mã đăng nhập</label> <select class="form-control"
+										name="maDangNhap" <%=(modeView ? " disabled " : "")%>>
+										<option value=""></option>
+										<%
+											ObjectDAO objdao = new DAO_NhanVien();
+											ArrayList<NhanVien> listNhanVien = objdao.listAll();
+											for (NhanVien nv : listNhanVien) {
+										%>
+										<option value="<%=nv.maNV%> "
+											<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(nv.maNV) ? "selected"
+								: ""%>>
+											<%=nv.email%>
+										</option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Mật khẩu</label> <input class="form-control"
@@ -95,9 +108,23 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label>Email</label> <input class="form-control" name="email"
-										value="<%=(obj != null ? obj.getEmail() : "")%>"
-										<%=(modeView ? " disabled " : "")%>>
+									<label>Email</label> <select class="form-control"
+										name="email" <%=(modeView ? " disabled " : "")%>>
+										<option value=""></option>
+										<%
+											ObjectDAO objdao2 = new DAO_NhanVien();
+											ArrayList<NhanVien> listNhanVien2 = objdao2.listAll();
+											for (NhanVien nv : listNhanVien2) {
+										%>
+										<option value="<%=nv.maNV%> "
+											<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(nv.maNV) ? "selected"
+								: ""%>>
+											<%=nv.email%>
+										</option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Nhóm phân quyền</label> <select class="form-control"
@@ -129,9 +156,9 @@
 										name="maNV" <%=(modeView ? " disabled " : "")%>>
 										<option value=""></option>
 										<%
-											ObjectDAO objdao = new DAO_NhanVien();
-											ArrayList<NhanVien> listNhanVien = objdao.listAll();
-											for (NhanVien nv : listNhanVien) {
+											ObjectDAO objdao1 = new DAO_NhanVien();
+											ArrayList<NhanVien> listNhanVien1 = objdao1.listAll();
+											for (NhanVien nv : listNhanVien1) {
 										%>
 										<option value="<%=nv.maNV%> "
 											<%=obj != null && obj.getNhanVien() != null && obj.getNhanVien().maNV.equals(nv.maNV) ? "selected"
