@@ -121,8 +121,8 @@
 		<div class="container">
 			<a class="site-logo" href="trangchu.jsp">GYM Smart</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
-				class="fa fa-bars"></i></a>	
-				<div class="top-cart-block">
+				class="fa fa-bars"></i></a>
+			<div class="top-cart-block">
 				<div class="top-cart-info">
 					<a href="javascript:void(0);" class="top-cart-info-count"><%=cart.countItem()%></a>
 					<a href="javascript:void(0);" class="top-cart-info-value">vnđ<%=cart.totalCart()%></a>
@@ -150,18 +150,19 @@
 						</ul>
 						<div class="text-right">
 							<a href="chitietgiohang.jsp" class="btn btn-default">Xem giỏ
-								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh toán</a>
+								hàng</a> <a href="dathang.jsp" class="btn btn-primary">Thanh
+								toán</a>
 						</div>
 					</div>
 
 				</div>
-			</div>		
+			</div>
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 
 				<ul>
 					<li><a href="trangsanpham.jsp">Sản phẩm</a></li>
-			
+
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -183,7 +184,7 @@
 			<!-- END NAVIGATION -->
 		</div>
 	</div>
-	<!-- Header END -->	
+	<!-- Header END -->
 	<div class="main">
 		<div class="container">
 			<!-- BEGIN SIDEBAR & CONTENT -->
@@ -191,8 +192,10 @@
 				<!-- BEGIN SIDEBAR -->
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-12 col-sm-12">
-					<h1>Đăng ký thành viên</h1></br>
-					<h3>(Sau khi đăng ký thành viên, admin sẽ tạo cho bạn một tài khoản với email bạn vừa nhập và mật khẩu mặc định là 1)</h3>
+					<h1>Đăng ký thành viên</h1>
+					</br>
+					<h3>(Sau khi đăng ký thành viên, admin sẽ tạo cho bạn một tài
+						khoản với email bạn vừa nhập và mật khẩu mặc định là 1)</h3>
 					<!-- BEGIN CHECKOUT PAGE -->
 					<form action="DangKyTVServlet" method="post">
 						<!-- BEGIN PAYMENT ADDRESS -->
@@ -232,7 +235,7 @@
 
 									<button type="submit" class="btn btn-default">Đăng ký
 										thành viên</button>
-
+									<a href="trangchu.jsp">Trở về trang chủ</a>
 								</div>
 							</div>
 
@@ -255,8 +258,10 @@
 			<div class="row">
 				<div class="col-md-4 steps-block-col">
 					<div>
-						<p style="color: white;">Đề tài: Xây dựng website "Quản lý phòng tập GYM"</br>Phát triển dự án: Sinh viên Mai Văn
-							Công & GVHD</p>
+						<p style="color: white;">
+							Đề tài: Xây dựng website "Quản lý phòng tập GYM"</br>Phát triển dự án:
+							Sinh viên Mai Văn Công & GVHD
+						</p>
 					</div>
 				</div>
 			</div>

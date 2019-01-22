@@ -86,6 +86,7 @@
 								<div class="form-group">
 									<button type="submit" class="btn  btn-success btn-block">Đăng
 										nhập</button>
+										<a href="trangchu.jsp">Trở về trang chủ</a>
 								</div>
 							</fieldset>
 						</form>

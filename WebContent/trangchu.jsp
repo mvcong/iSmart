@@ -59,7 +59,7 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="#">G-Y-M<span>Smart</span></a>
+			<a class="navbar-brand" href="trangchu.jsp">G-Y-M<span>Smart</span></a>
 			<div class="collapse navbar-collapse" id="navbarCollapse1">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a class="nav-link"

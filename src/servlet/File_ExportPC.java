@@ -31,7 +31,7 @@ import sanpham.model.SanPham;
 /**
  * Servlet implementation class File_ExportPC
  */
-@WebServlet("/File_ExportPC")
+@WebServlet("/Servlet_FileExportPC")
 public class File_ExportPC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

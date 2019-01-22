@@ -42,7 +42,7 @@ public class CartServlet extends HttpServlet {
 			SanPham sanPham = sanPhamDAO.getSanPham(maSanPham);
 			 switch (command) {
              case "plus":
-                 if (cart.getCartItems().containsKey(maSanPham)) {
+                 if (cart.getCartItems().containsKey(maSP)) {
                      cart.plusToCart(maSanPham, new SanPhamTrongGio(sanPham,
                              cart.getCartItems().get(maSP).getSoLuong()));
                  } else {

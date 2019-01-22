@@ -31,7 +31,7 @@ import iCore.util.Util_Export;
 /**
  * Servlet implementation class File_ExportTHE
  */
-@WebServlet("/File_ExportTHE")
+@WebServlet("/Servlet_FileExportTHE")
 public class File_ExportTHE extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
