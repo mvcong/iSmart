@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="iCore.model.ThanhVien"%>
 <%@page import="iCore.modelDAO.DAO_ThanhVien"%>
 <%@page import="iCore.model.NhanVien"%>
@@ -90,8 +91,9 @@
 									<div class="form-group">
 										<label>Ngày bắt đầu</label> <input class="form-control"
 											name="s_ngayBD" type="date"
-											value="<%=(obj != null && obj.getNgayBD() != null ? Util_Date.dateToString(obj.getNgayBD()) : "")%>"
-											<%=(modeView ? " readonly " : "")%>>
+											value="<%=(obj != null && obj.getNgayBD() != null ? Util_Date.dateToString(obj.getNgayBD()) : Util_Date.dateToString(new Date()))%>"
+											<%=(modeView ? " readonly " : "")%> readonly
+											required="required">
 									</div>
 									<div class="form-group">
 										<label>Ngày kết thúc</label> <input class="form-control"

@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="iCore.model.ThanhVien"%>
 <%@page import="iCore.modelDAO.DAO_ThanhVien"%>
 <%@page import="iCore.util.Util_Date"%>
@@ -86,8 +87,9 @@
 									<div class="form-group">
 										<label>Ngày Tập</label> <input class="form-control"
 											name="s_ngayTap" type="date"
-											value="<%=(obj != null && obj.getNgayTap() != null ? Util_Date.dateToString(obj.getNgayTap()) : "")%>"
-											<%=(modeView ? " readonly " : "")%>>
+											value="<%=(obj != null && obj.getNgayTap() != null ? Util_Date.dateToString(obj.getNgayTap()) : Util_Date.dateToString(new Date()))%>"
+											<%=(modeView ? " readonly " : "")%> readonly
+											required="required">
 									</div>
 									<div class="form-group">
 										<label>Thời gian tập</label> <input class="form-control"
