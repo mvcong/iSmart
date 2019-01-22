@@ -66,7 +66,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body" id = "printDiv">
+				<div class="panel-body" id="printDiv">
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
@@ -86,7 +86,8 @@
 								<div class="form-group">
 									<label>Ngày tạo</label> <input class="form-control"
 										name="s_ngayTao" type="date"
-										value="<%=(obj != null && obj.getNgayTao() != null ? Util_Date.dateToString(obj.getNgayTao()) : Util_Date.dateToString(new Date()))%>"
+										value="<%=(obj != null && obj.getNgayTao() != null ? Util_Date.dateToString(obj.getNgayTao())
+					: Util_Date.dateToString(new Date()))%>"
 										<%=(modeView ? " readonly " : "")%> readonly
 										required="required">
 								</div>
@@ -97,12 +98,11 @@
 										<%=(modeView ? " readonly " : "")%>>
 								</div>
 							</div>
-							<div>
+							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Thành phần</label> <input class="form-control"
-										name="thanhPhan"
-										value="<%=(obj != null && obj.getThanhPhan() != null ? obj.getThanhPhan() : "")%>"
-										<%=(modeView ? " readonly " : "")%>>
+									<label>Thành phần</label>
+									<textarea class="form-control" cols="80" id="editor1" rows="5"
+										name="thanhPhan" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getThanhPhan() != null ? obj.getThanhPhan() : "")%></textarea>
 								</div>
 								<div class="form-group">
 									<label>Đơn giá</label> <input class="form-control"
@@ -138,9 +138,9 @@
 							</div>
 							<div class="panel-footer" style="text-align: left;">
 								<div class="col-md-12"></div>
-<!-- 								<div class="col-md-12"> -->
-<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
-<!-- 								</div> -->
+								<!-- 								<div class="col-md-12"> -->
+								<%-- 									<%@ include file="../../iPartial/processform.jsp"%> --%>
+								<!-- 								</div> -->
 							</div>
 						</div>
 					</div>

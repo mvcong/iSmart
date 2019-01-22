@@ -83,7 +83,7 @@
 											required="required">
 									</div>
 									<div class="form-group">
-										<label>Tên phiếu chi</label> <input class="form-control"
+										<label>Tên phiếu giám sát</label> <input class="form-control"
 											name="tenPGS"
 											value="<%=(obj != null && obj.getTenPGS() != null ? obj.getTenPGS() : "")%>"
 											<%=(modeView ? " readonly " : "")%>>
@@ -132,7 +132,7 @@
 											<option value=""></option>
 											<%
 												ObjectDAO objdao1 = new DAO_ThanhVien();
-												ArrayList<ThanhVien> listThanhVien = objdao.listAll();
+												ArrayList<ThanhVien> listThanhVien = objdao1.listAll();
 												for (ThanhVien tv : listThanhVien) {
 											%>
 											<option value="<%=tv.maTV%> "

@@ -8,10 +8,11 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	String tenLop = "PhieuChi";
-	String tenTrang = "Quản lý phiếu chi";
-	String[] tk_value = {"maPC", "tenPC", "thanhPhan", "soLuong", "ngayTao"};
-	String[] tk_show = {"Mã phiếu chi", "Tên phiếu chi", "Thành phần", "Số lượng", "Ngày tạo"};
+	String tenLop = "PhieuGiamSatTV";
+	String tenTrang = "Quản lý phiếu giám sát thành viên";
+	String[] tk_value = {"maPGS", "tenPGS", "ngayDB", "ngayKT", "noiDung"};
+	String[] tk_show = {"Mã phiếu giám sát thành viên", "Tên phiếu giám sát thành viên",
+			"Ngày bắt đầu giám sát", "Ngày kết thúc giám sát", "Nội dung"};
 %>
 
 <%@ include file="../../iPartial/code-header.jsp"%>
